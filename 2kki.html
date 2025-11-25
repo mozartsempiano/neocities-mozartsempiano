@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" conte /* Shared square button styles */ .square-btn { background-color: transparent; color: white; border: 1px solid white; height:
+    32px; min-width: 32px; padding: 0 8px; margin-left: 5px; font-size: 0.8em; cursor: pointer; transition: background-color 0.2s, max-width 0.28s; display:
+    inline-flex; align-items: center; justify-content: center; box-sizing: border-box; border-radius: 0px; position: relative; z-index: 10000; pointer-events:
+    auto; }th, initial-scale=1.0, maximum-scale=1.0" />
+    <title>ｔｒｅｍ</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+
+    <link rel="stylesheet" href="/assets/css/animations.css" />
+    <link rel="stylesheet" href="/assets/css/fonts.css" />
+    <link rel="stylesheet" href="/assets/css/variaveis.css" />
+
+    <style>
+      * {
+        image-rendering: pixelated !important;
+        margin: 0;
+        padding: 0;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+        font-family: var(--fonte-corpo);
+        font-size: 13px;
+      }
+
+      /* Div de fundo */
+      #bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/assets/img/2kki_02.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 5s ease;
+        filter: contrast(1.1) saturate(1.1);
+      }
+
+      #bg.visible {
+        opacity: 1;
+      }
+
+      /* Iframe de som do trem */
+      #train-sound {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: none;
+      }
+
+      a {
+        cursor: pointer;
+      }
+
+      #back-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        pointer-events: auto;
+      }
+
+      #back-button,
+      .square-btn {
+        z-index: 999;
+        background-color: transparent;
+        color: white;
+        border: 1px solid #333;
+        height: 32px;
+        min-width: 32px;
+        padding: 0 8px;
+        font-size: 0.9em;
+        text-transform: lowercase;
+        font-family: var(--fonte-corpo);
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.2s, max-width 0.28s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border-radius: 0px;
+      }
+
+      #back-button:hover {
+        background-color: var(--clr-main-a30);
+      }
+
+      #controls {
+        position: fixed;
+        top: 10px;
+        left: 80px; /* ajusta a distância do botão Voltar */
+        z-index: 999;
+        display: flex;
+        gap: 6px;
+      }
+
+      /* Shared square button styles */
+      .square-btn {
+        position: relative;
+      }
+
+      #controls button.square-btn:hover,
+      .square-btn:hover {
+        background-color: var(--clr-main-a30);
+      }
+
+      /* Expand buttons reveal label to the right
+         Base visual styles are provided by .square-btn; .expand-btn only controls expansion behavior */
+      .expand-btn {
+        gap: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: max-width 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), background-color 0.2s;
+        max-width: 32px; /* collapsed square via max-width */
+        justify-content: center;
+      }
+
+      .expand-btn .icon {
+        display: inline-block;
+        font-size: 1.1em;
+        line-height: 1;
+      }
+
+      .expand-btn .label {
+        display: inline-block;
+        max-width: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: max-width 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      .expand-btn:hover {
+        max-width: 600px; /* large max-width, final width will be content width */
+        gap: 8px;
+        background-color: rgba(255, 255, 255, 0.04);
+        justify-content: flex-start;
+      }
+
+      .expand-btn:hover .label {
+        max-width: 400px;
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .expand-btn.active {
+        background-color: var(--clr-main-a30);
+      }
+
+      /* Prevent YouTube players from interfering with button hover */
+      #player,
+      #train-player,
+      #train-container {
+        pointer-events: none;
+        position: fixed;
+        z-index: -1;
+      }
+
+      div.texto {
+        font-size: 0.9em;
+        letter-spacing: 1px;
+        color: white;
+        background-color: transparent;
+        text-align: center;
+        max-width: 314px;
+        /* position: fixed;
+        z-index: 999;
+        bottom: 41px;
+        left: 50%;
+        transform: translateX(-50%); */
+      }
+
+      /*==================*/
+      /* Preloader */
+      /*==================*/
+
+      #bg-preloader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/assets/img/2kki_train_outside.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        opacity: 0;
+        filter: contrast(1.1) saturate(1.1);
+        z-index: 0;
+        animation: twokki-fadein 2s ease forwards;
+        animation-delay: 0.5s;
+        image-rendering: pixelated;
+      }
+
+      #bg-preloader.visible {
+        opacity: 1;
+      }
+
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black; /* fallback */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 998;
+        overflow: hidden;
+      }
+
+      #preloader-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 26px;
+        line-height: 1.6em;
+        padding: 16px;
+      }
+
+      #preloader-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      #play-button {
+        background: transparent;
+        border: 1px solid #38313c;
+        color: white;
+        font-size: 1.5em;
+        padding: 7px 19px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+        font-family: var(--fonte-corpo);
+        text-transform: lowercase;
+        border-radius: 50px;
+      }
+
+      #play-button:hover {
+        /* transform: scale(1.05); */
+        border-color: white;
+      }
+
+      @keyframes twokki-fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="preloader-content">
+        <div class="texto">Eu queria estar onde ninguém que eu conhecesse pudesse chegar.</div>
+        <button id="play-button">🚂 partir</button>
+      </div>
+      <div id="bg-preloader"></div>
+    </div>
+
+    <div id="controls">
+      <div id="back-button" onclick="window.location.href='/home.html'">← Voltar</div>
+
+      <button class="square-btn" onclick="prevTrack()">◀</button>
+      <button class="square-btn" onclick="nextTrack()">▶</button>
+      <button id="mute-music" class="expand-btn square-btn" onclick="toggleMusicMute()">
+        <span class="icon">🔊</span>
+        <span class="label">Silenciar música</span>
+      </button>
+      <button id="mute-train" class="expand-btn square-btn" onclick="toggleTrainMute()">
+        <span class="icon">🚆</span>
+        <span class="label">Silenciar trem</span>
+      </button>
+    </div>
+
+    <div id="bg"></div>
+
+    <!-- <video id="bg-video" autoplay loop muted playsinline>
+      <source src="/assets/img/2kki_02.mp4" type="video/mp4" />
+    </video> -->
+
+    <div id="player"></div>
+
+    <!-- Som de trem em loop -->
+    <div id="train-container" style="display: none">
+      <div id="train-player"></div>
+    </div>
+
+    <script>
+      var playlist = [
+        "TNQhDgSNXrY",
+        "XQKsSNk9Fyc",
+        "3K3IgUugyCg",
+        "na9wmZDxzKI",
+        "NHeQocTKtTw",
+        "sd55sobl0ug",
+        "1h-uwjXF3Ck",
+        "ZsuUpbt4mM0",
+        "TSumhmMWZkU",
+        "FkEyUIzBtCo",
+        "8mvv18tQ3rg",
+      ];
+      var shuffled = [];
+      var currentIndex = 0;
+      var player;
+      var trainPlayer;
+      var musicMuted = false;
+      var trainMuted = false;
+
+      function shuffle(array) {
+        let arr = array.slice();
+        for (let i = arr.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      // Clicar no botão inicia tudo
+      document.getElementById("play-button").addEventListener("click", () => {
+        document.getElementById("preloader").style.display = "none";
+        document.getElementById("bg").classList.add("visible");
+
+        var tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        var fScriptTag = document.getElementsByTagName("script")[0];
+        fScriptTag.parentNode.insertBefore(tag, fScriptTag);
+      });
+
+      function onYouTubeIframeAPIReady() {
+        shuffled = shuffle(playlist);
+        currentIndex = 0;
+        player = new YT.Player("player", {
+          height: "0",
+          width: "0",
+          videoId: shuffled[currentIndex],
+          playerVars: { autoplay: 1, mute: 0, controls: 0 },
+          events: { onReady: onPlayerReady, onStateChange: onPlayerStateChange },
+        });
+
+        // Trem em loop
+        trainPlayer = new YT.Player("train-player", {
+          height: "0",
+          width: "0",
+          videoId: "XjAxqeAMEo8",
+          playerVars: {
+            autoplay: 1,
+            loop: 1,
+            playlist: "XjAxqeAMEo8",
+            controls: 0,
+            modestbranding: 1,
+            rel: 0,
+          },
+          events: {
+            onReady: function (event) {
+              event.target.setVolume(3); // 0 a 100
+              // Aplicar estado inicial de mute do trem
+              if (trainMuted) {
+                try {
+                  event.target.mute();
+                } catch (e) {}
+                document.getElementById("mute-train").textContent = "🔈";
+              } else {
+                try {
+                  event.target.unMute();
+                } catch (e) {}
+                document.getElementById("mute-train").textContent = "🚆";
+              }
+            },
+          },
+        });
+      }
+
+      function onPlayerReady(event) {
+        player.setVolume(8);
+        // Aplicar estado inicial de mute da música
+        if (musicMuted) {
+          try {
+            event.target.mute();
+          } catch (e) {}
+          document.getElementById("mute-music").textContent = "🔈";
+        } else {
+          try {
+            event.target.unMute();
+          } catch (e) {}
+          document.getElementById("mute-music").textContent = "🔊";
+        }
+      }
+
+      function toggleMusicMute() {
+        musicMuted = !musicMuted;
+        if (!player) return;
+        if (musicMuted) {
+          try {
+            player.mute();
+          } catch (e) {}
+          const btnM = document.getElementById("mute-music");
+          btnM.classList.add("active");
+          // keep icon and label
+          btnM.querySelector(".icon").textContent = "🔈";
+        } else {
+          try {
+            player.unMute();
+          } catch (e) {}
+          const btnMu = document.getElementById("mute-music");
+          btnMu.classList.remove("active");
+          btnMu.querySelector(".icon").textContent = "🔊";
+        }
+      }
+
+      function toggleTrainMute() {
+        trainMuted = !trainMuted;
+        if (!trainPlayer) return;
+        if (trainMuted) {
+          try {
+            trainPlayer.mute();
+          } catch (e) {}
+          const btnT = document.getElementById("mute-train");
+          btnT.classList.add("active");
+          btnT.querySelector(".icon").textContent = "🔈";
+        } else {
+          try {
+            trainPlayer.unMute();
+          } catch (e) {}
+          const btnTu = document.getElementById("mute-train");
+          btnTu.classList.remove("active");
+          btnTu.querySelector(".icon").textContent = "🚆";
+        }
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+          currentIndex++;
+          if (currentIndex >= shuffled.length) {
+            shuffled = shuffle(playlist);
+            currentIndex = 0;
+          }
+          player.loadVideoById(shuffled[currentIndex]);
+        }
+      }
+
+      function nextTrack() {
+        currentIndex++;
+        if (currentIndex >= shuffled.length) {
+          shuffled = shuffle(playlist);
+          currentIndex = 0;
+        }
+        player.loadVideoById(shuffled[currentIndex]);
+      }
+
+      function prevTrack() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          shuffled = shuffle(playlist);
+          currentIndex = shuffled.length - 1;
+        }
+        player.loadVideoById(shuffled[currentIndex]);
+      }
+    </script>
+  </body>
+</html>
