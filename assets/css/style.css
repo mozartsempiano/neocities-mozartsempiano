@@ -386,7 +386,7 @@ div#conteudo div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
 	border-bottom: 1px solid var(--clr-gray-a0);
 	padding-bottom: 7px;
 	margin-bottom: 16px;
-	text-transform: capitalize;
+	text-transform: lowercase;
 }
 
 h1.sobre-meu-nome {
@@ -1763,8 +1763,8 @@ span.tooltip-hover {
 }
 
 .postlist-tags {
-	font-size: 1rem;
-	margin-top: 2px;
+	font-size: 0.9em;
+	margin-top: 0.16em;
 }
 
 .postlist-tags a:link,
@@ -1888,11 +1888,11 @@ details {
 	/* Previne outline azul no Safari. :s */
 }
 
-details[open].letterboxd-log {
+div.letterboxd-log {
 	height: 407px;
 }
 
-details[open].letterboxd-log .scroll {
+div.letterboxd-log .scroll {
 	padding: 1em 0;
 }
 
@@ -2075,7 +2075,7 @@ div.midias-secao div.colecoes div.sub.colecao-details div.scroll {
 	max-height: 373px;
 }
 
-details.sub.letterboxd-log.in-view div.scroll {
+div.sub.letterboxd-log.in-view div.scroll {
 	max-height: 358px;
 }
 
