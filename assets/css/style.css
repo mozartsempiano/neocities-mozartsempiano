@@ -209,6 +209,11 @@ body {
 .sitelist {
 	column-count: 1;
 	text-transform: lowercase;
+	width: 100%;
+}
+
+table.sitelist td:has(img) {
+	text-align: center;
 }
 
 .sitelist.sl1 {

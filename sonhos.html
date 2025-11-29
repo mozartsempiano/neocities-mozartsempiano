@@ -41,8 +41,12 @@
 
 		<script>
 			window.DISABLE_CRT_TOGGLE = true;
+			const DREAM_TYPE_SPEED = 31;
 		</script>
 		<script type="module" src="/assets/js/main.js"></script>
+		<script type="module">
+			import { typeDreamText } from "/assets/js/dream-typewriter.js";
+		</script>
 		<script>
 			// Dados dos sonhos
 			const dreamData = {
@@ -51,7 +55,7 @@
 						19: [
 							"Sonhei que no dia seguinte participaria de uma corrida de ciclismo pra realizar um percurso fechado, passando por várias cidades, e eu tava muito animado. Tão animado, na verdade, que comecei a realmente acreditar que a corrida era real e fiquei decepcionado ao acordar e perceber que tinha que ir ao trabalho.<br>Lembro de, no sonho, vestir um jorts, uma camiseta de poliéster e meias brancas pra corrida. Peguei meu adaptador de válvula pra encher o pneu da bicicleta, fone de ouvido e documentos.",
 						],
-						5: ["Sonhei que eu comecei a chamar ████ de mamãe e ela entrou na brincadeira."],
+						5: ["Sonhei que eu comecei a chamar a ████ de mamãe e ela entrou na brincadeira."],
 						4: [
 							"Sonhei que meu pai veio pra Bauru e a gente passeou e foi se reaproximando. Depois de uns dias aqui, ele começou a ficar folgado demais, usando meu PC na minha frente, mexendo na minha câmera, e isso me incomodava muito. Chamei a atenção dele e ele achou ruim, dizendo que tinha o direito de usar tudo por ser meu pai. Aquilo me enfureceu, e ele foi mostrando cada vez mais ser uma pessoa egoísta, folgada e horrível. Ele chegou a dizer que tinha usado meu PC até pra ver pornografia. Surtei, comecei a gritar e quebrar as coisas, expulsando ele de casa. <br>O vizinho me viu jogando ele pra fora e começou a jogar coisas do seu carrinho de compras em mim, provavelmente se defendendo pra eu não chegar perto dele também. Bati a porta, e minha mãe veio ver o que tinha acontecido, claramente nada surpresa por a gente não ter se dado bem mais uma vez.",
 						],
@@ -378,37 +382,51 @@
 				const modal = document.getElementById("dream-modal");
 				const content = document.getElementById("dream-content");
 
-				let dreamContent = "";
-
-				if (Array.isArray(dreams)) {
-					dreams.forEach((dream, index) => {
-						if (dreams.length > 1) {
-							dreamContent += `<h4>Sonho ${index + 1}:</h4>`;
-						}
-
-						// Verifica se o conteúdo já tem HTML embutido
-						if (dream.trim()) {
-							dreamContent += `<p>${dream}</p>`;
-						}
-					});
-				} else {
-					// Handle legacy string format - verifica se já tem HTML embutido
-					if (dreams.includes("<h4>")) {
-						// Formato antigo com HTML embutido - usa diretamente
-						dreamContent = dreams;
-					} else {
-						// String simples - envolve em <p>
-						if (dreams.trim()) {
-							dreamContent = `<p>${dreams}</p>`;
+				let headerHtml = `<h3>${day}/${month}/${year.slice(-2)}</h3>`;
+				content.innerHTML = headerHtml;
+				// Se houver múltiplos sonhos, anima cada título+parágrafo separadamente
+				if (Array.isArray(dreams) && dreams.length > 1) {
+					let index = 0;
+					function animateNextDream() {
+						if (index < dreams.length) {
+							// Adiciona o título
+							let h4 = document.createElement("h4");
+							h4.textContent = `Sonho ${index + 1}:`;
+							content.appendChild(h4);
+							// Adiciona o parágrafo animado
+							let p = document.createElement("p");
+							content.appendChild(p);
+							import("/assets/js/dream-typewriter.js")
+								.then((mod) => {
+									// Anima o texto e só chama o próximo após terminar + 2s
+									mod.typeDreamText(p, dreams[index], DREAM_TYPE_SPEED);
+									const animTime = dreams[index].length * DREAM_TYPE_SPEED + 200;
+									const nextIndex = index + 1;
+									setTimeout(() => {
+										index++;
+										setTimeout(animateNextDream, 2000); // 2 segundos de intervalo
+									}, animTime);
+								})
+								.catch(() => {
+									p.textContent = dreams[index];
+									index++;
+									setTimeout(animateNextDream, 2000);
+								});
 						}
 					}
+					animateNextDream();
+				} else {
+					// Caso comum: só um sonho
+					let p = document.createElement("p");
+					content.appendChild(p);
+					import("/assets/js/dream-typewriter.js")
+						.then((mod) => {
+							mod.typeDreamText(p, Array.isArray(dreams) ? dreams[0] : dreams, DREAM_TYPE_SPEED);
+						})
+						.catch(() => {
+							p.textContent = Array.isArray(dreams) ? dreams[0] : dreams;
+						});
 				}
-
-				content.innerHTML = `
-								<h3>${day}/${month}/${year.slice(-2)}</h3>
-								${dreamContent}
-							`;
-
 				modal.style.display = "flex";
 			}
 
