@@ -1,19 +1,19 @@
 import { setupViewportAnimations } from "/assets/js/viewport-animations.js";
 
 export function carregarFooter() {
-  if (window.DISABLE_CRT_TOGGLE) return;
+	if (window.DISABLE_CRT_TOGGLE) return;
 
-  // Inicializa animações de scroll
-  setupViewportAnimations({
-    cascade: true,
-    selector: ".animate-on-scroll", // seletor dos elementos que vão animar
-  });
+	// Inicializa animações de scroll
+	setupViewportAnimations({
+		cascade: true,
+		selector: ".animate-on-scroll", // seletor dos elementos que vão animar
+	});
 
-  const footer = document.querySelector("footer");
+	const footer = document.querySelector("footer");
 
-  if (footer) {
-    const anoAtual = new Date().getFullYear();
-    footer.innerHTML = `
+	if (footer) {
+		const anoAtual = new Date().getFullYear();
+		footer.innerHTML = `
       <div class="footer-conteudo animate-on-scroll" data-animate="fade-in-up">
         <div class="footer-coluna">
           <h2>
@@ -25,7 +25,7 @@ export function carregarFooter() {
               <circle cx="30" cy="140" r="20" />
               <circle cx="30" cy="60" r="20" />
             </svg>
-            mozartsempiano
+            mozartsempiano <small><a href="https://github.com/mozartsempiano/neocities-mozartsempiano" target="_blank" style="text-decoration: none">v1.5</a></small>
           </h2>
           <p>Brasil, Terra — <span id="hora-brasilia"></span></p>
           <a href="/sitemap.html">Sitemap</a>
@@ -50,12 +50,12 @@ export function carregarFooter() {
         <p>mozartsempiano</p>
       </div> -->
     `;
-  }
+	}
 
-  if (!document.getElementById("footer-style")) {
-    const style = document.createElement("style");
-    style.id = "footer-style";
-    style.textContent = `
+	if (!document.getElementById("footer-style")) {
+		const style = document.createElement("style");
+		style.id = "footer-style";
+		style.textContent = `
     #conteudo {
       padding-bottom: 46px;
     }
@@ -238,21 +238,21 @@ export function carregarFooter() {
         }
     }
     `;
-    document.head.appendChild(style);
-  }
+		document.head.appendChild(style);
+	}
 
-  function atualizarHoraBrasilia() {
-    const agora = new Date().toLocaleTimeString("pt-BR", {
-      timeZone: "America/Sao_Paulo",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-    const span = document.getElementById("hora-brasilia");
-    if (span) {
-      span.textContent = agora;
-    }
-  }
+	function atualizarHoraBrasilia() {
+		const agora = new Date().toLocaleTimeString("pt-BR", {
+			timeZone: "America/Sao_Paulo",
+			hour: "2-digit",
+			minute: "2-digit",
+		});
+		const span = document.getElementById("hora-brasilia");
+		if (span) {
+			span.textContent = agora;
+		}
+	}
 
-  setInterval(atualizarHoraBrasilia, 1000);
-  atualizarHoraBrasilia();
+	setInterval(atualizarHoraBrasilia, 1000);
+	atualizarHoraBrasilia();
 }

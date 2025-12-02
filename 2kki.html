@@ -1,477 +1,572 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" conte /* Shared square button styles */ .square-btn { background-color: transparent; color: white; border: 1px solid white; height:
-    32px; min-width: 32px; padding: 0 8px; margin-left: 5px; font-size: 0.8em; cursor: pointer; transition: background-color 0.2s, max-width 0.28s; display:
-    inline-flex; align-items: center; justify-content: center; box-sizing: border-box; border-radius: 0px; position: relative; z-index: 10000; pointer-events:
-    auto; }th, initial-scale=1.0, maximum-scale=1.0" />
-    <title>ｔｒｅｍ</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<title>ｔｒｅｍ</title>
+		<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
 
-    <link rel="stylesheet" href="/assets/css/animations.css" />
-    <link rel="stylesheet" href="/assets/css/fonts.css" />
-    <link rel="stylesheet" href="/assets/css/variaveis.css" />
+		<link rel="stylesheet" href="/assets/css/animations.css" />
+		<link rel="stylesheet" href="/assets/css/fonts.css" />
+		<link rel="stylesheet" href="/assets/css/variaveis.css" />
+		<script type="module" src="/assets/js/main.js"></script>
 
-    <style>
-      * {
-        image-rendering: pixelated !important;
-        margin: 0;
-        padding: 0;
-      }
+		<style>
+			:root {
+				--b-radius: 4px;
+				--clr-primaria: #f0f1f5;
+				--clr-secundaria: #000;
+				--clr-disabled: #bf092f;
+			}
 
-      body,
-      html {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: black;
-        font-family: var(--fonte-corpo);
-        font-size: 13px;
-      }
+			* {
+				image-rendering: pixelated !important;
+				margin: 0;
+				padding: 0;
+			}
 
-      /* Div de fundo */
-      #bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("/assets/img/2kki_02.webp");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        opacity: 0;
-        transition: opacity 5s ease;
-        filter: contrast(1.1) saturate(1.1);
-      }
+			::selection {
+				background: var(--clr-primaria);
+				color: var(--clr-secundaria);
+			}
 
-      #bg.visible {
-        opacity: 1;
-      }
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: var(--clr-secundaria);
+				font-family: var(--fonte-corpo);
+				font-size: 13px;
+			}
 
-      /* Iframe de som do trem */
-      #train-sound {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border: none;
-      }
+			/* Div de fundo */
+			#bg {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-image: url("/assets/img/2kki_02.webp");
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				opacity: 0;
+				transition: opacity 5s ease;
+				filter: contrast(1.1) saturate(1.1);
+				animation: floating 6s ease-in-out infinite;
+			}
 
-      a {
-        cursor: pointer;
-      }
+			#bg.visible {
+				opacity: 1;
+			}
 
-      #back-button {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        pointer-events: auto;
-      }
+			/* Iframe de som do trem */
+			#train-sound {
+				position: absolute;
+				width: 0;
+				height: 0;
+				border: none;
+			}
 
-      #back-button,
-      .square-btn {
-        z-index: 999;
-        background-color: transparent;
-        color: white;
-        border: 1px solid #333;
-        height: 32px;
-        min-width: 32px;
-        padding: 0 8px;
-        font-size: 0.9em;
-        text-transform: lowercase;
-        font-family: var(--fonte-corpo);
-        cursor: pointer;
-        user-select: none;
-        transition: background-color 0.2s, max-width 0.28s;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        border-radius: 0px;
-      }
+			a {
+				cursor: pointer;
+			}
 
-      #back-button:hover {
-        background-color: var(--clr-main-a30);
-      }
+			#controls {
+				position: fixed;
+				top: 10px;
+				left: 10px;
+				z-index: 998;
+				display: flex;
+				gap: 6px;
+				animation: slideInFromLeft 0.8s ease-out;
+			}
 
-      #controls {
-        position: fixed;
-        top: 10px;
-        left: 80px; /* ajusta a distância do botão Voltar */
-        z-index: 999;
-        display: flex;
-        gap: 6px;
-      }
+			#back-button,
+			.square-btn {
+				z-index: 999;
+				background-color: transparent;
+				color: var(--clr-primaria);
+				border: 1px solid #222;
+				border-radius: var(--b-radius);
+				height: 32px;
+				min-width: 32px;
+				padding: 0 8px;
+				font-size: 0.9em;
+				text-transform: lowercase;
+				font-family: var(--fonte-corpo);
+				cursor: pointer;
+				user-select: none;
+				transition: all 0.3s ease;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				text-decoration: none;
+			}
 
-      /* Shared square button styles */
-      .square-btn {
-        position: relative;
-      }
+			.square-btn {
+				aspect-ratio: 1 / 1;
+			}
 
-      #controls button.square-btn:hover,
-      .square-btn:hover {
-        background-color: var(--clr-main-a30);
-      }
+			.square-btn:active {
+				animation: buttonPulse 0.6s ease-out;
+				transform: scale(0.95);
+			}
 
-      /* Expand buttons reveal label to the right
-         Base visual styles are provided by .square-btn; .expand-btn only controls expansion behavior */
-      .expand-btn {
-        gap: 0;
-        overflow: hidden;
-        white-space: nowrap;
-        transition: max-width 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), background-color 0.2s;
-        max-width: 32px; /* collapsed square via max-width */
-        justify-content: center;
-      }
+			.square-btn svg {
+				transition: transform 0.2s ease;
+			}
 
-      .expand-btn .icon {
-        display: inline-block;
-        font-size: 1.1em;
-        line-height: 1;
-      }
+			.square-btn:hover svg {
+				transform: scale(1.1);
+			}
 
-      .expand-btn .label {
-        display: inline-block;
-        max-width: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateX(-6px);
-        transition: max-width 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
-      }
+			#back-button {
+				padding: 14px;
+			}
 
-      .expand-btn:hover {
-        max-width: 600px; /* large max-width, final width will be content width */
-        gap: 8px;
-        background-color: rgba(255, 255, 255, 0.04);
-        justify-content: flex-start;
-      }
+			#back-button:hover {
+				background-color: var(--clr-main-a30);
+			}
 
-      .expand-btn:hover .label {
-        max-width: 400px;
-        opacity: 1;
-        transform: translateX(0);
-      }
+			/* Shared square button styles */
+			.square-btn {
+				position: relative;
+			}
 
-      .expand-btn.active {
-        background-color: var(--clr-main-a30);
-      }
+			#controls button.square-btn:hover,
+			.square-btn:hover {
+				background-color: var(--clr-main-a30);
+			}
 
-      /* Prevent YouTube players from interfering with button hover */
-      #player,
-      #train-player,
-      #train-container {
-        pointer-events: none;
-        position: fixed;
-        z-index: -1;
-      }
+			/* Expand buttons reveal label to the right
+			      Base visual styles are provided by .square-btn; .expand-btn only controls expansion behavior */
+			.expand-btn {
+				gap: 0;
+				overflow: hidden;
+				white-space: nowrap;
+				transition: max-width 0.28s cubic-bezier(0.2, 0.9, 0.3, 1), background-color 0.2s;
+				max-width: 32px; /* collapsed square via max-width */
+				justify-content: center;
+			}
 
-      div.texto {
-        font-size: 0.9em;
-        letter-spacing: 1px;
-        color: white;
-        background-color: transparent;
-        text-align: center;
-        max-width: 314px;
-        /* position: fixed;
-        z-index: 999;
-        bottom: 41px;
-        left: 50%;
-        transform: translateX(-50%); */
-      }
+			.expand-btn .icon {
+				display: inline-block;
+				font-size: 1.1em;
+				line-height: 1;
+			}
 
-      /*==================*/
-      /* Preloader */
-      /*==================*/
+			.expand-btn .label {
+				display: inline-block;
+				max-width: 0;
+				overflow: hidden;
+				opacity: 0;
+				transform: translateX(-6px);
+				transition: max-width 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
+			}
 
-      #bg-preloader {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("/assets/img/2kki_train_outside.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        opacity: 0;
-        filter: contrast(1.1) saturate(1.1);
-        z-index: 0;
-        animation: twokki-fadein 2s ease forwards;
-        animation-delay: 0.5s;
-        image-rendering: pixelated;
-      }
+			.expand-btn:hover {
+				max-width: 600px; /* large max-width, final width will be content width */
+				gap: 8px;
+				background-color: rgba(240, 241, 245, 0.04);
+				justify-content: flex-start;
+			}
 
-      #bg-preloader.visible {
-        opacity: 1;
-      }
+			.expand-btn:hover .label {
+				max-width: 400px;
+				opacity: 1;
+				transform: translateX(0);
+			}
 
-      #preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: black; /* fallback */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 998;
-        overflow: hidden;
-      }
+			.expand-btn.active {
+				background-color: var(--clr-main-a30);
+			}
 
-      #preloader-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 26px;
-        line-height: 1.6em;
-        padding: 16px;
-      }
+			/* Prevent YouTube players from interfering with button hover */
+			#player,
+			#train-player,
+			#train-container {
+				pointer-events: none;
+				position: fixed;
+				z-index: -1;
+			}
 
-      #preloader-content {
-        position: relative;
-        z-index: 1;
-      }
+			div.texto {
+				font-size: 0.9em;
+				letter-spacing: 1px;
+				color: var(--clr-primaria);
+				background-color: transparent;
+				text-align: center;
+				max-width: 314px;
+				/* position: fixed;
+			     z-index: 999;
+			     bottom: 41px;
+			     left: 50%;
+			     transform: translateX(-50%); */
+			}
 
-      #play-button {
-        background: transparent;
-        border: 1px solid #38313c;
-        color: white;
-        font-size: 1.5em;
-        padding: 7px 19px;
-        cursor: pointer;
-        transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-        font-family: var(--fonte-corpo);
-        text-transform: lowercase;
-        border-radius: 50px;
-      }
+			/*==================*/
+			/* Preloader */
+			/*==================*/
 
-      #play-button:hover {
-        /* transform: scale(1.05); */
-        border-color: white;
-      }
+			#bg-preloader {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-image: url("/assets/img/2kki_train_outside.png");
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: bottom;
+				opacity: 0;
+				filter: contrast(1.1) saturate(1.1);
+				z-index: 0;
+				animation: twokki-fadein 4s ease forwards;
+				animation-delay: 0.5s;
+				image-rendering: pixelated;
+			}
 
-      @keyframes twokki-fadein {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Preloader -->
-    <div id="preloader">
-      <div id="preloader-content">
-        <div class="texto">Eu queria estar onde ninguém que eu conhecesse pudesse chegar.</div>
-        <button id="play-button">🚂 partir</button>
-      </div>
-      <div id="bg-preloader"></div>
-    </div>
+			#bg-preloader.visible {
+				opacity: 1;
+			}
 
-    <div id="controls">
-      <div id="back-button" onclick="window.location.href='/home.html'">← Voltar</div>
+			#preloader {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: var(--clr-secundaria); /* fallback */
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				z-index: 999;
+				overflow: hidden;
+			}
 
-      <button class="square-btn" onclick="prevTrack()">◀</button>
-      <button class="square-btn" onclick="nextTrack()">▶</button>
-      <button id="mute-music" class="expand-btn square-btn" onclick="toggleMusicMute()">
-        <span class="icon">🔊</span>
-        <span class="label">Silenciar música</span>
-      </button>
-      <button id="mute-train" class="expand-btn square-btn" onclick="toggleTrainMute()">
-        <span class="icon">🚆</span>
-        <span class="label">Silenciar trem</span>
-      </button>
-    </div>
+			#preloader-content {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 26px;
+				line-height: 1.6em;
+				padding: 16px;
+			}
 
-    <div id="bg"></div>
+			#preloader-content {
+				position: relative;
+				z-index: 1;
+			}
 
-    <!-- <video id="bg-video" autoplay loop muted playsinline>
+			#play-button {
+				background: transparent;
+				border: 1px solid #222;
+				color: var(--clr-primaria);
+				font-size: 1.5em;
+				padding: 7px 19px;
+				cursor: pointer;
+				transition: border-color 0.3s ease;
+				font-family: var(--fonte-corpo);
+				text-transform: lowercase;
+				border-radius: var(--b-radius);
+				animation: glow 2s ease-in-out infinite alternate;
+			}
+
+			#play-button:hover {
+				border-color: var(--clr-primaria);
+			}
+
+			@keyframes twokki-fadein {
+				0% {
+					transform: translateY(16px);
+					opacity: 0;
+				}
+				70% {
+					opacity: 1;
+				}
+				100% {
+					transform: translateY(0px);
+					opacity: 1;
+				}
+			}
+
+			@keyframes floating {
+				0%,
+				100% {
+					transform: translateY(0px);
+				}
+				50% {
+					transform: translateY(-3px);
+				}
+			}
+
+			@keyframes slideInFromLeft {
+				0% {
+					transform: translateX(-100px);
+					opacity: 0;
+				}
+				100% {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+
+			@keyframes buttonPulse {
+				0% {
+					box-shadow: 0 0 0 0 rgba(240, 241, 245, 0.4);
+				}
+				70% {
+					box-shadow: 0 0 0 8px rgba(240, 241, 245, 0);
+				}
+				100% {
+					box-shadow: 0 0 0 0 rgba(240, 241, 245, 0);
+				}
+			}
+
+			@keyframes glow {
+				0% {
+					box-shadow: 0 0 5px rgba(240, 241, 245, 0.2);
+				}
+				100% {
+					box-shadow: 0 0 15px rgba(240, 241, 245, 0.4);
+				}
+			}
+
+			#s-m-t-tooltip {
+				background-color: var(--clr-secundaria);
+				color: var(--clr-primaria);
+				border: 1px solid #222;
+				padding: 6px 10px;
+				border-radius: var(--b-radius);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Preloader -->
+		<div id="preloader">
+			<div id="preloader-content">
+				<div class="texto">Eu queria estar onde ninguém que eu conhecesse pudesse chegar.</div>
+				<button id="play-button">partir</button>
+			</div>
+			<div id="bg-preloader"></div>
+		</div>
+
+		<div id="controls">
+			<button id="back-button" onclick="window.location.href='/home.html'">Voltar</button>
+
+			<button class="square-btn" onclick="prevTrack()" title="Anterior">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15.5 17L9.5 12L15.5 7V17Z" />
+				</svg>
+			</button>
+			<button class="square-btn" onclick="nextTrack()" title="Próxima">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8.5 7L14.5 12L8.5 17V7Z" />
+				</svg>
+			</button>
+			<button id="mute-music" class="square-btn" onclick="toggleMusicMute()" title="Silenciar música">
+				<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 128 128">
+					<path
+						d="M 59.1875 25.125 C 58.629358 25.1236 57.976195 25.349584 57.34375 25.875 L 32.71875 46.34375 C 31.620364 47.256261 31.147988 47.40625 29.625 47.40625 L 13.78125 47.40625 C 11.608531 47.40625 9.875 49.139767 9.875 51.3125 L 9.875 76.65625 C 9.875 78.828982 11.608531 80.5625 13.78125 80.5625 L 29.625 80.5625 C 31.147988 80.5625 31.620364 80.712489 32.71875 81.625 L 57.34375 102.09375 C 59.030268 103.49485 60.84375 102.81935 60.84375 101.15625 L 60.84375 26.8125 C 60.84375 25.77307 60.117736 25.12717 59.1875 25.125 z M 90.84375 32.5625 L 85.03125 38.375 C 95.026781 54.00221 95.036195 74.064458 85.03125 89.6875 L 90.8125 95.4375 C 103.78381 76.518526 103.8085 51.484597 90.84375 32.5625 z M 76.8125 46.5625 L 71.09375 52.3125 C 76.297202 59.282784 76.297202 68.779716 71.09375 75.75 L 76.78125 81.4375 C 85.020594 71.306112 85.04355 56.698376 76.8125 46.5625 z "
+					/>
+				</svg>
+			</button>
+			<button id="mute-train" class="square-btn" onclick="toggleTrainMute()" title="Silenciar trem">
+				<svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+					<path
+						d="M437.575,351.629V89.868C437.575,40.233,397.351,0,347.707,0H164.293c-49.625,0-89.868,40.233-89.868,89.868 v261.761c0,37.628,27.383,68.98,63.269,75.221L81.334,512h50.11l23.132-34.961h202.867L380.574,512h50.101l-56.35-85.15 C410.201,420.601,437.575,389.257,437.575,351.629z M178.182,40.348h155.636v25.94H178.182V40.348z M131.355,124.186 c0-11.284,9.137-20.438,20.421-20.438h208.456c11.276,0,20.429,9.154,20.429,20.438v86.206c0,11.284-9.154,20.429-20.429,20.429 H151.777c-11.284,0-20.421-9.145-20.421-20.429V124.186z M150.808,374.004c-13.158,0-23.826-10.668-23.826-23.818 c0-13.167,10.668-23.836,23.826-23.836c13.159,0,23.827,10.668,23.827,23.836C174.635,363.336,163.967,374.004,150.808,374.004z M169.618,454.312l17.41-26.318h137.953l17.41,26.318H169.618z M361.201,374.004c-13.158,0-23.826-10.668-23.826-23.818 c0-13.167,10.668-23.836,23.826-23.836c13.159,0,23.827,10.668,23.827,23.836C385.028,363.336,374.36,374.004,361.201,374.004z"
+					/>
+				</svg>
+			</button>
+		</div>
+
+		<div id="bg"></div>
+
+		<!-- <video id="bg-video" autoplay loop muted playsinline>
       <source src="/assets/img/2kki_02.mp4" type="video/mp4" />
     </video> -->
 
-    <div id="player"></div>
+		<div id="player"></div>
 
-    <!-- Som de trem em loop -->
-    <div id="train-container" style="display: none">
-      <div id="train-player"></div>
-    </div>
+		<!-- Som de trem em loop -->
+		<div id="train-container" style="display: none">
+			<div id="train-player"></div>
+		</div>
 
-    <script>
-      var playlist = [
-        "TNQhDgSNXrY",
-        "XQKsSNk9Fyc",
-        "3K3IgUugyCg",
-        "na9wmZDxzKI",
-        "NHeQocTKtTw",
-        "sd55sobl0ug",
-        "1h-uwjXF3Ck",
-        "ZsuUpbt4mM0",
-        "TSumhmMWZkU",
-        "FkEyUIzBtCo",
-        "8mvv18tQ3rg",
-      ];
-      var shuffled = [];
-      var currentIndex = 0;
-      var player;
-      var trainPlayer;
-      var musicMuted = false;
-      var trainMuted = false;
+		<script>
+			var playlist = [
+				"TNQhDgSNXrY",
+				"XQKsSNk9Fyc",
+				"3K3IgUugyCg",
+				"na9wmZDxzKI",
+				"NHeQocTKtTw",
+				"sd55sobl0ug",
+				"1h-uwjXF3Ck",
+				"ZsuUpbt4mM0",
+				"TSumhmMWZkU",
+				"FkEyUIzBtCo",
+				"8mvv18tQ3rg",
+			];
+			var shuffled = [];
+			var currentIndex = 0;
+			var player;
+			var trainPlayer;
+			var musicMuted = false;
+			var trainMuted = false;
 
-      function shuffle(array) {
-        let arr = array.slice();
-        for (let i = arr.length - 1; i > 0; i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-      }
+			function shuffle(array) {
+				let arr = array.slice();
+				for (let i = arr.length - 1; i > 0; i--) {
+					let j = Math.floor(Math.random() * (i + 1));
+					[arr[i], arr[j]] = [arr[j], arr[i]];
+				}
+				return arr;
+			}
 
-      // Clicar no botão inicia tudo
-      document.getElementById("play-button").addEventListener("click", () => {
-        document.getElementById("preloader").style.display = "none";
-        document.getElementById("bg").classList.add("visible");
+			// Clicar no botão inicia tudo
+			document.getElementById("play-button").addEventListener("click", async () => {
+				document.getElementById("preloader").style.display = "none";
 
-        var tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        var fScriptTag = document.getElementsByTagName("script")[0];
-        fScriptTag.parentNode.insertBefore(tag, fScriptTag);
-      });
+				var tag = document.createElement("script");
+				tag.src = "https://www.youtube.com/iframe_api";
+				var fScriptTag = document.getElementsByTagName("script")[0];
+				fScriptTag.parentNode.insertBefore(tag, fScriptTag);
 
-      function onYouTubeIframeAPIReady() {
-        shuffled = shuffle(playlist);
-        currentIndex = 0;
-        player = new YT.Player("player", {
-          height: "0",
-          width: "0",
-          videoId: shuffled[currentIndex],
-          playerVars: { autoplay: 1, mute: 0, controls: 0 },
-          events: { onReady: onPlayerReady, onStateChange: onPlayerStateChange },
-        });
+				await sleep(1500);
+				document.getElementById("bg").classList.add("visible");
+			});
 
-        // Trem em loop
-        trainPlayer = new YT.Player("train-player", {
-          height: "0",
-          width: "0",
-          videoId: "XjAxqeAMEo8",
-          playerVars: {
-            autoplay: 1,
-            loop: 1,
-            playlist: "XjAxqeAMEo8",
-            controls: 0,
-            modestbranding: 1,
-            rel: 0,
-          },
-          events: {
-            onReady: function (event) {
-              event.target.setVolume(3); // 0 a 100
-              // Aplicar estado inicial de mute do trem
-              if (trainMuted) {
-                try {
-                  event.target.mute();
-                } catch (e) {}
-                document.getElementById("mute-train").textContent = "🔈";
-              } else {
-                try {
-                  event.target.unMute();
-                } catch (e) {}
-                document.getElementById("mute-train").textContent = "🚆";
-              }
-            },
-          },
-        });
-      }
+			function sleep(time) {
+				return new Promise((resolve) => setTimeout(resolve, time));
+			}
 
-      function onPlayerReady(event) {
-        player.setVolume(8);
-        // Aplicar estado inicial de mute da música
-        if (musicMuted) {
-          try {
-            event.target.mute();
-          } catch (e) {}
-          document.getElementById("mute-music").textContent = "🔈";
-        } else {
-          try {
-            event.target.unMute();
-          } catch (e) {}
-          document.getElementById("mute-music").textContent = "🔊";
-        }
-      }
+			function onYouTubeIframeAPIReady() {
+				shuffled = shuffle(playlist);
+				currentIndex = 0;
+				player = new YT.Player("player", {
+					height: "0",
+					width: "0",
+					videoId: shuffled[currentIndex],
+					playerVars: { autoplay: 1, mute: 0, controls: 0 },
+					events: { onReady: onPlayerReady, onStateChange: onPlayerStateChange },
+				});
 
-      function toggleMusicMute() {
-        musicMuted = !musicMuted;
-        if (!player) return;
-        if (musicMuted) {
-          try {
-            player.mute();
-          } catch (e) {}
-          const btnM = document.getElementById("mute-music");
-          btnM.classList.add("active");
-          // keep icon and label
-          btnM.querySelector(".icon").textContent = "🔈";
-        } else {
-          try {
-            player.unMute();
-          } catch (e) {}
-          const btnMu = document.getElementById("mute-music");
-          btnMu.classList.remove("active");
-          btnMu.querySelector(".icon").textContent = "🔊";
-        }
-      }
+				// Trem em loop
+				trainPlayer = new YT.Player("train-player", {
+					height: "0",
+					width: "0",
+					videoId: "XjAxqeAMEo8",
+					playerVars: {
+						autoplay: 1,
+						loop: 1,
+						playlist: "XjAxqeAMEo8",
+						controls: 0,
+						modestbranding: 1,
+						rel: 0,
+					},
+					events: {
+						onReady: function (event) {
+							event.target.setVolume(3); // 0 a 100
+							// Aplicar estado inicial de mute do trem
+							if (trainMuted) {
+								try {
+									event.target.mute();
+								} catch (e) {}
+								document.getElementById("mute-train").innerHTML = "🔈";
+							} else {
+								try {
+									event.target.unMute();
+								} catch (e) {}
+								// Manter o SVG do trem como padrão
+							}
+						},
+					},
+				});
+			}
 
-      function toggleTrainMute() {
-        trainMuted = !trainMuted;
-        if (!trainPlayer) return;
-        if (trainMuted) {
-          try {
-            trainPlayer.mute();
-          } catch (e) {}
-          const btnT = document.getElementById("mute-train");
-          btnT.classList.add("active");
-          btnT.querySelector(".icon").textContent = "🔈";
-        } else {
-          try {
-            trainPlayer.unMute();
-          } catch (e) {}
-          const btnTu = document.getElementById("mute-train");
-          btnTu.classList.remove("active");
-          btnTu.querySelector(".icon").textContent = "🚆";
-        }
-      }
+			function onPlayerReady(event) {
+				player.setVolume(8);
+				// Aplicar estado inicial de mute da música
+				if (musicMuted) {
+					try {
+						event.target.mute();
+					} catch (e) {}
+					document.getElementById("mute-music").style.backgroundColor = "var(--clr-disabled)";
+				} else {
+					try {
+						event.target.unMute();
+					} catch (e) {}
+					document.getElementById("mute-music").style.backgroundColor = "";
+				}
+			}
 
-      function onPlayerStateChange(event) {
-        if (event.data === YT.PlayerState.ENDED) {
-          currentIndex++;
-          if (currentIndex >= shuffled.length) {
-            shuffled = shuffle(playlist);
-            currentIndex = 0;
-          }
-          player.loadVideoById(shuffled[currentIndex]);
-        }
-      }
+			function toggleMusicMute() {
+				musicMuted = !musicMuted;
+				if (!player) return;
+				const btnM = document.getElementById("mute-music");
+				if (musicMuted) {
+					try {
+						player.mute();
+					} catch (e) {}
+					btnM.style.backgroundColor = "var(--clr-disabled)";
+				} else {
+					try {
+						player.unMute();
+					} catch (e) {}
+					btnM.style.backgroundColor = "";
+				}
+			}
 
-      function nextTrack() {
-        currentIndex++;
-        if (currentIndex >= shuffled.length) {
-          shuffled = shuffle(playlist);
-          currentIndex = 0;
-        }
-        player.loadVideoById(shuffled[currentIndex]);
-      }
+			function toggleTrainMute() {
+				trainMuted = !trainMuted;
+				if (!trainPlayer) return;
+				const btnT = document.getElementById("mute-train");
+				if (trainMuted) {
+					try {
+						trainPlayer.mute();
+					} catch (e) {}
+					btnT.style.backgroundColor = "var(--clr-disabled)";
+				} else {
+					try {
+						trainPlayer.unMute();
+					} catch (e) {}
+					btnT.style.backgroundColor = "";
+				}
+			}
 
-      function prevTrack() {
-        currentIndex--;
-        if (currentIndex < 0) {
-          shuffled = shuffle(playlist);
-          currentIndex = shuffled.length - 1;
-        }
-        player.loadVideoById(shuffled[currentIndex]);
-      }
-    </script>
-  </body>
+			function onPlayerStateChange(event) {
+				if (event.data === YT.PlayerState.ENDED) {
+					currentIndex++;
+					if (currentIndex >= shuffled.length) {
+						shuffled = shuffle(playlist);
+						currentIndex = 0;
+					}
+					player.loadVideoById(shuffled[currentIndex]);
+				}
+			}
+
+			function nextTrack() {
+				currentIndex++;
+				if (currentIndex >= shuffled.length) {
+					shuffled = shuffle(playlist);
+					currentIndex = 0;
+				}
+				player.loadVideoById(shuffled[currentIndex]);
+			}
+
+			function prevTrack() {
+				currentIndex--;
+				if (currentIndex < 0) {
+					shuffled = shuffle(playlist);
+					currentIndex = shuffled.length - 1;
+				}
+				player.loadVideoById(shuffled[currentIndex]);
+			}
+		</script>
+	</body>
 </html>
