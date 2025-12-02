@@ -2209,7 +2209,7 @@ div.sub.letterboxd-log.in-view div.scroll {
 	aspect-ratio: 1 / 1;
 	border: 1px solid var(--clr-gray-a0);
 	border-radius: 5px;
-	overflow: hidden;
+	overflow: unset;
 	position: relative; /* Added for better image containment */
 }
 
@@ -2222,6 +2222,7 @@ div.sub.letterboxd-log.in-view div.scroll {
 	position: absolute; /* Added to ensure image fills container */
 	top: 0;
 	left: 0;
+	border-radius: 4px;
 }
 
 /* ----------------------------------------------
