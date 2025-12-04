@@ -17,7 +17,12 @@
 	width: 100%;
 	overflow-x: scroll;
 	overflow-y: hidden;
+	/* scrollbar-color: var(--clr-gray-a30) transparent; */
 	padding: 10px 5px 10px 5px;
+}
+
+.grid {
+	scrollbar-width: thin;
 }
 
 .grid img {
