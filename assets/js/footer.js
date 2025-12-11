@@ -25,7 +25,7 @@ export function carregarFooter() {
               <circle cx="30" cy="140" r="20" />
               <circle cx="30" cy="60" r="20" />
             </svg>
-            mozartsempiano <small><a href="https://github.com/mozartsempiano/neocities-mozartsempiano/releases/latest" target="_blank" style="text-decoration: none">v1.5</a></small>
+            mozartsempiano <small><a href="https://github.com/mozartsempiano/neocities-mozartsempiano" target="_blank" style="text-decoration: none">Source</a></small>
           </h2>
           <p>Brasil, Terra — <span id="hora-brasilia"></span></p>
           <a href="/sitemap.html">Sitemap</a>
