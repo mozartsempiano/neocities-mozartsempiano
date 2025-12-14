@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>mozartsempiano</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/icones/notebook.png" />
 
     <link rel="stylesheet" href="/assets/css/anotacoes.css" />
     <!-- CSS exclusivo da página -->
@@ -15,17 +15,11 @@
     <!-- SVG filter -->
     <svg width="0" height="0">
       <filter id="dither">
-        <!-- Converte para grayscale -->
         <feColorMatrix
           type="matrix"
-          values="0.33 0.33 0.33 0 0
-              0.33 0.33 0.33 0 0
-              0.33 0.33 0.33 0 0
-              0 0 0 1 0"
+          values="0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 1 0"
           result="gray"
         />
-
-        <!-- Aplica dithering Bayer 8x8 -->
         <feImage
           width="4"
           height="4"
@@ -33,8 +27,6 @@
           result="bayer"
         />
         <feComposite in="gray" in2="bayer" operator="arithmetic" k1="0" k2="1" k3="0" k4="0" result="dithered" />
-
-        <!-- Aplica duotone -->
         <feComponentTransfer color-interpolation-filters="sRGB" in="dithered">
           <feFuncR type="discrete" tableValues="0.1176 0.8627" />
           <feFuncG type="discrete" tableValues="0.1059 0.8392" />
@@ -52,9 +44,7 @@
           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAASElEQVR42gXBgQAAIAxFwW8QwhBCCCGEIYQQQgghhBBCCEMYwutOkphzYmbsvdG9l9YaEYG7o1or5xxKKay1UGYyxuC9R++dD7yGJkTj6F0HAAAAAElFTkSuQmCC"
         />
         <feTile />
-        <!-- Aplica dithering -->
         <feComposite operator="arithmetic" k1="0" k2="1" k3="1" k4="-0.5" in="SourceGraphic" />
-        <!-- Duotone -->
         <feComponentTransfer>
           <!-- #1e1b21 escuro → 30,27,33 → 0.1176,0.1059,0.1294 -->
           <!-- #dcd6a8 claro → 220,214,168 → 0.8627,0.8392,0.6588 -->
@@ -81,11 +71,11 @@
 
   <body>
     <div id="page-loader">
-			<div class="progressive-loader">
-				<img src="/assets/img/dogrun.gif" alt="Carregando..." class="progressive-img" />
-				<div class="progressive-mask"></div>
-			</div>
-		</div>
+      <div class="progressive-loader">
+        <img src="/assets/img/dogrun.gif" alt="Carregando..." class="progressive-img" />
+        <div class="progressive-mask"></div>
+      </div>
+    </div>
     <div id="conteudo">
       <div id="header">
         <a href="/home.html">voltar</a>
@@ -148,7 +138,7 @@
           </ul>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "Pergunte-se a cada momento: 'Isso é necessário?'. A maior parte das coisas que dizemos e fazemos não é
             necessária; quem as eliminar da própria vida será mais tranquilo e sereno."
@@ -156,7 +146,7 @@
           <p>- Marco Aurélio</p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/aim.jpg" />
         </section>
 
@@ -168,7 +158,7 @@
           <p>O significados da vida é dar significados à ela.</p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "Love is life. All, everything that I understand, I understand only because I love. Everything is,
             everything exists, only because I love. Everything is united by it alone. Love is God, and to die means that
@@ -241,7 +231,7 @@
           </ul>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/ship.jpg" />
         </section>
 
@@ -299,6 +289,11 @@
             <li>Passar o dia com o cabelo sujo.</li>
           </ul>
         </section>
+
+        <section data-tags="">
+          <img src="/assets/img/anotacoes/competition.jpg" />
+        </section>
+
         <section data-tags="">
           <h1>
             <a href="https://github.com/valadaptive/ntsc-rs" target="_blank">NTSC-RS</a>
@@ -380,21 +375,21 @@
           </p>
         </section>
 
-        <section data-tags="imagens, fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/kristina-rozhkova-01.jpg" class="nsfw" />
           <legend>
             <a href="https://www.instagram.com/strapon_svinopas/" target="_blank">Kristina Rozhkova</a>
           </legend>
         </section>
 
-        <section data-tags="imagens, fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/kristina-rozhkova-02.jpg" />
           <legend>
             <a href="https://www.instagram.com/strapon_svinopas/" target="_blank">Kristina Rozhkova</a>
           </legend>
         </section>
 
-        <section data-tags="imagens, fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/kristina-rozhkova-03.jpg" />
           <img src="/assets/img/anotacoes/kristina-rozhkova-05.jpg" />
           <legend>
@@ -406,7 +401,7 @@
           </legend>
         </section>
 
-        <section data-tags="imagens, fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/kristina-rozhkova-04.jpg" class="nsfw" />
           <legend>
             <a href="https://www.instagram.com/strapon_svinopas/" target="_blank">Kristina Rozhkova</a>
@@ -527,7 +522,7 @@
           <p>não existe resposta melhor do que o silêncio, nem punição melhor do que o perdão</p>
         </section>
 
-        <section data-tags="citações, espiritualidade">
+        <section data-tags="citacoes, espiritualidade">
           <p>Mateus 7:6</p>
           <p>
             "Não deis aos cães o que é santo, nem lanceis aos porcos as vossas pérolas, para não acontecer que as
@@ -560,7 +555,7 @@
           </ul>
         </section>
 
-        <section data-tags="citações, espiritualidade">
+        <section data-tags="citacoes, espiritualidade">
           <p>Mateus 5:30</p>
           <p>
             "E, se a tua mão direita te escandalizar, corta-a e atira-a para longe de ti, porque te é melhor que um dos
@@ -609,11 +604,11 @@
           </p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/blessings.jpg" />
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "It is very important to go out alone, to sit under a tree—not with a book, not with a companion, but by
             yourself—and observe the falling of a leaf, hear the lapping of the water, the fisherman's song, watch the
@@ -649,7 +644,7 @@
           </ul>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"Liberdade é o que você faz com aquilo que aconteceu com você."</p>
           <p>- Jean-Paul Sartre</p>
         </section>
@@ -674,7 +669,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </pre>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/chao.jpg" />
         </section>
 
@@ -686,7 +681,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "Agora, sou o homem mais infeliz que vive. Se o que sinto fosse distribuído igualmente para toda a população
             humana, não haveria um único rosto alegre na Terra. Se algum dia ficarei melhor, não sei dizer; tenho um
@@ -725,7 +720,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </ul>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"Eu simplesmente quero viver; para não causar mal a ninguém além de mim mesmo."</p>
           <p>- Leo Tolstoy</p>
         </section>
@@ -771,7 +766,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           >
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "I may think of you softly from time to time. But I’ll cut off my hand before I ever reach for you again."
           </p>
@@ -787,7 +782,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="imagens,significados">
+        <section data-tags="significados">
           <img src="/assets/img/anotacoes/the_worm_that_turned.jpg" />
           <legend>
             <a href="https://en.wikipedia.org/wiki/Even_a_worm_will_turn" target="_blank">"Even a worm will turn"</a>:
@@ -796,7 +791,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </legend>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"Tentei durante muitos anos me adaptar ao mundo real; morri de fome."</p>
           <p>- Anaïs Nin</p>
         </section>
@@ -845,7 +840,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>se memórias antigas ainda te fazem chorar, escreva-as cuidadosa e completamente</p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/grief.jpg" />
         </section>
 
@@ -858,7 +853,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </ul>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "A riqueza não consiste em ter grandes posses, mas em ter poucas necessidades. Há apenas um caminho para a
             felicidade e que é deixar de se preocupar com coisas que estão além do poder da nossa vontade."
@@ -890,7 +885,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </ul>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "You cannot be happy alone and you cannot be happy together. Mourning mourns the loss of a possible future,
             the not-yet that now will never be. Everything ends, including you. Love is not eternal, it is not even
@@ -901,12 +896,12 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>- Mark Kingwell</p>
         </section>
 
-        <section data-tags="imagens,fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/jessie-and-the-deer.jpg" />
           <legend>"Jessie and the Deer", 1985 - Sally Mann</legend>
         </section>
 
-        <section data-tags="música">
+        <section data-tags="musica">
           <p>
             <a href="https://www.youtube.com/watch?v=F5WkkSkEkqs&t=360s" target="_blank">
               "I am the shipwreck with its scattered and soaked wood littering the ocean like a nest of roaches. The
@@ -937,7 +932,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>não permita que o tédio ou a solidão te mandem de volta pra aquele lugar</p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/care.jpg" />
         </section>
 
@@ -1005,6 +1000,10 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>pessoas que não posso mais encontrar continuam sorrindo no meu cartão SD</p>
         </section>
 
+        <section data-tags="espiritualidade">
+          <img src="/assets/img/anotacoes/bitter.jpg" />
+        </section>
+
         <section data-tags="tecnologia">
           <p>
             <a href="https://github.com/Genymobile/scrcpy" target="_blank">scrcpy</a>
@@ -1032,7 +1031,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "But the person who mocks others mocks himself, and it is not meaningless but is rather a profound mockery
             of yourself, a tragic proof of how flabby your soul is."
@@ -1225,7 +1224,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </pre>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "You sensed that you should be following a different path, a more ambitious one, you felt that you were
             destined for other things but you had no idea how to achieve them and in your misery you began to hate
@@ -1234,7 +1233,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>- Fyodor Dostoyevsky</p>
         </section>
 
-        <section data-tags="imagens,arte">
+        <section data-tags="arte">
           <img src="/assets/img/anotacoes/dog-and-bridge.jpg" />
           <legend>"Dog and Bridge", 1976 - Alex Colville</legend>
         </section>
@@ -1243,7 +1242,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>O que se foi, se foi; o que restou, eu valorizo e preservo.</p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "Dearest Father, You asked me recently why I maintain that I am afraid of you. As usual, I was unable to
             think of any answer to your question, partly for the very reason that I am afraid of you, and partly because
@@ -1268,7 +1267,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="imagens,fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/you-checked-your-texts-while-I-masturbated.jpg" class="nsfw" />
           <legend>
             <a href="https://anacuba.com/you-checked-your-texts-while-i-masturbated/" target="_blank"
@@ -1331,7 +1330,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "After all, you are just not the person they're comfortable with. You are your own person. Tell me, what the
             hell is wrong with that? They fuck with your head and it's true. You fuck with your head as well but that's
@@ -1348,24 +1347,12 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"I have spent all my life resisting the desire to end it."</p>
           <p>- Franz Kafka, "Letters to Milena"</p>
         </section>
 
-        <!-- <section data-tags="">
-          <img src="/assets/img/anotacoes/bitter.jpg" />
-        </section>
-
-        <section data-tags="">
-          <img src="/assets/img/anotacoes/since-my-house-burned-down.jpg" />
-        </section>
-
-        <section data-tags="">
-          <img src="/assets/img/anotacoes/good-to-forgive.jpg" />
-        </section> -->
-
-        <section data-tags="imagens,fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/cat-on-legs.jpg" />
           <legend>"Cat on legs", 1940s - Michael Wolgensinger</legend>
         </section>
@@ -1374,12 +1361,12 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>God will bless you if you stop hating</p>
         </section>
 
-        <section data-tags="citações,espiritualidade">
+        <section data-tags="citacoes,espiritualidade">
           <p>Salmos 94:23</p>
           <p>"He who plans evil against Me, forfeits his own life. His mischief will return upon his own head."</p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             [When Vonnegut tells his wife he's going out to buy an envelope] Oh, she says, well, you're not a poor man.
             You know, why don't you go online and buy a hundred envelopes and put them in the closet? And so I pretend
@@ -1392,14 +1379,14 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="manga">
           <img src="/assets/img/anotacoes/Yume Nikki Manga.jpg" />
           <legend>
             <a href="https://yumenikki.fandom.com/wiki/Official_Manga" target="_blank">Yume Nikki Manga (ゆめにっき)</a>
           </legend>
         </section>
 
-        <section data-tags="citações,cinema">
+        <section data-tags="citacoes,cinema">
           <p>
             <a href="https://www.aspentimes.com/news/mucking-with-movies-poor-things/" target="_blank"
               >One of the worst thematic trends of the past fifteen years has been an obsession with naturalistic
@@ -1411,12 +1398,12 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"Men are the devils of the earth, and the animals are the tormented souls."</p>
           <p>- Arthur Schopenhauer</p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "Find meaning. Distinguish melancholy from sadness. Go out for a walk. It doesn’t have to be a romantic walk
             in the park, spring at its most spectacular moment, flowers and smells and outstanding poetical imagery
@@ -1429,7 +1416,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>- Albert Camus, "Notebooks 1951-1959"</p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/sonic-toast.jpg" />
         </section>
 
@@ -1440,7 +1427,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "Never, never tell them. Try and remember that. Never tell anyone anything ever. Never tell anyone anything
             again."
@@ -1493,12 +1480,12 @@ spindaspots,13,3,16,6,6,6,6,8,
           </ul>
         </section>
 
-        <section data-tags="imagens,arte">
+        <section data-tags="arte">
           <img src="/assets/img/anotacoes/Paul Klee Forgetful Angel.jpg" />
           <legend>"Forgetful Angel", 1939 - Paul Klee</legend>
         </section>
 
-        <section data-tags="imagens,arte">
+        <section data-tags="arte">
           <img src="/assets/img/anotacoes/athens-is-burning.jpg" />
           <legend>
             <a
@@ -1509,7 +1496,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </legend>
         </section>
 
-        <section data-tags="citações,espiritualidade">
+        <section data-tags="citacoes,espiritualidade">
           <p>Mateus 6:34</p>
           <p>
             "Portanto, não se preocupem com o amanhã, pois o amanhã trará as suas próprias preocupações. Basta a cada
@@ -1517,7 +1504,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="imagens">
+        <section data-tags="">
           <img src="/assets/img/anotacoes/i-love-public-transport.jpg" />
         </section>
 
@@ -1531,16 +1518,16 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="imagens,fotografia">
+        <section data-tags="fotografia">
           <img src="/assets/img/anotacoes/giovanni-battista-sambuelli.jpg" class="nsfw" />
           <legend>Giovanni Battista Sambuelli, 2009 - from The New Erotic Photography - Dian Hanson</legend>
         </section>
 
         <section data-tags="">
-          <p>may god go with you for no one else will</p>
+          <p>que deus o acompanhe, pois ninguém mais o fará</p>
         </section>
 
-        <section data-tags="significados,imagens">
+        <section data-tags="significados">
           <p>
             <a href="https://pt.wikipedia.org/wiki/N%C3%BAmero_de_Dunbar" target="_blank">número de dunbar</a>: teoria
             que sugere que o número máximo de relacionamentos sociais que um ser humano pode manter é entre 100 e 300
@@ -1568,7 +1555,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="imagens,cinema">
+        <section data-tags="cinema">
           <img src="/assets/img/anotacoes/mononoke-quote.jpg" />
           <legend>Princess Mononoke (もののけ姫)</legend>
         </section>
@@ -1577,7 +1564,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>é minha missão tornar o mundo um lugar melhor até o momento da minha morte</p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"The desire to be loved is the last illusion. Give it up and you will be free.</p>
           <p>- Margaret Atwood, "Selected Poems II: 1976- 1986"</p>
         </section>
@@ -1594,7 +1581,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>se eles gostarem de você, você vai saber. se não gostarem, você vai se sentir confuso.</p>
         </section>
 
-        <section data-tags="citações,espiritualidade">
+        <section data-tags="citacoes,espiritualidade">
           <p>Mateus 6:34</p>
           <p>
             "Portanto, não se preocupem com o amanhã, pois o amanhã trará as suas próprias preocupações. Basta a cada
@@ -1613,12 +1600,12 @@ spindaspots,13,3,16,6,6,6,6,8,
           </p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>"That you overslept is surely a sign of good health."</p>
           <p>- Franz Kafka, 1914</p>
         </section>
 
-        <section data-tags="citações">
+        <section data-tags="citacoes">
           <p>
             "The Byronic hero, incapable of love, or capable only of an impossible love, suffers endlessly. He is
             solitary, languid, his condition exhausts him. If he wants to feel alive, it must be in the terrible
@@ -1627,7 +1614,7 @@ spindaspots,13,3,16,6,6,6,6,8,
           <p>- Albert Camus, The Rebel</p>
         </section>
 
-        <section data-tags="espiritualidade,citações">
+        <section data-tags="espiritualidade,citacoes">
           <p>Efésios 4:31,32</p>
           <p>
             "Livrem-se de toda amargura, indignação e ira, gritaria e calúnia, bem como de toda maldade.<br />Sejam
@@ -1638,6 +1625,224 @@ spindaspots,13,3,16,6,6,6,6,8,
 
         <section data-tags="">
           <img src="/assets/img/anotacoes/my_notes_app.jpg" />
+        </section>
+
+        <section data-tags="citacoes">
+          <p>
+            "I was surprised, as always, by how easy the act of leaving was, and how good it felt. The world was
+            suddenly rich with possibility.""
+          </p>
+          <p>- Jack Kerouac, On the Road</p>
+        </section>
+
+        <section data-tags="">
+          <img src="/assets/img/anotacoes/guide_self_improvement.jpg" />
+        </section>
+
+        <section data-tags="manga,citacoes">
+          <img src="/assets/img/anotacoes/shooting_stars.jpg" />
+          <legend>Oyasumi Punpun (おやすみプンプン)</legend>
+        </section>
+
+        <section data-tags="">
+          <img src="/assets/img/anotacoes/time_will_pass.jpg" />
+        </section>
+
+        <section data-tags="">
+          <p>você vai se lembrar do que fez comigo pelo resto da sua vida</p>
+        </section>
+
+        <!-- <section data-tags="videogames">
+          <img src="/assets/img/anotacoes/refined_mental_healh.jpg" />
+        </section> -->
+
+        <section data-tags="photography">
+          <img src="/assets/img/anotacoes/monke.jpg" />
+        </section>
+
+        <section data-tags="">
+          <img src="/assets/img/anotacoes/perceived.jpg" />
+        </section>
+
+        <section data-tags="">
+          <h1>Red Flags</h1>
+          <p>
+            Talvez a pessoa tenha sido tão machucada no passado que, inconscientemente, ela acaba tendo muito medo de se
+            conectar verdadeiramente com alguém. Eu posso ter empatia e compaixão com ela, mas ainda devo impor limites
+            e decidir o que é melhor pra mim, a fim de evitar um relacionamento tóxico no futuro. Honestidade,
+            vulnerabilidade e consideração são fundamentais pra mim, e eu não devo aceitar entrar em um relacionamento
+            que me ofereça menos que isso.
+          </p>
+
+          <p style="font-style: italic">"kindness, compassion, growth"</p>
+
+          <h2>Nível baixo:</h2>
+          <p>
+            Red Flags que provavelmente são indicativos de problemas maiores, mas não necessariamente. São
+            circunstanciais.
+          </p>
+
+          <ol>
+            <li>
+              Sempre coloca o celular na mesa com a tela pra baixo. → Pode ser só um hábito da pessoa, mas, quando
+              acompanhado de outros comportamentos, como sempre esconder o celular quando eu me aproximo ou evitar
+              compartilhar o celular pra fazer uma ligação, por exemplo, pode indicar que a pessoa tá escondendo algo.
+            </li>
+
+            <li>
+              Eu não gosto dos amigos dela. → Normalmente, as pessoas são amigas de pessoas parecidas com elas, e, se eu
+              não gosto dos amigos dela, provavelmente não vou gostar de quem ela é de verdade. Ainda assim, nem sempre
+              é o caso. Talvez ela só tenha dificuldade de fazer amizades novas ou tem carinho por amizades do seu
+              passado.
+            </li>
+
+            <li>
+              A pessoa não espera vc entrar na sua casa depois de te deixar, ou entrar no Uber e o motorista sair
+              dirigindo. → Pode ser só desatenção ou ingenuidade, mas também indicam falta de cuidado e de consideração
+              comigo.
+            </li>
+
+            <li>
+              Tem muita conta alt em rede social; constantemente cria contas novas pra "fazer uma limpa". → Pode ser um
+              sinal de instabilidade emocional (a pessoa quer fugir do próprio passado), insegurança (tem coisas das
+              quais se envergonha) ou de dificuldades com autopercepção.
+            </li>
+
+            <li>Se auto-intitula "maluca", como se fosse algo pra se orgulhar.</li>
+          </ol>
+
+          <h2>Nível intermediário:</h2>
+          <p>
+            Red Flags que são mais difíceis de conversar sobre, mas ainda são negociáveis. Depende do contexto e se a
+            pessoa tá disposta a conversar sobre.
+          </p>
+
+          <ol>
+            <li>
+              Não me elogia muito; minimiza meus elogios ou as próprias atitudes carinhosas. → Indica insegurança e
+              desinteresse. → A pessoa minimizar o que eu faço ou evitar reconhecer gestos carinhosos pode indicar que
+              ela tem dificuldade em se expressar emocionalmente.
+            </li>
+
+            <li>
+              Trata mal ou com indiferença garçons e atendentes. → Reflete traços de caráter, como falta de empatia e
+              cortesia. → Reflete como ela pode me tratar no futuro, especialmente em momentos de conflito. → Por outro
+              lado, dependendo do contexto, pode ser também ansiedade social ou timidez.
+            </li>
+
+            <li>
+              Nada impressiona ou alegra a pessoa; ela parece não apreciar nada. → Reflete apatia, desinteresse ou
+              anedonia, e isso pode dificultar muito a construção de um relacionamento. → Por outro lado, dependendo do
+              contexto, pode ser um indicativo de depressão, que é uma questão tratável e não necessariamente uma falha
+              fundamental no relacionamento. Mas eu também não devo me sentir responsável pela felicidade da pessoa.
+            </li>
+
+            <li>
+              Tem medo de comprometimento; fica nervosa, resistente ou preocupada demais quando eu demonstro que quero
+              algo sério. → Pode surgir de traumas passados não-resolvidos e inseguranças. Indica que a pessoa tá
+              incerta em relação a mim ou que ela não tá pronta pra um relacionamento sério. → Por outro lado,
+              dependendo do contexto, talvez a pessoa tenha um ritmo diferente do meu. Entretanto, é importante prestar
+              atenção se ela continua sendo recíproca, mesmo que num ritmo mais lento.
+            </li>
+
+            <li>
+              Parece não valorizar o nosso tempo juntos: fica no celular; não inicia conversas e só responde; dorme no
+              meio do date; não parece animada pra me ver ou conversar comigo. → Reflete desinteresse e desrespeito com
+              o meu tempo.
+            </li>
+
+            <li>
+              Me deixa de lado quando saímos com outras pessoas; não é tranquilizadora ou atenciosa; não parece se
+              importar se eu tô preocupado. → Indica desinteresse, falta de empatia e falta de habilidade de equilibrar
+              atenção em ambientes sociais.
+            </li>
+
+            <li>
+              Não faz questão de esclarecer quando a gente vai se ver de novo; parece incerta se quer me ver (reflete
+              desinteresse) ou tá excessivamente confortável/condescendente.
+            </li>
+
+            <li>
+              Fala muito dos ex-namorados. → Provavelmente ainda não superou relacionamentos passados e pode ser bem
+              difícil construir um novo relacionamento a partir dos destroços de um anterior.
+            </li>
+
+            <li>
+              Diz que todos os seus ex eram malucos e nunca divide a responsabilidade pelos próprios términos ou diz que
+              aprendeu algo com eles. → Indica imaturidade emocional e ausência de autocrítica.
+            </li>
+
+            <li>
+              Não compartilha experiências em relacionamentos passados. → Indica que a pessoa tem vergonha do próprio
+              passado ou tá tentando manipular a minha percepção dela. → Não tá sendo aberta e honesta.
+            </li>
+          </ol>
+
+          <h2>Nível alto:</h2>
+          <p>
+            Red Flags que não são negociáveis e, no primeiro sinal delas, dar no pé. Ficar por mais tempo do que deveria
+            vai acabar piorando a situação.
+          </p>
+
+          <ol>
+            <li>
+              Não investe em mim tanto quanto eu invisto nela; é distante ou inconsistente. Não me manda mensagem a
+              menos que eu mande antes. → Indica desinteresse ou acomodação. → (Não é a mesma coisa que ter ritmos e
+              tempos diferentes.)
+            </li>
+
+            <li>
+              Se eu sinto necessidade de constantemente buscar por confirmação de que a pessoa gosta de mim tanto quanto
+              eu gosto dela, seja vendo conversas antigas ou analisando as nossas interações anteriores, dá no pé. → Não
+              quero estar em um relacionamento no qual eu preciso questionar se a pessoa sequer gosta de mim. → A pessoa
+              ou não gosta de mim mesmo, ou não sabe demonstrar os próprios sentimentos ou apreciação a mim.
+            </li>
+
+            <li>
+              Diz que quer levar as coisas num ritmo mais lento ou que não quer comprometimento agora, MAS continua
+              dando sinais de que quer algo sério ou continua alimentando minhas esperanças de algo sério; dá sinais
+              mistos. → Apesar de não querer comprometimento, me apresenta pra amigos ou familiares, ou me convida pra
+              eventos importantes na vida dela. → Indica que a pessoa não é confiável ou decidida.
+            </li>
+
+            <li>
+              Se algo me chateia, a pessoa invalida ou diminui o que eu senti, ao invés de tentar entender o meu lado e
+              dividir a culpa. Me chama de "dramático". → Ou ainda, depois de um conflito, não se responsabiliza por ter
+              estado errada ou por ter me machucado, mesmo que não tenha tido a intenção de fazê-lo. A pessoa não
+              consegue pedir desculpa. → Indica falta de empatia, orgulho e egoísmo.
+            </li>
+
+            <li>
+              Tem medo de intensidade e de demonstrar vulnerabilidade. → Quer só a intensidade do lado positivo de um
+              relacionamento mas não consegue lidar com a intensidade do lado negativo. → Não tá buscando se conectar de
+              forma real.
+            </li>
+
+            <li>
+              Tá constantemente pulando de um relacionamento pra outro, ou, depois de um término, não demonstra
+              consideração com o ex e, em menos de algumas semanas, começa a fazer posts sugestivos ou flertar com
+              outras pessoas, especialmente publicamente em rede social. → Demonstra falta de autorreflexão e
+              responsabilidade afetiva, e que a pessoa não suporta ficar sozinha. → Se eu entrar em um relacionamento
+              com ela, eu posso ser só mais uma transição.
+            </li>
+
+            <li>Se eu não me sinto valorizado e sinto necessidade de demonstrar menos em algum momento, dar no pé.</li>
+          </ol>
+        </section>
+
+        <section data-tags="">
+          <p>todas as vezes em que naufraguei, acabei em um lugar mais alto</p>
+        </section>
+
+        <section data-tags="fotografia">
+          <img src="/assets/img/anotacoes/Bella Newman.jpg" class="nsfw" />
+          <legend>
+            <a href="https://no.inc/photo#/bella-newman/" target="_blank">Self Portrait No. 391, 2024 - Bella Newman</a>
+          </legend>
+        </section>
+
+        <section data-tags="">
+          <img src="/assets/img/anotacoes/fassod.jpg" />
         </section>
       </div>
 
@@ -1667,15 +1872,83 @@ spindaspots,13,3,16,6,6,6,6,8,
       });
 
       // Efeito hover para mostrar imagem original e click para abrir
+      // Processa dither apenas quando imagens entram no viewport
       document.addEventListener("DOMContentLoaded", function () {
         const hoverImages = document.querySelectorAll("section img");
 
-        hoverImages.forEach(function (img) {
-          // Adiciona loading lazy automaticamente
-          img.setAttribute("loading", "lazy");
+        // IntersectionObserver para detectar quando imagem entra no viewport
+        const imageObserver = new IntersectionObserver(
+          function (entries, observer) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                const img = entry.target;
 
-          // Adiciona classes para processar com dither duotone
-          img.classList.add("dither", "duotone");
+                // Se já foi processada, só restaura o dithered e para
+                if (img.hasAttribute("data-dithered-src")) {
+                  img.src = img.getAttribute("data-dithered-src");
+                  return;
+                }
+
+                // Para de observar esta imagem após primeiro processamento
+                observer.unobserve(img);
+
+                // Adiciona classes para processar com dither duotone
+                img.classList.add("dither", "duotone");
+
+                // Aguarda o processamento do dither
+                const checkProcessed = setInterval(() => {
+                  if (img.hasAttribute("data-duotone-processed")) {
+                    clearInterval(checkProcessed);
+
+                    // Guarda o src original e a versão dithered
+                    const ogSrc = img.getAttribute("data-original-src");
+                    const ditheredSrc = img.src;
+
+                    // Armazena blob dithered permanentemente
+                    img.setAttribute("data-dithered-src", ditheredSrc);
+
+                    // Força o src para dithered (evita piscar)
+                    img.src = ditheredSrc;
+
+                    // Hover: mostra versão original
+                    img.addEventListener("mouseenter", function () {
+                      img.src = ogSrc;
+                      img.style.imageRendering = "auto";
+                    });
+
+                    img.addEventListener("mouseleave", function () {
+                      const dithered = img.getAttribute("data-dithered-src");
+                      img.src = dithered;
+                      img.style.imageRendering = "pixelated";
+                    });
+
+                    // Click: abre versão original em nova aba (se não estiver dentro de um link)
+                    const parentLink = img.closest("a");
+                    if (!parentLink) {
+                      img.style.cursor = "pointer";
+                      img.addEventListener("click", function () {
+                        window.open(ogSrc, "_blank");
+                      });
+                    }
+                  }
+                }, 100);
+
+                // Timeout de segurança de 10 segundos
+                setTimeout(() => clearInterval(checkProcessed), 10000);
+              }
+            });
+          },
+          {
+            // Começa a processar quando 10% da imagem está visível
+            threshold: 0.1,
+            // Começa a processar 200px antes da imagem entrar no viewport
+            rootMargin: "200px",
+          }
+        );
+
+        hoverImages.forEach(function (img) {
+          // Remove loading lazy para evitar descarregar imagens processadas
+          // img.setAttribute("loading", "lazy");
 
           // Guarda o src original (-og) que está no HTML
           const ogSrc = img.src;
@@ -1683,36 +1956,8 @@ spindaspots,13,3,16,6,6,6,6,8,
           // Armazena o src original como data attribute para referência futura
           img.setAttribute("data-original-src", ogSrc);
 
-          // Aguarda o processamento do dither
-          const checkProcessed = setInterval(() => {
-            if (img.hasAttribute("data-duotone-processed")) {
-              clearInterval(checkProcessed);
-
-              // Guarda a versão dithered (blob URL)
-              const ditheredSrc = img.src;
-
-              // Hover: mostra versão original
-              img.addEventListener("mouseenter", function () {
-                img.src = ogSrc;
-              });
-
-              img.addEventListener("mouseleave", function () {
-                img.src = ditheredSrc;
-              });
-
-              // Click: abre versão original em nova aba (se não estiver dentro de um link)
-              const parentLink = img.closest("a");
-              if (!parentLink) {
-                img.style.cursor = "pointer";
-                img.addEventListener("click", function () {
-                  window.open(ogSrc, "_blank");
-                });
-              }
-            }
-          }, 100);
-
-          // Timeout de segurança de 10 segundos
-          setTimeout(() => clearInterval(checkProcessed), 10000);
+          // Observa a imagem para processar dither quando entrar no viewport
+          imageObserver.observe(img);
         });
       });
 
@@ -1723,6 +1968,22 @@ spindaspots,13,3,16,6,6,6,6,8,
         const sections = Array.from(document.querySelectorAll(".anotacoes > section"));
         let allTags = new Set();
         let selectedTags = new Set();
+
+        // Adiciona tag "imagens" automaticamente às seções que contêm <img>
+        sections.forEach((section) => {
+          const hasImages = section.querySelector("img:not(.banner)");
+          if (hasImages) {
+            const currentTags = section.getAttribute("data-tags") || "";
+            const tagsArray = currentTags
+              .split(",")
+              .map((t) => t.trim())
+              .filter(Boolean);
+            if (!tagsArray.includes("imagens")) {
+              tagsArray.push("imagens");
+              section.setAttribute("data-tags", tagsArray.join(", "));
+            }
+          }
+        });
 
         // Coleta todas as tags e mostra visualmente em cada seção
         sections.forEach((section) => {

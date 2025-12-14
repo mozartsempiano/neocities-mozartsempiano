@@ -57,6 +57,7 @@
 
   --opacity: 1;
   --b-radius: 5px;
+  --padding-section: 16px;
 }
 
 ::-webkit-scrollbar-track {
@@ -182,6 +183,7 @@ body {
 a:has(p),
 p a,
 ul:not(.sitelist) li a,
+ol:not(.sitelist) li a,
 legend a,
 h1 a,
 h2 a,
@@ -222,9 +224,10 @@ h6 a {
   border: 1px solid var(--cor-texto-a30);
   border-radius: var(--b-radius);
   margin: 0 0 12px 0;
-  padding: 16px;
+  padding: var(--padding-section);
   break-inside: avoid;
-  overflow: visible;
+  scrollbar-width: thin;
+  overflow: hidden;
 }
 
 /* Espaçamento automático entre elementos dentro da anotação */
@@ -308,12 +311,17 @@ section h3 {
   font-size: 1.14em;
 }
 
-ul {
+ul,
+ol {
   margin-top: 0;
 }
 
-li {
+ul li {
   margin-left: -26px;
+}
+
+ol li {
+  margin-left: -16px;
 }
 
 li:not(:last-child) {
@@ -371,7 +379,7 @@ section pre {
   border-radius: var(--b-radius);
   cursor: pointer;
   margin-top: 0;
-  padding: 4px;
+  padding: calc(var(--padding-section) / 4);
 
   display: block;
   overflow-x: auto;
