@@ -22,7 +22,11 @@
 
 	// merge global overrides if present
 	try {
-		if (window && window.STATUSCAFE_CONFIG && typeof window.STATUSCAFE_CONFIG === "object") {
+		if (
+			window &&
+			window.STATUSCAFE_CONFIG &&
+			typeof window.STATUSCAFE_CONFIG === "object"
+		) {
 			for (var k in window.STATUSCAFE_CONFIG) {
 				if (Object.prototype.hasOwnProperty.call(window.STATUSCAFE_CONFIG, k)) {
 					DEFAULTS[k] = window.STATUSCAFE_CONFIG[k];
@@ -54,7 +58,8 @@
 			'<div id="statuscafe-content" class="statuscafe-content"></div>' +
 			"</div></div>";
 		// append to a sensible place: try to find .statuscafe .box-inner first
-		const target = document.querySelector(".statuscafe .box-inner") || document.body;
+		const target =
+			document.querySelector(".statuscafe .box-inner") || document.body;
 		target.appendChild(container);
 	}
 	// Ensure the #statuscafe markup includes our avatar + main wrapper.
@@ -71,7 +76,8 @@
 				'<div id="statuscafe-username" class="statuscafe-username"></div>' +
 				'<div id="statuscafe-content" class="statuscafe-content"></div>' +
 				"</div></div>";
-			const target = document.querySelector(".statuscafe .box-inner") || document.body;
+			const target =
+				document.querySelector(".statuscafe .box-inner") || document.body;
 			target.appendChild(container);
 			return;
 		}
@@ -128,7 +134,8 @@
 				avatarEl.id = "statuscafe-avatar";
 				avatarEl.className = "statuscafe-avatar";
 				// insert as first child
-				if (container.firstChild) container.insertBefore(avatarEl, container.firstChild);
+				if (container.firstChild)
+					container.insertBefore(avatarEl, container.firstChild);
 				else container.appendChild(avatarEl);
 			}
 			// apply dither class to container if enabled in config
@@ -174,7 +181,7 @@
   outline: 1px solid var(--clr-gray-a20);
   overflow: unset;
 }
-#statuscafe .statuscafe-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+#statuscafe .statuscafe-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 
 #statuscafe .statuscafe-main { flex: 1 1 auto; }
 #statuscafe .statuscafe-username { font-weight: 600; margin-bottom: 4px; }
@@ -259,7 +266,10 @@
 					const val = wrapper.dataset.showFace.trim().toLowerCase();
 					showFace = val === "1" || val === "true" || val === "yes";
 				}
-				if (typeof wrapper.dataset.avatar !== "undefined" && wrapper.dataset.avatar) {
+				if (
+					typeof wrapper.dataset.avatar !== "undefined" &&
+					wrapper.dataset.avatar
+				) {
 					DEFAULTS.defaultAvatar = wrapper.dataset.avatar;
 				}
 			}
@@ -311,17 +321,20 @@
 					const avatarEl = document.getElementById("statuscafe-avatar");
 					if (avatarEl) {
 						var avatarUrl = null;
-						if (r && (r.avatar || r.author_avatar || r.icon)) avatarUrl = r.avatar || r.author_avatar || r.icon;
+						if (r && (r.avatar || r.author_avatar || r.icon))
+							avatarUrl = r.avatar || r.author_avatar || r.icon;
 						// If wrapper provided a data-avatar override, prefer it
 						try {
 							const wrapper = document.querySelector(".statuscafe .box-inner");
-							if (wrapper && wrapper.dataset && wrapper.dataset.avatar) avatarUrl = wrapper.dataset.avatar;
+							if (wrapper && wrapper.dataset && wrapper.dataset.avatar)
+								avatarUrl = wrapper.dataset.avatar;
 						} catch (e) {}
 
 						if (!avatarUrl) {
 							// no external avatar -> reveal immediately and use configured defaultAvatar as progressive fill
 							try {
-								avatarEl.innerHTML = '<img src="' + DEFAULTS.defaultAvatar + '" alt="avatar">';
+								avatarEl.innerHTML =
+									'<img src="' + DEFAULTS.defaultAvatar + '" alt="avatar">';
 								if (DEFAULTS.enableDither) {
 									avatarEl.classList.add("dither");
 									var fimg = avatarEl.querySelector("img");
@@ -347,7 +360,8 @@
 							};
 							img.onerror = function () {
 								try {
-									avatarEl.innerHTML = '<img src="' + DEFAULTS.defaultAvatar + '" alt="avatar">';
+									avatarEl.innerHTML =
+										'<img src="' + DEFAULTS.defaultAvatar + '" alt="avatar">';
 									if (DEFAULTS.enableDither) {
 										avatarEl.classList.add("dither");
 										var errImg = avatarEl.querySelector("img");
@@ -398,7 +412,10 @@
 			outer.appendChild(inner);
 			const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
 			document.body.removeChild(outer);
-			document.documentElement.style.setProperty("--statuscafe-scrollbar-offset", scrollbarWidth + "px");
+			document.documentElement.style.setProperty(
+				"--statuscafe-scrollbar-offset",
+				scrollbarWidth + "px"
+			);
 		} catch (e) {
 			// ignore
 		}

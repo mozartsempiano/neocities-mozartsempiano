@@ -1,273 +1,335 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <!-- Dados -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
-    <meta name="author" content="Mozart Mattar" />
+	<head>
+		<!-- Dados -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--<meta http-equiv="Cache-Control" content="no-cache">-->
+		<meta name="author" content="Mozart Mattar" />
 
-    <title>mozartsempiano</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+		<title>mozartsempiano</title>
+		<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <!-- Icon library -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <!-- Custom CSS -->
+		<!-- CSS -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		/>
+		<!-- Latest compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<!-- Icon library -->
+		<link rel="stylesheet" href="/assets/css/style.css" />
+		<!-- Custom CSS -->
 
-    <!-- Fontes Externas -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+		<!-- Fontes Externas -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+			rel="stylesheet"
+		/>
 
-    <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- jQuery library -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+		<!-- Script -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<!-- jQuery library -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
-    <style>
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+		<style>
+			body,
+			html {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
 
-      .centralizar-start {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        /* centraliza verticalmente */
-        align-items: center;
-        /* centraliza horizontalmente */
-        box-sizing: border-box;
-        padding: 32px 0;
-        /* espaço extra para não colar nas bordas em telas pequenas */
-      }
+			.centralizar-start {
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				box-sizing: border-box;
+				padding: 32px 0;
+				gap: 32px;
+			}
 
-      a:link,
-      a:visited,
-      a:active,
-      a:hover {
-        color: var(--clr-white) !important;
-        /* background-color: var(--clr-black-a0) !important; */
-        text-decoration: none !important;
-        transition: all 0.25s ease !important;
-      }
+			a:link,
+			a:visited,
+			a:active,
+			a:hover {
+				color: var(--clr-white);
+				/* background-color: var(--clr-black-a0) !important; */
+				text-decoration: none;
+				transition: all 0.25s ease;
+			}
 
-      a#clique-para-entrar-link {
-        padding: 16px 0;
-        min-width: 60%;
-      }
+			a#clique-para-entrar-link {
+				padding: 16px 0;
+				min-width: 60%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 2em;
+				margin: 0 auto;
+				text-decoration: none;
+			}
 
-      a#clique-para-entrar-link:hover {
-        cursor: pointer;
-        color: var(--clr-white) !important;
-        text-decoration: dotted underline !important;
-      }
+			a#clique-para-entrar-link:hover {
+				cursor: pointer;
+			}
 
-      p#clique-para-entrar {
-        font-family: "Redaction50", serif;
-        font-size: 1.5em;
-        color: var(--clr-white);
-        margin-top: 42px;
-      }
+			a#clique-para-entrar-link p#clique-para-entrar {
+				font-family: "Redaction50", serif;
+				font-size: 1.5em;
+				color: var(--clr-white);
+				transition: color 0.3s ease;
+			}
 
-      div#frase {
-        font-family: var(--fonte-corpo);
-        font-size: 1em;
-        margin: 0 auto;
-        margin-top: 84px;
-        max-width: 400px;
-      }
+			a#clique-para-entrar-link:hover p#clique-para-entrar {
+				color: var(--clr-main-a30) !important;
+			}
 
-      div#footer-index {
-        margin-top: 24px;
-      }
+			img#logo {
+				max-width: 300px;
+				height: auto;
+				animation: logo-anim 6s cubic-bezier(0.43, 0, 0.43, 1) infinite;
+				user-select: none;
+				transition: filter 0.5s ease;
+				margin: 0 auto;
+			}
+			:root[data-theme="light"] img#logo {
+				filter: invert(1) saturate(0) brightness(2) contrast(0.8);
+			}
 
-      div#frase,
-      div#footer-index {
-        text-align: center;
-        color: var(--clr-white);
-        cursor: default;
-      }
+			a#clique-para-entrar-link:hover img#logo {
+				background-color: none !important;
+				color: none !important;
+			}
 
-      img#logo {
-        max-width: 300px;
-        height: auto;
-        animation: logo-anim 6s cubic-bezier(0.43, 0, 0.43, 1) infinite;
-        user-select: none;
-        transition: filter 0.5s ease;
-      }
-      :root[data-theme="light"] img#logo {
-        filter: invert(1) saturate(0) brightness(2) contrast(0.8);
-      }
+			div#frase-container {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				align-items: center;
+				max-width: 400px;
+				font-size: 0.9em;
+				font-family: var(--fonte-corpo);
+				margin: 0 auto;
+			}
 
-      @keyframes logo-anim {
-        0% {
-          transform: translate(0, 7px);
-        }
+			div#frase {
+				font-family: var(--fonte-corpo);
+				font-size: 1em;
+			}
 
-        50% {
-          transform: translate(0, -7px);
-        }
+			div#classificacao {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				align-items: flex-start;
+				gap: 12px;
+			}
 
-        100% {
-          transform: translate(0, 7px);
-        }
-      }
+			div#classificacao svg {
+				min-width: 3em;
+				width: 3em;
+				height: 3em;
+				fill: var(--clr-red-a50);
+			}
 
-      a#clique-para-entrar-link:hover img#logo {
-        background-color: none !important;
-        color: none !important;
-        /* Reduz levemente a saturação e o brilho da imagem */
-      }
+			div#classificacao span {
+				text-align: left;
+			}
 
-      #preloader {
-        position: fixed;
-        z-index: 999;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.85);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+			div#frase,
+			div#footer-index,
+			div#classificacao {
+				text-align: center;
+				color: var(--clr-white);
+				cursor: default;
+			}
 
-        opacity: 0;
-        transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        pointer-events: none;
-      }
-      :root[data-theme="light"] #preloader {
-        background: rgba(255, 255, 255, 0.85);
-      }
+			@keyframes logo-anim {
+				0% {
+					transform: translate(0, 7px);
+				}
 
-      #preloader.visible {
-        display: flex;
-        opacity: 1;
-        pointer-events: auto;
-      }
+				50% {
+					transform: translate(0, -7px);
+				}
 
-      @media (max-width: 770px) {
-        p#clique-para-entrar {
-          font-size: 1.4em;
-        }
+				100% {
+					transform: translate(0, 7px);
+				}
+			}
 
-        img#logo {
-          max-width: 232px;
-        }
+			#preloader {
+				position: fixed;
+				z-index: 999;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.85);
+				display: flex;
+				align-items: center;
+				justify-content: center;
 
-        div#frase {
-          max-width: 240px;
-          font-size: 0.9em;
-        }
+				opacity: 0;
+				transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+				pointer-events: none;
+			}
+			:root[data-theme="light"] #preloader {
+				background: rgba(255, 255, 255, 0.85);
+			}
 
-        div#footer-index {
-          font-size: 0.9em;
-        }
-      }
-    </style>
-  </head>
+			#preloader.visible {
+				display: flex;
+				opacity: 1;
+				pointer-events: auto;
+			}
 
-  <body>
-    <!-- <div class="crt-grain"></div> -->
-    <div id="preloader" style="display: none">
-      <span class="loading-wheel"></span>
-    </div>
+			@media (max-width: 770px) {
+				p#clique-para-entrar {
+					font-size: 1.4em;
+				}
 
-    <div
-      class="leaves"
-      id="leaves"
-      style="position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 500"
-    ></div>
-    <div class="container fade-in-index" style="padding: 0 28px !important">
-      <div class="centralizar-start">
-        <a id="clique-para-entrar-link">
-          <!--<pre>
-                               _                            _                   
-                              | |                          (_)                  
-  _ __ ___   ___ ______ _ _ __| |_ ___  ___ _ __ ___  _ __  _  __ _ _ __   ___  
- | '_ ` _ \ / _ \_  / _` | '__| __/ __|/ _ \ '_ ` _ \| '_ \| |/ _` | '_ \ / _ \ 
- | | | | | | (_) / / (_| | |  | |_\__ \  __/ | | | | | |_) | | (_| | | | | (_) |
- |_| |_| |_|\___/___\__,_|_|   \__|___/\___|_| |_| |_| .__/|_|\__,_|_| |_|\___/ 
-                                                     | |                        
-                                                     |_|                        
-        </pre>-->
-          <img src="/assets/img/mozartmt-logo-white.png" alt="mozartsempiano" id="logo" />
-          <p id="clique-para-entrar" class="animate-flicker" lang="pt-br">clique para entrar</p>
-        </a>
+				img#logo {
+					max-width: 232px;
+				}
 
-        <div id="frase" class="glitch">
-          <p>
-            Este site, apesar de ser compatível com dispositivos móveis, é ainda melhor visualizado em um computador.
-          </p>
-        </div>
+				div#frase-container {
+					max-width: 240px;
+					font-size: 0.9em;
+				}
 
-        <div id="footer-index"><span class="fa fa-copyright"></span> Todos os direitos reservados.</div>
-      </div>
-    </div>
+				div#footer-index {
+					font-size: 0.9em;
+				}
+			}
+		</style>
+	</head>
 
-    <script type="module" src="/assets/js/main.js"></script>
+	<body>
+		<!-- <div class="crt-grain"></div> -->
+		<div id="preloader" style="display: none">
+			<span class="loading-wheel"></span>
+		</div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const leavesContainer = document.getElementById("leaves");
-        for (let i = 0; i < 12; i++) {
-          const leaf = document.createElement("span");
-          leaf.className = "leaf";
-          leaf.textContent = "/"; // Símbolo da folha
-          // Randomizar posição e duração
-          const startLeft = Math.random() * 100; // vw
-          leaf.style.left = startLeft + "vw";
-          leaf.style.position = "absolute";
-          // start slightly above the viewport
-          leaf.style.transform = `translate3d(0px, -10vh, 0)`;
-          leaf.style.animationDuration = 14 + Math.random() * 6 + "s";
-          leaf.style.setProperty("--leaf-x-end", Math.random() * 100 - 50 + "vw");
-          leaf.style.setProperty("--leaf-rotate", Math.random() * 360 + "deg");
-          // ensure pointer-events none so links still clickable
-          leaf.style.pointerEvents = "none";
-          leavesContainer.appendChild(leaf);
-        }
-      });
-    </script>
+		<div
+			class="leaves"
+			id="leaves"
+			style="
+				position: fixed;
+				inset: 0;
+				pointer-events: none;
+				overflow: hidden;
+				z-index: 500;
+			"
+		></div>
+		<div
+			class="container fade-in-index"
+			style="padding: 0; margin: 0; width: 100%; height: 100vh"
+		>
+			<div class="centralizar-start">
+				<a id="clique-para-entrar-link">
+					<img
+						src="/assets/img/mozartmt-logo-white.png"
+						alt="mozartsempiano"
+						id="logo"
+					/>
+					<p id="clique-para-entrar" class="animate-flicker" lang="pt-br">
+						clique para entrar
+					</p>
+				</a>
 
-    <script>
-      preloader_original = true;
+				<div id="frase-container">
+					<div id="frase">
+						<p>
+							Este site, apesar de ser compatível com dispositivos móveis, é
+							ainda melhor visualizado em um computador.
+						</p>
+					</div>
 
-      if (preloader_original) {
-        document.addEventListener("DOMContentLoaded", function () {
-          var entrar = document.getElementById("clique-para-entrar-link");
-          if (entrar) {
-            entrar.addEventListener("click", function (e) {
-              e.preventDefault();
-              document.querySelector(".container").style.display = "none";
-              var preloader = document.getElementById("preloader");
-              preloader.style.display = "flex";
-              setTimeout(function () {
-                preloader.classList.add("visible");
-                setTimeout(function () {
-                  window.location.href = "home.html";
-                }, 1000);
-              }, 10);
-            });
-          }
-        });
-      } else {
-        document.addEventListener("DOMContentLoaded", function () {
-          var entrar = document.getElementById("clique-para-entrar-link");
-          if (entrar) {
-            entrar.addEventListener("click", function (e) {
-              e.preventDefault(); // evita o comportamento padrão do link, se houver
-              window.location.href = "home.html"; // redireciona direto
-            });
-          }
-        });
-      }
-    </script>
-  </body>
+					<div id="classificacao" class="glitch">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+							<path
+								d="M339.33-362h51.34v-236H278v51.33h61.33V-362Zm125.34 0H634v-236H464.67v236ZM516-400v-62h66.67v62H516Zm0-98v-62h66.67v62H516ZM119.3-119.3v-721.56h721.56v721.56H119.3Zm72.42-72.42h576.56v-576.56H191.72v576.56Zm0 0v-576.56 576.56Z"
+							/>
+						</svg>
+						<span
+							>Recomenda-se discrição do espectador - o conteúdo deste site é
+							destinado a maiores de 18 anos.</span
+						>
+					</div>
+				</div>
+
+				<footer id="footer-index"></footer>
+			</div>
+		</div>
+
+		<script type="module" src="/assets/js/main.js"></script>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const leavesContainer = document.getElementById("leaves");
+				for (let i = 0; i < 12; i++) {
+					const leaf = document.createElement("span");
+					leaf.className = "leaf";
+					leaf.textContent = "/"; // Símbolo da folha
+					// Randomizar posição e duração
+					const startLeft = Math.random() * 100; // vw
+					leaf.style.left = startLeft + "vw";
+					leaf.style.position = "absolute";
+					// start slightly above the viewport
+					leaf.style.transform = `translate3d(0px, -10vh, 0)`;
+					leaf.style.animationDuration = 14 + Math.random() * 6 + "s";
+					leaf.style.setProperty(
+						"--leaf-x-end",
+						Math.random() * 100 - 50 + "vw"
+					);
+					leaf.style.setProperty("--leaf-rotate", Math.random() * 360 + "deg");
+					// ensure pointer-events none so links still clickable
+					leaf.style.pointerEvents = "none";
+					leavesContainer.appendChild(leaf);
+				}
+			});
+		</script>
+
+		<script>
+			preloader_original = true;
+
+			if (preloader_original) {
+				document.addEventListener("DOMContentLoaded", function () {
+					var entrar = document.getElementById("clique-para-entrar-link");
+					if (entrar) {
+						entrar.addEventListener("click", function (e) {
+							e.preventDefault();
+							document.querySelector(".container").style.display = "none";
+							var preloader = document.getElementById("preloader");
+							preloader.style.display = "flex";
+							setTimeout(function () {
+								preloader.classList.add("visible");
+								setTimeout(function () {
+									window.location.href = "home.html";
+								}, 1000);
+							}, 10);
+						});
+					}
+				});
+			} else {
+				document.addEventListener("DOMContentLoaded", function () {
+					var entrar = document.getElementById("clique-para-entrar-link");
+					if (entrar) {
+						entrar.addEventListener("click", function (e) {
+							e.preventDefault(); // evita o comportamento padrão do link, se houver
+							window.location.href = "home.html"; // redireciona direto
+						});
+					}
+				});
+			}
+		</script>
+	</body>
 </html>

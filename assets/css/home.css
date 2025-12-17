@@ -118,15 +118,31 @@ h1.titulo-secao {
 	letter-spacing: 1px;
 	margin: 0;
 	padding: 12px 14px;
-	text-transform: none;
 	width: 100%;
 	text-transform: uppercase;
 	text-align: left;
 	font-family: var(--fonte-corpo);
+	display: flex;
+	align-items: center;
+	gap: 0.3em; /* espaço entre o ícone e o texto */
 }
 
 h1.titulo-secao::before {
-	content: "> ";
+	--svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M506-480 325-661l52-53 234 234-234 234-52-53 181-181Z"/></svg>');
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 1em;
+	height: 1em;
+	background: var(--svg) no-repeat center center / contain;
+	-webkit-mask-image: var(--svg);
+	mask-image: var(--svg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	background-color: currentColor;
+	background-blend-mode: color;
 }
 
 h1.titulo-secao.main {
@@ -410,6 +426,30 @@ div.box.sobre div.box-inner p {
 }
 .info-contato a:hover {
 	background-color: transparent;
+}
+a.leia-mais {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 0.3em;
+	justify-content: center;
+	color: var(--clr-main-a30);
+	text-decoration: none;
+}
+a.leia-mais svg {
+	fill: currentColor;
+	width: 1em;
+	height: 1em;
+	align-self: center;
+	transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+a.leia-mais:hover svg {
+	transform: translateX(4px);
+}
+a.leia-mais:hover {
+	background-color: transparent;
+	text-decoration: dotted underline;
+	color: var(--clr-main-a30);
 }
 
 /* ÍCONES */
