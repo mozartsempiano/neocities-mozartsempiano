@@ -73,19 +73,27 @@ function setupGalleryFilter({
 } = {}) {
 	if (!Array.isArray(items)) items = [];
 
-	const allTags = Array.from(new Set(items.flatMap((it) => getTags(it) || []))).sort();
+	const allTags = Array.from(
+		new Set(items.flatMap((it) => getTags(it) || []))
+	).sort();
 	let selectedTags = [];
 
 	function renderFiltros() {
 		const filtrosEl = document.getElementById(filtrosId);
 		if (!filtrosEl) return;
 		filtrosEl.innerHTML = allTags
-			.map((tag) => `<span class="filter-gallery-tag${selectedTags.includes(tag) ? " selected" : ""}" data-tag="${tag}">#${tag}</span>`)
+			.map(
+				(tag) =>
+					`<span class="filter-gallery-tag${
+						selectedTags.includes(tag) ? " selected" : ""
+					}" data-tag="${tag}">#${tag}</span>`
+			)
 			.join(" ");
 		filtrosEl.querySelectorAll(".filter-gallery-tag").forEach((el) => {
 			el.onclick = () => {
 				const tag = el.getAttribute("data-tag");
-				if (selectedTags.includes(tag)) selectedTags = selectedTags.filter((t) => t !== tag);
+				if (selectedTags.includes(tag))
+					selectedTags = selectedTags.filter((t) => t !== tag);
 				else selectedTags.push(tag);
 				renderFiltros();
 				renderGaleria();
@@ -116,7 +124,12 @@ function setupGalleryFilter({
 		galeriaEl.innerHTML = filtered
 			.map((d) => {
 				const tags = (getTags(d) || [])
-					.map((tag) => `<span class="filter-gallery-tag${selectedTags.includes(tag) ? " selected" : ""}" data-tag="${tag}">#${tag}</span>`)
+					.map(
+						(tag) =>
+							`<span class="filter-gallery-tag${
+								selectedTags.includes(tag) ? " selected" : ""
+							}" data-tag="${tag}">#${tag}</span>`
+					)
 					.join(" ");
 
 				const medias = getMedias(d);
@@ -127,7 +140,8 @@ function setupGalleryFilter({
 
 				// Mostra o botão de play se tiver uma thumbnail (primeira mídia como thumbOnly)
 				// seguida de um vídeo na segunda posição
-				const hasVideoWithThumb = medias[0]?.thumbOnly && medias[1]?.type === "video";
+				const hasVideoWithThumb =
+					medias[0]?.thumbOnly && medias[1]?.type === "video";
 
 				let overlays = "";
 				if (totalMedias > 1) {
@@ -150,16 +164,19 @@ function setupGalleryFilter({
 			})
 			.join("");
 
-		galeriaEl.querySelectorAll(".filter-gallery-item .filter-gallery-tag").forEach((el) => {
-			el.onclick = (e) => {
-				e.stopPropagation();
-				const tag = el.getAttribute("data-tag");
-				if (selectedTags.includes(tag)) selectedTags = selectedTags.filter((t) => t !== tag);
-				else selectedTags.push(tag);
-				renderFiltros();
-				renderGaleria();
-			};
-		});
+		galeriaEl
+			.querySelectorAll(".filter-gallery-item .filter-gallery-tag")
+			.forEach((el) => {
+				el.onclick = (e) => {
+					e.stopPropagation();
+					const tag = el.getAttribute("data-tag");
+					if (selectedTags.includes(tag))
+						selectedTags = selectedTags.filter((t) => t !== tag);
+					else selectedTags.push(tag);
+					renderFiltros();
+					renderGaleria();
+				};
+			});
 
 		galeriaEl.querySelectorAll(".filter-gallery-item").forEach((item, idx) => {
 			item.onclick = () => {
@@ -229,22 +246,46 @@ function setupGalleryFilter({
 					// programas com mapa de aliases
 					if (d.programs && d.programs.length) {
 						const programMap = {
-							photoshop: { aliases: ["photoshop", "ps", "adobe photoshop"], file: "photoshop-icon.svg", title: "Adobe Photoshop" },
-							illustrator: { aliases: ["illustrator", "ai", "adobe illustrator"], file: "illustrator-icon.svg", title: "Adobe Illustrator" },
+							photoshop: {
+								aliases: ["photoshop", "ps", "adobe photoshop"],
+								file: "photoshop-icon.svg",
+								title: "Adobe Photoshop",
+							},
+							illustrator: {
+								aliases: ["illustrator", "ai", "adobe illustrator"],
+								file: "illustrator-icon.svg",
+								title: "Adobe Illustrator",
+							},
 							"after-effects": {
-								aliases: ["after", "after effects", "after-effects", "ae", "adobe after effects"],
+								aliases: [
+									"after",
+									"after effects",
+									"after-effects",
+									"ae",
+									"adobe after effects",
+								],
 								file: "after-effects-icon.svg",
 								title: "Adobe After Effects",
 							},
-							premiere: { aliases: ["premiere", "premiere pro", "adobe premiere"], file: "premiere-icon.svg", title: "Adobe Premiere" },
-							aseprite: { aliases: ["aseprite", "ap"], file: "aseprite-icon.svg", title: "Aseprite" },
+							premiere: {
+								aliases: ["premiere", "premiere pro", "adobe premiere"],
+								file: "premiere-icon.svg",
+								title: "Adobe Premiere",
+							},
+							aseprite: {
+								aliases: ["aseprite", "ap"],
+								file: "aseprite-icon.svg",
+								title: "Aseprite",
+							},
 						};
 
 						const programsEl = document.createElement("div");
 						programsEl.className = "modal-programs";
 
 						d.programs.forEach((p) => {
-							const key = Object.keys(programMap).find((k) => programMap[k].aliases.includes(p.toLowerCase()));
+							const key = Object.keys(programMap).find((k) =>
+								programMap[k].aliases.includes(p.toLowerCase())
+							);
 							if (!key) return;
 
 							const prog = programMap[key];
@@ -329,7 +370,9 @@ function setupGalleryFilter({
 							thumb.onclick = (ev) => {
 								ev.stopPropagation();
 								renderModalMedia(i);
-								modalThumbs.querySelectorAll(".modal-thumb").forEach((el) => el.classList.remove("selected"));
+								modalThumbs
+									.querySelectorAll(".modal-thumb")
+									.forEach((el) => el.classList.remove("selected"));
 								thumb.classList.add("selected");
 							};
 
@@ -346,7 +389,9 @@ function setupGalleryFilter({
 							thumb.onclick = (ev) => {
 								ev.stopPropagation();
 								renderModalMedia(videoIdx);
-								modalThumbs.querySelectorAll(".modal-thumb").forEach((el) => el.classList.remove("selected"));
+								modalThumbs
+									.querySelectorAll(".modal-thumb")
+									.forEach((el) => el.classList.remove("selected"));
 								thumb.classList.add("selected");
 							};
 
@@ -398,11 +443,13 @@ function setupGalleryFilter({
 		try {
 			if (url.includes("youtube.com") || url.includes("youtu.be")) {
 				const match = url.match(/(?:v=|\.be\/)([^&?/]+)/);
-				if (match && match[1]) return `https://www.youtube.com/embed/${match[1]}`;
+				if (match && match[1])
+					return `https://www.youtube.com/embed/${match[1]}`;
 			}
 			if (url.includes("drive.google.com")) {
 				const match = url.match(/\/d\/([^/]+)\//);
-				if (match && match[1]) return `https://drive.google.com/file/d/${match[1]}/preview`;
+				if (match && match[1])
+					return `https://drive.google.com/file/d/${match[1]}/preview`;
 			}
 			return null;
 		} catch (e) {
@@ -421,7 +468,8 @@ function setupGalleryFilter({
 			}
 		});
 		document.addEventListener("keydown", (e) => {
-			if (e.key === "Escape" && modal.classList.contains("modal-open")) closeModal(modalId);
+			if (e.key === "Escape" && modal.classList.contains("modal-open"))
+				closeModal(modalId);
 		});
 	}
 

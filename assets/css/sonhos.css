@@ -122,7 +122,8 @@ a:active {
 	height: 100vh;
 	margin: 0 auto;
 	text-align: center;
-	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno), 0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
+	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno),
+		0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
 	padding: 20px;
 	overflow-x: hidden;
 }
@@ -193,13 +194,17 @@ img#img-header {
 	border: none;
 	padding: 0 6px;
 	cursor: pointer;
-	border-radius: 6px;
 	font-size: 1.2em;
 	transition: color 0.3s ease;
-	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno), 0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
+	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno),
+		0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
 	width: 24px;
 	height: auto;
 	aspect-ratio: 1/1;
+}
+
+body.rounded #calendar-controls button {
+	border-radius: 6px;
 }
 
 #calendar-controls button:hover {
@@ -221,8 +226,11 @@ img#img-header {
 	gap: 2px;
 	background: var(--cor-fundo-a10);
 	border: 1px solid var(--cor-main);
-	border-radius: 0 0 8px 8px;
 	overflow: hidden;
+}
+
+body.rounded #calendar-grid {
+	border-radius: 0 0 8px 8px;
 }
 
 .calendar-day-header {
@@ -232,7 +240,8 @@ img#img-header {
 	text-align: center;
 	font-weight: bold;
 	font-size: 0.9em;
-	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno), 0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
+	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno),
+		0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
 }
 
 .calendar-day {
@@ -263,7 +272,8 @@ img#img-header {
 	cursor: pointer;
 	font-weight: bold;
 	border: 1px solid var(--cor-main);
-	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno), 0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
+	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno),
+		0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
 }
 
 .calendar-day.has-dream:hover {
@@ -300,7 +310,8 @@ img#img-header {
 	max-height: 80vh;
 	overflow-y: auto;
 	position: relative;
-	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno), 0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
+	text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno),
+		0 1px var(--cor-contorno), -1px 0 var(--cor-contorno);
 	margin: 0;
 }
 

@@ -2,10 +2,13 @@
 	margin: 0 auto;
 	max-width: 100%;
 	height: auto;
-	border-radius: 5px;
 	pointer-events: none;
 	user-select: none;
 	margin-top: -96px;
+}
+
+body.rounded .img-main {
+	border-radius: 5px;
 }
 
 .icone {
@@ -15,10 +18,13 @@
 
 .caixinha {
 	border: 1px solid var(--clr-gray-a0);
-	border-radius: 5px;
 	padding: 10px 16px;
 	margin-bottom: 14px;
 	overflow: hidden;
+}
+
+body.rounded .caixinha {
+	border-radius: 5px;
 }
 
 div#conteudo div#col-centro .caixinha h1:first-of-type {
@@ -55,9 +61,12 @@ div#conteudo div#col-centro .caixinha h1:first-of-type {
 	padding: 14px 18px;
 
 	border: 1px solid var(--clr-gray-a0);
-	border-radius: 50px;
 
 	transition: all 0.25s ease;
+}
+
+body.rounded .sobre-links a {
+	border-radius: 50px;
 }
 
 .sobre-links a:link,
@@ -180,12 +189,15 @@ summary {
 
 .skill-bar {
 	background: var(--clr-gray-a0);
-	border-radius: 0 5px 0 5px;
 	height: auto;
 	width: 100%;
 	margin-top: 6px;
 	margin-bottom: 14px;
 	overflow: hidden;
+}
+
+body.rounded .skill-bar {
+	border-radius: 0 5px 0 5px;
 }
 
 .skill-bar-fill {
@@ -194,12 +206,6 @@ summary {
 	transition: width 0.6s;
 	padding: 3px 10px;
 }
-
-/* #contato-info {
-  border: 1px solid var(--clr-gray-a0);
-  padding: 10px 16px;
-  border-radius: 5px;
-} */
 
 @media (max-width: 1024px) {
 	.quadrado {

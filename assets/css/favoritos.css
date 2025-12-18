@@ -28,9 +28,12 @@
 .grid img {
 	image-rendering: pixelated;
 	outline: 1px solid var(--clr-gray-a0);
-	border-radius: 3px;
 	transition: box-shadow 0.3s ease;
 	transform-style: preserve-3d;
+}
+
+body.rounded .grid img {
+	border-radius: 3px;
 }
 
 .grid img:hover {
@@ -63,9 +66,12 @@
 
 .grid .placeholder {
 	background: var(--clr-black-a10);
-	border-radius: 3px;
 	outline: 1px solid var(--clr-gray-a0);
 	display: block;
+}
+
+body.rounded .grid .placeholder {
+	border-radius: 3px;
 }
 
 /* .grid.jogos {

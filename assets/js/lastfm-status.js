@@ -55,10 +55,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       div#lastfm-status a img {
         width: 48px;
         height: auto;
-        border-radius: 4px;
         border: 1px solid var(--clr-gray-a20);
         object-fit: cover;
         image-rendering: auto;
+      }
+
+      body.rounded div#lastfm-status a img {
+        border-radius: 4px;
       }
 
       div#lastfm-status a:hover img {
@@ -222,7 +225,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 		// avoid globals). We rotate through small/mid/large permutations.
 		try {
 			const ouvElem = statusDiv.querySelector(".lastfm-ouvindo");
-			const barStrings = ["▁▂▃", "▂▃▁", "▃▁▂", "▂▁▃", "▂▇▃", "▃▇▁", "▇▁▂", "▂▁▇", "▁▇▂", "▃▂▇"];
+			const barStrings = [
+				"▁▂▃",
+				"▂▃▁",
+				"▃▁▂",
+				"▂▁▃",
+				"▂▇▃",
+				"▃▇▁",
+				"▇▁▂",
+				"▂▁▇",
+				"▁▇▂",
+				"▃▂▇",
+			];
 			// const barStrings = ["▁▂▃", "▂▇▃", "▃▇▁", "▇▁▂", "▂▁▇"];
 
 			if (ouvElem) {

@@ -76,21 +76,27 @@
 	flex: 1.7;
 	text-align: center;
 }
+
 #avatar-container {
 	display: flex;
 	justify-content: center; /* centraliza horizontal */
 	margin-bottom: 12px;
 }
+
 #avatar-container #avatar {
 	width: 120px;
 	height: 120px;
 	flex: 0 0 120px; /* não encolhe nem cresce */
-	border-radius: 8px;
 	background-size: cover;
 	background-position: center;
 	margin: 0;
 	padding: 0;
 }
+
+body.rounded #avatar-container #avatar {
+	border-radius: 8px;
+}
+
 #avatar-info {
 	display: flex;
 	flex-direction: column;
@@ -106,6 +112,7 @@ span.nome {
   padding: 4px 14px;
   margin-bottom: 8px; */
 }
+
 div.subtitulo {
 	margin-bottom: 8px;
 }
@@ -203,8 +210,11 @@ div.box.sobre div.box-inner p {
 	width: auto;
 	object-fit: contain;
 	border: 1px solid var(--clr-gray-a0);
-	border-radius: 4px;
 	image-rendering: auto;
+}
+
+body.rounded .marquee-track img {
+	border-radius: 4px;
 }
 
 @keyframes scroll-left {

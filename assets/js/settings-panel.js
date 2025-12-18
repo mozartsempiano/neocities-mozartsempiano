@@ -31,10 +31,13 @@ export function initSettingsPanel() {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--clr-black-a0); 
-      border: 1px solid var(--clr-gray-a0); 
-      border-radius: 6px;
+      background: var(--clr-black-a0);
+      border: 1px solid var(--clr-gray-a0);
       cursor: pointer;
+    }
+
+    body.rounded #settings-gear {
+      border-radius: 6px;
     }
 
     #settings-gear span svg {
@@ -58,7 +61,6 @@ export function initSettingsPanel() {
       background: var(--clr-black-a0);
       color: var(--clr-white);
       border: 1px solid var(--clr-gray-a0);
-      border-radius: 6px;
       padding: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       min-width: 120px;
@@ -69,6 +71,10 @@ export function initSettingsPanel() {
       gap: 4px;
     }
 
+    body.rounded #settings-box {
+      border-radius: 6px;
+    }
+
     #settings-box label.switch-placeholder {
       display: inline-flex;
       align-items: center;
@@ -77,9 +83,12 @@ export function initSettingsPanel() {
       background: var(--clr-black-a0);
       color: var(--clr-white);
       padding: 4px 8px;
-      border-radius: 4px;
       width: 100%;
       box-sizing: border-box;
+    }
+
+    body.rounded #settings-box label.switch-placeholder {
+      border-radius: 4px;
     }
 
     #settings-box label.switch-placeholder .switch-label {
@@ -117,7 +126,9 @@ export function initSettingsPanel() {
 	themeContainer.innerHTML = `<input type="checkbox" id="panel-theme-toggle"><span class="slider"></span><span class="switch-label">Light</span>`;
 	const festiveContainer = document.getElementById("festive-switch-container");
 	festiveContainer.innerHTML = `<input type="checkbox" id="panel-festive-toggle"><span class="slider"></span><span class="switch-label">Visuais festivos</span>`;
-	const nsfwBlurContainer = document.getElementById("nsfw-blur-switch-container");
+	const nsfwBlurContainer = document.getElementById(
+		"nsfw-blur-switch-container"
+	);
 	nsfwBlurContainer.innerHTML = `<input type="checkbox" id="panel-nsfw-blur-toggle"><span class="slider"></span><span class="switch-label">Blur NSFW</span>`;
 
 	const crtCheckbox = document.getElementById("panel-crt-toggle");

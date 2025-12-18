@@ -197,11 +197,13 @@
  * Scroll Text Horizontal
  * ---------------------------------------------- */
 
+body.rounded .scroll-container.neon {
+	border-radius: 5px;
+}
 .scroll-container.neon {
 	overflow: hidden;
 	background-color: rgba(6, 0, 21, 0.7);
 	border: 1px solid #743350;
-	border-radius: 5px;
 	padding: 5px 0;
 	font-family: "Redaction50", serif;
 	margin-top: 12px;

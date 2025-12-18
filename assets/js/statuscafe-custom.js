@@ -175,12 +175,16 @@
   width: ${avatarPx};
   height: ${avatarPx};
   aspect-ratio: 1 / 1;
-  border-radius: 8px;
   flex: 0 0 auto
   background: #ddd;
   outline: 1px solid var(--clr-gray-a20);
   overflow: unset;
 }
+
+body.rounded #statuscafe .statuscafe-avatar {
+  border-radius: 8px;
+}
+
 #statuscafe .statuscafe-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 
 #statuscafe .statuscafe-main { flex: 1 1 auto; }
