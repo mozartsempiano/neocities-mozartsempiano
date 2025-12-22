@@ -98,8 +98,8 @@
 
 /* Tema claro */
 :root[data-theme="light"] {
-  --clr-black-a0: #edecee;
-  --clr-black-a10: #f4f3f6;
+  --clr-black-a0: #f5f6fa;
+  --clr-black-a10: #fff;
 
   --clr-gray-a0: #dddddb;
   --clr-gray-a10: #cfcfd2;
