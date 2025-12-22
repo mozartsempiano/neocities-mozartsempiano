@@ -466,44 +466,6 @@ a.leia-mais:hover {
   color: var(--clr-main-a30);
 }
 
-/* ÍCONES */
-
-/* Envelope */
-.icone.envelope {
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm640-480L501-453q-5 3-10.5 4.5T480-447q-5 0-10.5-1.5T459-453L160-640v400h640v-400ZM480-520l320-200H160l320 200ZM160-640v10-59 1-32 32-.5 58.5-10 400-400Z"/></svg>');
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm640-480L501-453q-5 3-10.5 4.5T480-447q-5 0-10.5-1.5T459-453L160-640v400h640v-400ZM480-520l320-200H160l320 200ZM160-640v10-59 1-32 32-.5 58.5-10 400-400Z"/></svg>');
-}
-
-/* Behance */
-.icone.behance {
-  -webkit-mask-image: url("/assets/img/icones/behance-logo.svg");
-  mask-image: url("/assets/img/icones/behance-logo.svg");
-}
-
-/* GitHub */
-.icone.github {
-  -webkit-mask-image: url("/assets/img/icones/github-logo.svg");
-  mask-image: url("/assets/img/icones/github-logo.svg");
-}
-
-/* Instagram */
-.icone.instagram {
-  -webkit-mask-image: url("/assets/img/icones/instagram-logo.svg");
-  mask-image: url("/assets/img/icones/instagram-logo.svg");
-}
-
-/* Twitter */
-.icone.twitter {
-  -webkit-mask-image: url("/assets/img/icones/twitter-logo.svg");
-  mask-image: url("/assets/img/icones/twitter-logo.svg");
-}
-
-/* Bluesky */
-.icone.bluesky {
-  -webkit-mask-image: url("/assets/img/icones/bluesky-logo.svg");
-  mask-image: url("/assets/img/icones/bluesky-logo.svg");
-}
-
 #ascii-art-container {
   animation: flickerAnim 1s normal forwards ease-in-out;
 }
@@ -621,5 +583,13 @@ a.leia-mais:hover {
   }
   .arte-marquee {
     height: 200px; /* limita no mobile */
+  }
+
+  .box:has(h1) .box-inner {
+    border-width: 0 0px 1px 0px;
+  }
+
+  .box:not(:has(h1)) .box-inner {
+    border-width: 1px 0px 1px 0px;
   }
 }
