@@ -1,20 +1,20 @@
 export function carregarNavbar() {
-	const headerHome = document.getElementById("header-expandida");
-	const headerCompacta = document.getElementById("header-compacta");
-	const headerMobile = document.getElementById("header-mobile");
+  const headerHome = document.getElementById("header-expandida");
+  const headerCompacta = document.getElementById("header-compacta");
+  const headerMobile = document.getElementById("header-mobile");
 
-	const links = {
-		sobre: { label: "Sobre", href: "/sobre.html" },
-		portfolio: {
-			label: "Portfólio",
-			href: "/portfolio/index.html",
-			children: [
-				{ label: "Design", href: "/portfolio/design/index.html" },
-				{ label: "Arte", href: "/portfolio/arte/index.html" },
-				{ label: "Fotografia", href: "/portfolio/fotografia/index.html" },
-			],
-		},
-		/*projetos: {
+  const links = {
+    sobre: { label: "Sobre", href: "/sobre.html" },
+    portfolio: {
+      label: "Portfólio",
+      href: "/portfolio/index.html",
+      children: [
+        { label: "Design", href: "/portfolio/design/index.html" },
+        { label: "Arte", href: "/portfolio/arte/index.html" },
+        { label: "Fotografia", href: "/portfolio/fotografia/index.html" },
+      ],
+    },
+    /*projetos: {
 			label: "Projetos",
 			children: [
 				{ label: "AkatsukiGames", href: "/akatsukigames.html" },
@@ -22,59 +22,59 @@ export function carregarNavbar() {
 				{ label: "mplace", href: "/mplace/index.html" },
 			],
 		},*/
-		outros: {
-			label: "Outros",
-			children: [
-				{ label: "Pensamentos", href: "/pensamentos/index.html" },
-				{ label: "Sonhos", href: "/sonhos.html" },
-				{ label: "Inventário", href: "/inventario.html" },
-				{ label: "Links", href: "/links.html" },
-			],
-		},
-		doar: { label: "Doar", href: "/doar.html" },
-	};
+    outros: {
+      label: "Outros",
+      children: [
+        { label: "Pensamentos", href: "/pensamentos/index.html" },
+        { label: "Sonhos", href: "/sonhos.html" },
+        { label: "Inventário", href: "/inventario.html" },
+        { label: "Links", href: "/links.html" },
+      ],
+    },
+    doar: { label: "Doar", href: "/doar.html" },
+  };
 
-	function gerarNavbarLinks(obj) {
-		return Object.values(obj)
-			.map((item) => {
-				const isDoar = item.href === "/doar.html";
-				const linkClass = isDoar ? "btn-doar" : "";
-				if (item.children && item.children.length) {
-					const childrenHTML = item.children.map((c) => `<a href="${c.href}">${c.label}</a>`).join("");
-					return `
+  function gerarNavbarLinks(obj) {
+    return Object.values(obj)
+      .map((item) => {
+        const isDoar = item.href === "/doar.html";
+        const linkClass = isDoar ? "btn-doar" : "";
+        if (item.children && item.children.length) {
+          const childrenHTML = item.children.map((c) => `<a href="${c.href}">${c.label}</a>`).join("");
+          return `
           <div class="dropdown">
             <a href="${item.href || "#"}" class="${linkClass} dropbtn">${item.label}</a>
             <div class="dropdown-content">${childrenHTML}</div>
           </div>
         `;
-				} else {
-					return `<div><a href="${item.href}" class="${linkClass}">${item.label}</a></div>`;
-				}
-			})
-			.join("");
-	}
+        } else {
+          return `<div><a href="${item.href}" class="${linkClass}">${item.label}</a></div>`;
+        }
+      })
+      .join("");
+  }
 
-	function gerarNavbarMobile(obj) {
-		return Object.values(obj)
-			.map((item) => {
-				const isDoar = item.href === "/doar.html";
-				const itemClass = isDoar ? "btn-doar" : "";
-				if (item.children && item.children.length) {
-					const childrenHTML = item.children.map((c) => `<li><a href="${c.href}">${c.label}</a></li>`).join("");
-					if (item.href) {
-						return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li><ul>${childrenHTML}</ul>`;
-					} else {
-						return `<li class="nopage">${item.label}</li><ul>${childrenHTML}</ul>`;
-					}
-				} else {
-					return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li>`;
-				}
-			})
-			.join("");
-	}
+  function gerarNavbarMobile(obj) {
+    return Object.values(obj)
+      .map((item) => {
+        const isDoar = item.href === "/doar.html";
+        const itemClass = isDoar ? "btn-doar" : "";
+        if (item.children && item.children.length) {
+          const childrenHTML = item.children.map((c) => `<li><a href="${c.href}">${c.label}</a></li>`).join("");
+          if (item.href) {
+            return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li><ul>${childrenHTML}</ul>`;
+          } else {
+            return `<li class="nopage">${item.label}</li><ul>${childrenHTML}</ul>`;
+          }
+        } else {
+          return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li>`;
+        }
+      })
+      .join("");
+  }
 
-	if (headerHome) {
-		const asciiArt = `                       
+  if (headerHome) {
+    const asciiArt = `                       
                                                                   mm                  
                                                                   MM                  
             \`7MMpMMMb.pMMMb.  ,pW"Wq.  M"""MMV  ,6"Yb.  \`7Mb,od8 mmMMmm                
@@ -95,15 +95,15 @@ M9mmmP'  \`Mbmmd'.JMML  JMML  JMML. MMbmmd' .JMML.\`Moo9^Yo..JMML  JMML.\`Ybmd9'
                                  .JMML.                                        
 `;
 
-		headerHome.innerHTML = `
+    headerHome.innerHTML = `
         <div id="ascii-art-container"><pre><a href="/index.html">${asciiArt}</a></pre></div>
         <h1 id="simple-title"><a href="/home.html">mozartsempiano</a></h1>
         <div id="navbar-compacta">${gerarNavbarLinks(links)}</div>
     `;
-	}
+  }
 
-	if (headerCompacta) {
-		headerCompacta.innerHTML = `
+  if (headerCompacta) {
+    headerCompacta.innerHTML = `
       <div class="wrap">
         <div id="header-titulo-compacto">
           <a href="/home.html">mozartsempiano</a>
@@ -111,13 +111,15 @@ M9mmmP'  \`Mbmmd'.JMML  JMML  JMML. MMbmmd' .JMML.\`Moo9^Yo..JMML  JMML.\`Ybmd9'
         <div id="navbar-compacta">${gerarNavbarLinks(links)}</div>
       </div>
     `;
-	}
+  }
 
-	if (headerMobile) {
-		headerMobile.innerHTML = `
+  if (headerMobile) {
+    headerMobile.innerHTML = `
         <div id="title-mobile">
           <a href="/home.html"><span id="site-title">mozartsempiano</span></a>
-          <button id="menu-btn" aria-label="Abrir menu">&#9776;</button>
+          <button id="menu-btn" aria-label="Abrir menu">
+		  	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M121.87-236.28v-86h716.26v86H121.87Zm0-201.22v-86h716.26v86H121.87Zm0-201.22v-86h716.26v86H121.87Z"/></svg>
+		  </button>
         </div>
         <div id="side-menu-overlay"></div>
         <nav id="side-menu">
@@ -125,5 +127,5 @@ M9mmmP'  \`Mbmmd'.JMML  JMML  JMML. MMbmmd' .JMML.\`Moo9^Yo..JMML  JMML.\`Ybmd9'
           <ul>${gerarNavbarMobile(links)}</ul>
         </nav>
     `;
-	}
+  }
 }
