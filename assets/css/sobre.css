@@ -58,7 +58,7 @@ div#conteudo div#col-centro .caixinha h1:first-of-type {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 14px 18px;
+  padding: 0.8em 1.2em;
 
   border: 1px solid var(--clr-gray-a0);
   border-radius: 50px;
