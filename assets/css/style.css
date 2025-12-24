@@ -1162,7 +1162,8 @@ body.rounded .filter-gallery-item img {
 .filter-gallery-tag {
   background: var(--clr-gray-a10);
   color: var(--clr-white);
-  padding: 4px 7px;
+  border: 1px solid var(--clr-gray-a20);
+  padding: 0.25em 0.75em;
   font-size: 0.9em;
   cursor: pointer;
   transition: background 0.25s, color 0.25s;
@@ -2433,12 +2434,13 @@ ul {
 /* top-level list items: adjust left padding and draw custom marker */
 ul > li {
   position: relative;
-  padding-left: 1em; /* space for the marker, tweak as needed */
+  padding-left: 1em;
   padding-bottom: 0.25em;
 }
 
-/* the custom bullet */
-ul:not(#side-menu ul) > li::before {
+/* custom bullet */
+/* Custom bullet for ul > li, except inside .sitemap or #side-menu */
+ul > li::before {
   --svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M506-480 325-661l52-53 234 234-234 234-52-53 181-181Z"/></svg>');
   content: "";
   display: inline-block;
@@ -2460,7 +2462,13 @@ ul:not(#side-menu ul) > li::before {
   left: 0;
   top: 0.2em;
   /* line-height: 1;
-	transform: translateY(4px); */
+  transform: translateY(4px); */
+}
+
+/* Remove custom bullet for lists inside .sitemap or #side-menu */
+.sitemap ul > li::before,
+#side-menu ul > li::before {
+  content: none;
 }
 
 /* Disable the above customisation for lists inside div.sitemap */
