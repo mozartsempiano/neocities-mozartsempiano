@@ -322,6 +322,7 @@ a:active img {
 a:hover:not(:has(img)) {
   color: var(--clr-black-a0);
   background-color: var(--clr-main-a40);
+  /* animation: glow 1s ease-in-out infinite alternate; */
 }
 
 a:hover img {
@@ -1805,7 +1806,8 @@ body.rounded #modal-thumbs .modal-thumb {
 
 .post-conteudo img,
 .post-conteudo .iframe-container iframe {
-  border: 1px solid var(--clr-gray-a0);
+  border: 1px solid var(--clr-gray-a30);
+  /* filter: drop-shadow(-5px 5px 0px #0008); */
 }
 
 body.rounded .post-conteudo img,

@@ -1,5 +1,28 @@
 [
   {
+    "date": "2025-12-26",
+    "items": [
+      "remoção (temporária?) do guestbook e alterações na <a href=\"/home.html\">home</a>",
+      "página atualizações adicionada de volta como <a href=\"/changelog.html\">changelog</a>",
+      "maior uniformização do layout e diversos ícones alterados",
+      "mais <a href=\"/sonhos.html\">sonhos</a> adicionados"
+    ]
+  },
+  {
+    "date": "2025-12-17",
+    "items": [
+      "alterações na <a href=\"/2kki.html\">2kki</a>, com maior uniformização no layout, ícones alterados e animações adicionadas"
+    ]
+  },
+  {
+    "date": "2025-12-14",
+    "items": [
+      "as imagens nas <a href=\"/anotacoes.html\">anotações</a> agora têm efeito de dither aplicado automaticamente, e mais anotações adicionadas",
+      "mais <a href=\"/sonhos.html\">sonhos</a> adicionados",
+      "alterações na <a href=\"/sobre.html\">sobre</a>"
+    ]
+  },
+  {
     "date": "2025-11-23",
     "items": [
       "sistema de tags e busca implementados e notificação de copiar corrigida na página <a href=\"/anotacoes.html\">anotações</a>",
