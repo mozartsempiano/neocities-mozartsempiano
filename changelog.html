@@ -26,19 +26,19 @@
     <!-- Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- jQuery library -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Latest compiled JavaScript -->
 
     <style>
       #updates-container strong {
         display: block;
         font-size: 1em;
         font-weight: lighter;
-        text-align: center;
-        margin-top: 1.5em;
+        text-align: left;
         margin-bottom: 1em;
-        border-bottom: 1px solid var(--clr-gray-a30);
-        padding-bottom: 5px;
+        margin-top: 1em;
+      }
+      #updates-container strong:not(:first-child) {
+        border-top: 1px solid var(--clr-gray-a10);
+        padding-top: 1em;
       }
 
       #updates-container ul {

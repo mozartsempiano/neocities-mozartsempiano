@@ -1,332 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<!-- Dados -->
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!--<meta http-equiv="Cache-Control" content="no-cache">-->
-		<meta name="author" content="Mozart Mattar" />
+  <head>
+    <!-- Dados -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
+    <meta name="author" content="Mozart Mattar" />
 
-		<title>mozartsempiano</title>
-		<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+    <title>mozartsempiano</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-		<!-- Icon library -->
-		<link rel="stylesheet" href="/assets/css/style.css" />
-		<link rel="stylesheet" href="/assets/css/gallery-filter.css" />
-		<!-- Custom CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Icon library -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/gallery-filter.css" />
+    <!-- Custom CSS -->
 
-		<!-- Fontes Externas -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <!-- Fontes Externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
 
-		<!-- Script -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<!-- jQuery library -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<!-- Latest compiled JavaScript -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	</head>
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jQuery library -->
 
-	<body>
-		<div id="container">
-			<div id="header-compacta"></div>
-			<div id="header-mobile"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
 
-			<div id="conteudo">
-				<div id="nav-atual">
-					<a href="/home.html">home</a> > <a href="/portfolio/index.html">portfolio</a> >
-					<span class="animate-flicker">design</span>
-				</div>
-				<div id="col-centro">
-					<h1>Design</h1>
+  <body>
+    <div id="container">
+      <div id="header-compacta"></div>
+      <div id="header-mobile"></div>
 
-					<div id="filter-gallery-filtros"></div>
-					<div id="filter-gallery-galeria"></div>
+      <div id="conteudo">
+        <div id="nav-atual">
+          <a href="/home.html">home</a> > <a href="/portfolio/index.html">portfolio</a> >
+          <span class="animate-flicker">design</span>
+        </div>
+        <div id="col-centro">
+          <h1>Design</h1>
 
-					<div class="modal" id="modal">
-						<div id="modal-content">
-							<div id="modal-media"></div>
-							<div id="modal-sidebar">
-								<div id="modal-info">
-									<div id="modal-title" class="modal-title"></div>
-									<div id="modal-desc" class="modal-desc"></div>
-								</div>
-								<div id="modal-thumbs" class="modal-thumbs"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+          <div id="filter-gallery-filtros"></div>
+          <div id="filter-gallery-galeria"></div>
 
-		<footer></footer>
+          <div class="modal" id="modal">
+            <div id="modal-content">
+              <div id="modal-media"></div>
+              <div id="modal-sidebar">
+                <div id="modal-info">
+                  <div id="modal-title" class="modal-title"></div>
+                  <div id="modal-desc" class="modal-desc"></div>
+                </div>
+                <div id="modal-thumbs" class="modal-thumbs"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<script type="module" src="/assets/js/main.js"></script>
-		<script src="/assets/js/gallery-filter.js"></script>
-		<script>
-			const meusDesigns = [
-				{
-					title: "Reviver",
-					year: 2023,
-					type: "",
-					client: "",
-					desc: "",
-					programs: ["photoshop"],
-					tags: ["logo"],
-					medias: [{ type: "image", src: "/assets/img/designs/Reviver (2023).jpg" }],
-				},
-				{
-					title: "Faded",
-					year: 2023,
-					type: "Pôster",
-					client: "",
-					desc: "",
-					programs: ["photoshop"],
-					tags: ["cartaz/pôster"],
-					medias: [{ type: "image", src: "/assets/img/designs/Faded (2023).jpg" }],
-				},
-				{
-					title: "1208",
-					year: 2018,
-					type: "Concept de capa",
-					client: "",
-					desc: "",
-					programs: ["photoshop"],
-					tags: ["capa"],
-					medias: [{ type: "image", src: "/assets/img/designs/1208 (2018).jpg" }],
-				},
-				{
-					title: "Block By Block West",
-					year: 2020,
-					type: "Concept de capa alternativa",
-					client: "",
-					desc: "Oliver Francis",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "oliver francis"],
-					medias: [{ type: "image", src: "/assets/img/designs/Oliver - Block By Block West (2020).jpg" }],
-				},
-				{
-					title: "Art Angels",
-					year: 2020,
-					type: "Concept de capa alternativa",
-					client: "",
-					desc: "Grimes",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "logo", "grimes"],
-					medias: [{ type: "image", src: "/assets/img/designs/Grimes - Art Angels (2020).jpg" }],
-				},
-				{
-					title: "Boston Shows",
-					year: 2018,
-					type: "Cartazes",
-					client: "Underground Underdogs",
-					desc: "Em 2018, a Underground Underdogs organizou dois shows distintos para a cena underground de rap e hip-hop, ambos realizados em Boston, Massachusetts. Um aconteceu em 29 de agosto e o outro em 19 de dezembro de 2018. Tive a honra de criar os cartazes para esses eventos. <br><br>Os concertos contaram com uma programação de vários artistas underground conhecidos na cena do rap e hip-hop, incluindo Cold Hart, Horse Head, Lil Lotus, Guccihighwaters e muitos outros.",
-					programs: ["illustrator", "photoshop"],
-					tags: ["música", "cartaz/pôster", "underground underdogs"],
-					medias: [
-						{ type: "image", src: "/assets/img/designs/UU Poster Shows (2018).jpg" },
-						{ type: "image", src: "/assets/img/designs/UU - August 29, 2018 Boston Show (2018).jpg" },
-						{ type: "image", src: "/assets/img/designs/UU - December 19, 2018 Boston Show (2018).jpg" },
-					],
-				},
-				{
-					title: "Hi, How Are You",
-					year: 2020,
-					type: "Concept de capa alternativa",
-					client: "Daniel Johnston",
-					desc: "Uma releitura da capa do álbum “Hi, How Are You”, de Daniel Johnston, imaginando como seria se fosse lançada hoje, com uma abordagem mais moderna. Apesar de transmitir uma sensação completamente distinta da original, achei um experimento interessante.",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "daniel johnston"],
-					medias: [{ type: "image", src: "/assets/img/designs/Daniel Johnston - Hi How Are You (2020).jpg" }],
-				},
-				{
-					title: "In My Head",
-					year: 2020,
-					type: "Capa de single",
-					client: "H3lthy",
-					desc: "",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "h3lthy"],
-					medias: [{ type: "image", src: "/assets/img/designs/h3lthy & naive - In My Head (2020).jpg" }],
-				},
-				{
-					title: "Phonesex & Booty Call",
-					year: 2024,
-					type: "Concept de capa alternativa",
-					client: "",
-					desc: "Em 2020, criei uma capa alternativa para a música “Phonesex”, do rapper brasileiro Yung Lixo, com participação de Yumaru. Em 2024, também criei uma capa para “Booty Call”, a sequência da música anterior, lançada dois anos depois. As duas músicas se complementam musicalmente, então meu objetivo foi criar um complemento visual também.",
-					programs: ["illustrator", "photoshop"],
-					tags: ["música", "capa", "logo", "yung lixo"],
-					medias: [
-						{ type: "image", src: "/assets/img/designs/Phonesex/Yung Lixo - Phonesex (2020).jpg" },
-						{ type: "image", src: "/assets/img/designs/Phonesex/Yung Lixo - Booty Call (2024).jpg" },
-						{ type: "image", src: "/assets/img/designs/Phonesex/3.jpg" },
-						{ type: "image", src: "/assets/img/designs/Phonesex/4.jpg" },
-						{ type: "image", src: "/assets/img/designs/Phonesex/5.jpg" },
-					],
-				},
-				{
-					title: "SUICIDESESH",
-					year: 2018,
-					type: "Concept de capa",
-					client: "",
-					desc: "Concept de capa para um álbum colaborativo entre os artistas $UICIDEBOY$ e Bones.",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "logo", "suicideboys", "bones"],
-					medias: [{ type: "image", src: "/assets/img/designs/SUICIDESESH (2018).jpg" }],
-				},
-				{
-					title: "Makes Sense You Hung Up",
-					year: 2020,
-					type: "Capa de single",
-					client: "Naïve",
-					desc: "",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "naïve"],
-					medias: [{ type: "image", src: "/assets/img/designs/Naïve - Makes Sense You Hung Up (2020).jpg" }],
-				},
-				{
-					title: "24hrs Sem Dormir",
-					year: 2019,
-					type: "Concept de capa alternativa",
-					client: "",
-					desc: "MC Igu",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "mc igu"],
-					medias: [{ type: "image", src: "/assets/img/designs/Mc Igu - 24hrs Sem Dormir (2019).jpg" }],
-				},
-				{
-					title: "Scrape",
-					year: 2018,
-					type: "Concept de capa alternativa",
-					client: "",
-					desc: "$UICIDEBOY$",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "suicideboys"],
-					medias: [{ type: "image", src: "/assets/img/designs/$UICIDEBOY$ - Scrape (2018).jpg" }],
-				},
-				{
-					title: "Fake",
-					year: 2020,
-					type: "Capa de single",
-					client: "H3lthy",
-					desc: "",
-					programs: ["photoshop"],
-					tags: ["música", "capa", "h3lthy"],
-					medias: [{ type: "image", src: "/assets/img/designs/h3lthy - fake (2020).jpg" }],
-				},
-				{
-					title: "Underground Underdogs",
-					year: 2018,
-					type: "Concepts de camisetas",
-					client: "Underground Underdogs",
-					desc: "",
-					programs: ["illustrator", "photoshop"],
-					tags: ["moda", "underground underdogs"],
-					medias: [{ type: "image", src: "/assets/img/designs/moda/UU Merch (2018).jpg" }],
-				},
-				{
-					title: "Camisetas esportivas",
-					year: 2024,
-					type: "Moda",
-					client: "",
-					desc: "Trabalhos selecionados",
-					programs: ["illustrator", "photoshop"],
-					tags: ["moda"],
-					medias: [{ type: "image", src: "/assets/img/designs/moda/Selected-Works-Moda-2.jpg" }],
-				},
-				{
-					title: "Zelar Decor",
-					year: 2021,
-					type: "Logo",
-					client: "Zelar Decor",
-					desc: "",
-					programs: ["illustrator"],
-					tags: ["marca", "logo", "zelar decor"],
-					medias: [{ type: "image", src: "/assets/img/designs/marcas/Zelar Decor Logo Fundo.jpg" }],
-				},
-				{
-					title: "Doce Sussi",
-					year: 2023,
-					type: "Logo e embalagem",
-					client: "Doce Sussi",
-					desc: "",
-					programs: ["illustrator", "photoshop"],
-					tags: ["marca", "logo", "embalagem", "doce sussi"],
-					medias: [
-						{ type: "image", src: "/assets/img/designs/marcas/Doce Sussi Caixa.jpg" },
-						{ type: "image", src: "/assets/img/designs/marcas/Doce Sussi Logo Fundo.jpg" },
-					],
-				},
-				{
-					title: "Bombodoom",
-					year: 2022,
-					type: "Concept de Logo",
-					client: "",
-					desc: "Para uma empresa fictícia de bombons.",
-					programs: ["illustrator"],
-					tags: ["marca", "logo"],
-					medias: [{ type: "image", src: "/assets/img/designs/marcas/Bombodoom Logo Fundo.jpg" }],
-				},
-				{
-					title: "Blissom",
-					year: 2022,
-					type: "Concept de Logo",
-					client: "",
-					desc: "",
-					programs: ["illustrator"],
-					tags: ["marca", "logo"],
-					medias: [{ type: "image", src: "/assets/img/designs/marcas/Blissom Logo Fundo.jpg" }],
-				},
-				{
-					title: "Reviver",
-					year: 2022,
-					type: "Concept de Logo",
-					client: "",
-					desc: "",
-					programs: ["illustrator"],
-					tags: ["marca", "logo"],
-					medias: [{ type: "image", src: "/assets/img/designs/marcas/Reviver Logo Fundo.jpg" }],
-				},
-				{
-					title: "Fucking Life",
-					year: 2025,
-					type: "Audiovisual",
-					client: "",
-					desc: 'Montagem para o lançamento da música "Fucking Life" da banda Império Contra-Ataca!, com visuais do anime FLCL.',
-					programs: ["premiere"],
-					tags: ["audiovisual"],
-					medias: [
-						{ type: "image", src: "/assets/img/designs/thumbnails/Fucking Life (2025) Thumbnail.jpg", thumbOnly: true },
-						{ type: "video", src: "https://www.youtube.com/watch?v=rlGgEj5xSwI" },
-					],
-				},
-				{
-					title: "Bate-Papo Canino",
-					year: 2024,
-					type: "Animação",
-					client: "",
-					desc: "Animação híbrida realizada como Trabalho de Conclusão de Curso para a graduação em Design Gráfico na Universidade Estadual Paulista.",
-					programs: ["after effects", "premiere", "photoshop"],
-					tags: ["audiovisual"],
-					medias: [
-						{ type: "image", src: "/assets/img/designs/thumbnails/Bate-Papo Canino (2024) Thumbnail.jpg", thumbOnly: true },
-						{ type: "video", src: "https://www.youtube.com/watch?v=9th8NyV1w-g" },
-						{ type: "image", src: "/assets/img/designs/Bate-Papo Canino Concepts.jpg", caption: "Concept arts dos personagens" },
-					],
-				},
-			];
+    <footer></footer>
 
-			setupGalleryFilter({
-				items: meusDesigns,
-				filtrosId: "filter-gallery-filtros",
-				galeriaId: "filter-gallery-galeria",
-			});
-		</script>
-	</body>
+    <script type="module" src="/assets/js/main.js"></script>
+    <script src="/assets/js/gallery-filter.js"></script>
+    <script>
+      const meusDesigns = [
+        {
+          title: "Reviver",
+          year: 2023,
+          type: "",
+          client: "",
+          desc: "",
+          programs: ["photoshop"],
+          tags: ["logo"],
+          medias: [{ type: "image", src: "/assets/img/designs/Reviver (2023).jpg" }],
+        },
+        {
+          title: "Faded",
+          year: 2023,
+          type: "Pôster",
+          client: "",
+          desc: "",
+          programs: ["photoshop"],
+          tags: ["cartaz/pôster"],
+          medias: [{ type: "image", src: "/assets/img/designs/Faded (2023).jpg" }],
+        },
+        {
+          title: "1208",
+          year: 2018,
+          type: "Concept de capa",
+          client: "",
+          desc: "",
+          programs: ["photoshop"],
+          tags: ["capa"],
+          medias: [{ type: "image", src: "/assets/img/designs/1208 (2018).jpg" }],
+        },
+        {
+          title: "Block By Block West",
+          year: 2020,
+          type: "Concept de capa alternativa",
+          client: "",
+          desc: "Oliver Francis",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "oliver francis"],
+          medias: [{ type: "image", src: "/assets/img/designs/Oliver - Block By Block West (2020).jpg" }],
+        },
+        {
+          title: "Art Angels",
+          year: 2020,
+          type: "Concept de capa alternativa",
+          client: "",
+          desc: "Grimes",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "logo", "grimes"],
+          medias: [{ type: "image", src: "/assets/img/designs/Grimes - Art Angels (2020).jpg" }],
+        },
+        {
+          title: "Boston Shows",
+          year: 2018,
+          type: "Cartazes",
+          client: "Underground Underdogs",
+          desc: "Em 2018, a Underground Underdogs organizou dois shows distintos para a cena underground de rap e hip-hop, ambos realizados em Boston, Massachusetts. Um aconteceu em 29 de agosto e o outro em 19 de dezembro de 2018. Tive a honra de criar os cartazes para esses eventos. <br><br>Os concertos contaram com uma programação de vários artistas underground conhecidos na cena do rap e hip-hop, incluindo Cold Hart, Horse Head, Lil Lotus, Guccihighwaters e muitos outros.",
+          programs: ["illustrator", "photoshop"],
+          tags: ["música", "cartaz/pôster", "underground underdogs"],
+          medias: [
+            { type: "image", src: "/assets/img/designs/UU Poster Shows (2018).jpg" },
+            { type: "image", src: "/assets/img/designs/UU - August 29, 2018 Boston Show (2018).jpg" },
+            { type: "image", src: "/assets/img/designs/UU - December 19, 2018 Boston Show (2018).jpg" },
+          ],
+        },
+        {
+          title: "Hi, How Are You",
+          year: 2020,
+          type: "Concept de capa alternativa",
+          client: "Daniel Johnston",
+          desc: "Uma releitura da capa do álbum “Hi, How Are You”, de Daniel Johnston, imaginando como seria se fosse lançada hoje, com uma abordagem mais moderna. Apesar de transmitir uma sensação completamente distinta da original, achei um experimento interessante.",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "daniel johnston"],
+          medias: [{ type: "image", src: "/assets/img/designs/Daniel Johnston - Hi How Are You (2020).jpg" }],
+        },
+        {
+          title: "In My Head",
+          year: 2020,
+          type: "Capa de single",
+          client: "H3lthy",
+          desc: "",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "h3lthy"],
+          medias: [{ type: "image", src: "/assets/img/designs/h3lthy & naive - In My Head (2020).jpg" }],
+        },
+        {
+          title: "Phonesex & Booty Call",
+          year: 2024,
+          type: "Concept de capa alternativa",
+          client: "",
+          desc: "Em 2020, criei uma capa alternativa para a música “Phonesex”, do rapper brasileiro Yung Lixo, com participação de Yumaru. Em 2024, também criei uma capa para “Booty Call”, a sequência da música anterior, lançada dois anos depois. As duas músicas se complementam musicalmente, então meu objetivo foi criar um complemento visual também.",
+          programs: ["illustrator", "photoshop"],
+          tags: ["música", "capa", "logo", "yung lixo"],
+          medias: [
+            { type: "image", src: "/assets/img/designs/Phonesex/Yung Lixo - Phonesex (2020).jpg" },
+            { type: "image", src: "/assets/img/designs/Phonesex/Yung Lixo - Booty Call (2024).jpg" },
+            { type: "image", src: "/assets/img/designs/Phonesex/3.jpg" },
+            { type: "image", src: "/assets/img/designs/Phonesex/4.jpg" },
+            { type: "image", src: "/assets/img/designs/Phonesex/5.jpg" },
+          ],
+        },
+        {
+          title: "SUICIDESESH",
+          year: 2018,
+          type: "Concept de capa",
+          client: "",
+          desc: "Concept de capa para um álbum colaborativo entre os artistas $UICIDEBOY$ e Bones.",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "logo", "suicideboys", "bones"],
+          medias: [{ type: "image", src: "/assets/img/designs/SUICIDESESH (2018).jpg" }],
+        },
+        {
+          title: "Makes Sense You Hung Up",
+          year: 2020,
+          type: "Capa de single",
+          client: "Naïve",
+          desc: "",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "naïve"],
+          medias: [{ type: "image", src: "/assets/img/designs/Naïve - Makes Sense You Hung Up (2020).jpg" }],
+        },
+        {
+          title: "24hrs Sem Dormir",
+          year: 2019,
+          type: "Concept de capa alternativa",
+          client: "",
+          desc: "MC Igu",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "mc igu"],
+          medias: [{ type: "image", src: "/assets/img/designs/Mc Igu - 24hrs Sem Dormir (2019).jpg" }],
+        },
+        {
+          title: "Scrape",
+          year: 2018,
+          type: "Concept de capa alternativa",
+          client: "",
+          desc: "$UICIDEBOY$",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "suicideboys"],
+          medias: [{ type: "image", src: "/assets/img/designs/$UICIDEBOY$ - Scrape (2018).jpg" }],
+        },
+        {
+          title: "Fake",
+          year: 2020,
+          type: "Capa de single",
+          client: "H3lthy",
+          desc: "",
+          programs: ["photoshop"],
+          tags: ["música", "capa", "h3lthy"],
+          medias: [{ type: "image", src: "/assets/img/designs/h3lthy - fake (2020).jpg" }],
+        },
+        {
+          title: "Underground Underdogs",
+          year: 2018,
+          type: "Concepts de camisetas",
+          client: "Underground Underdogs",
+          desc: "",
+          programs: ["illustrator", "photoshop"],
+          tags: ["moda", "underground underdogs"],
+          medias: [{ type: "image", src: "/assets/img/designs/moda/UU Merch (2018).jpg" }],
+        },
+        {
+          title: "Camisetas esportivas",
+          year: 2024,
+          type: "Moda",
+          client: "",
+          desc: "Trabalhos selecionados",
+          programs: ["illustrator", "photoshop"],
+          tags: ["moda"],
+          medias: [{ type: "image", src: "/assets/img/designs/moda/Selected-Works-Moda-2.jpg" }],
+        },
+        {
+          title: "Zelar Decor",
+          year: 2021,
+          type: "Logo",
+          client: "Zelar Decor",
+          desc: "",
+          programs: ["illustrator"],
+          tags: ["marca", "logo", "zelar decor"],
+          medias: [{ type: "image", src: "/assets/img/designs/marcas/Zelar Decor Logo Fundo.jpg" }],
+        },
+        {
+          title: "Doce Sussi",
+          year: 2023,
+          type: "Logo e embalagem",
+          client: "Doce Sussi",
+          desc: "",
+          programs: ["illustrator", "photoshop"],
+          tags: ["marca", "logo", "embalagem", "doce sussi"],
+          medias: [
+            { type: "image", src: "/assets/img/designs/marcas/Doce Sussi Caixa.jpg" },
+            { type: "image", src: "/assets/img/designs/marcas/Doce Sussi Logo Fundo.jpg" },
+          ],
+        },
+        {
+          title: "Bombodoom",
+          year: 2022,
+          type: "Concept de Logo",
+          client: "",
+          desc: "Para uma empresa fictícia de bombons.",
+          programs: ["illustrator"],
+          tags: ["marca", "logo"],
+          medias: [{ type: "image", src: "/assets/img/designs/marcas/Bombodoom Logo Fundo.jpg" }],
+        },
+        {
+          title: "Blissom",
+          year: 2022,
+          type: "Concept de Logo",
+          client: "",
+          desc: "",
+          programs: ["illustrator"],
+          tags: ["marca", "logo"],
+          medias: [{ type: "image", src: "/assets/img/designs/marcas/Blissom Logo Fundo.jpg" }],
+        },
+        {
+          title: "Reviver",
+          year: 2022,
+          type: "Concept de Logo",
+          client: "",
+          desc: "",
+          programs: ["illustrator"],
+          tags: ["marca", "logo"],
+          medias: [{ type: "image", src: "/assets/img/designs/marcas/Reviver Logo Fundo.jpg" }],
+        },
+        {
+          title: "Fucking Life",
+          year: 2025,
+          type: "Audiovisual",
+          client: "",
+          desc: 'Montagem para o lançamento da música "Fucking Life" da banda Império Contra-Ataca!, com visuais do anime FLCL.',
+          programs: ["premiere"],
+          tags: ["audiovisual"],
+          medias: [
+            { type: "image", src: "/assets/img/designs/thumbnails/Fucking Life (2025) Thumbnail.jpg", thumbOnly: true },
+            { type: "video", src: "https://www.youtube.com/watch?v=rlGgEj5xSwI" },
+          ],
+        },
+        {
+          title: "Bate-Papo Canino",
+          year: 2024,
+          type: "Animação",
+          client: "",
+          desc: "Animação híbrida realizada como Trabalho de Conclusão de Curso para a graduação em Design Gráfico na Universidade Estadual Paulista.",
+          programs: ["after effects", "premiere", "photoshop"],
+          tags: ["audiovisual"],
+          medias: [
+            {
+              type: "image",
+              src: "/assets/img/designs/thumbnails/Bate-Papo Canino (2024) Thumbnail.jpg",
+              thumbOnly: true,
+            },
+            { type: "video", src: "https://www.youtube.com/watch?v=9th8NyV1w-g" },
+            {
+              type: "image",
+              src: "/assets/img/designs/Bate-Papo Canino Concepts.jpg",
+              caption: "Concept arts dos personagens",
+            },
+          ],
+        },
+      ];
+
+      setupGalleryFilter({
+        items: meusDesigns,
+        filtrosId: "filter-gallery-filtros",
+        galeriaId: "filter-gallery-galeria",
+      });
+    </script>
+  </body>
 </html>
