@@ -136,10 +136,10 @@ body {
 } */
 
 /* Scroll da página */
-/* * {
+* {
   scrollbar-width: thin;
-  scrollbar-color: var(--clr-main-a40) var(--clr-gray-a0);
-} */
+  scrollbar-color: var(--clr-gray-a30) var(--clr-gray-a0);
+}
 
 /* Seleção de texto */
 ::selection {
@@ -1717,11 +1717,12 @@ body.rounded #modal-thumbs .modal-thumb {
  * Pensamentos
  * ---------------------------------------------- */
 
-.postlist-titulo {
+a.postlist-titulo {
   font-family: var(--fonte-corpo);
   font-weight: bold;
   margin-bottom: 12px;
-  font-size: 1em;
+  font-size: 1.2em;
+  text-decoration: none;
 }
 
 .postlist-data {
@@ -1736,17 +1737,15 @@ body.rounded #modal-thumbs .modal-thumb {
 .postlist-tags a:visited,
 .postlist-tags a:active {
   color: var(--clr-white);
-  /* background-color: var(--clr-black-a0); */
-  text-decoration: underline dotted;
+  text-decoration: none;
   opacity: 0.5;
   transition: all 0.25s ease;
 }
 
 .postlist-tags a:hover {
   opacity: 1;
-  background-color: var(--clr-black-a0);
+  background-color: transparent;
   text-decoration: underline solid;
-  /* Remove underline */
 }
 
 /* .post {
