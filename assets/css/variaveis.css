@@ -114,5 +114,5 @@
   --img-main-filter: brightness(3) contrast(1.3);
 }
 :root[data-theme="light"] img.img-clr-main {
-  filter: var(--img-main-filter);
+  filter: var(--img-main-filter) !important;
 }
