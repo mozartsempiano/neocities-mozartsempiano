@@ -22,7 +22,7 @@ export function initSettingsPanel() {
   style.textContent = `
     #settings-panel { 
       position: fixed; bottom: 20px; left: 20px; z-index: 997; 
-      font-family: VT323, monospace; 
+      font-family: VT323, monospace;
     }
 
     #settings-gear { 
@@ -74,7 +74,7 @@ export function initSettingsPanel() {
       user-select: none;
       display: flex;
       transform: translateY(0);
-      transition: opacity 0.15s, transform 0.35s;
+      transition: opacity 0.15s, transform 0.35s, color 0.25s, background-color 0.25s, border-color 0.25s;
     }
 
     #settings-box.open {

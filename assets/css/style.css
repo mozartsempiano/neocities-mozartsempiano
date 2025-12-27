@@ -1787,7 +1787,7 @@ a.postlist-titulo {
 .post-titulo {
   font-family: var(--fonte-titulo);
   font-size: 1.9em;
-  margin-bottom: 1.6em;
+  margin-bottom: 16px;
   width: 100%;
 }
 
