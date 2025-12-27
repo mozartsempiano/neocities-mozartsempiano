@@ -71,9 +71,10 @@ export function initSettingsPanel() {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      user-select: none;
       display: flex;
       transform: translateY(0);
-      transition: opacity 0.2s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.35s;
     }
 
     #settings-box.open {
@@ -92,8 +93,6 @@ export function initSettingsPanel() {
       align-items: center;
       gap: 9px;
       cursor: pointer;
-      background: var(--clr-black-a0);
-      color: var(--clr-white);
       padding: 4px 8px;
       width: 100%;
       box-sizing: border-box;
