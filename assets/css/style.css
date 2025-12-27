@@ -1604,7 +1604,7 @@ body.rounded #modal-info {
   background-color: transparent;
   border-top: 1px solid var(--clr-gray-a20);
   padding-top: 1em;
-  margin-top: 1em;
+  margin-top: 4px;
   font-size: 1em;
   line-height: 1.45em;
   letter-spacing: 0.08em;
