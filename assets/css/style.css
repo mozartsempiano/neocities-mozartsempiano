@@ -405,12 +405,13 @@ h1 {
 
 div#conteudo div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
   margin-top: 0;
-  font-size: 2em;
+  font-size: 2.4em;
   color: var(--clr-main-a30);
   border-bottom: 1px solid var(--clr-gray-a0);
   padding-bottom: 7px;
   margin-bottom: 16px;
   text-transform: lowercase;
+  font-weight: bold;
 }
 
 h1.sobre-meu-nome {
