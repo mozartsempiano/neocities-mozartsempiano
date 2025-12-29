@@ -848,6 +848,9 @@ footer,
 #col-centro {
   width: 100%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 #avatar {
@@ -888,7 +891,7 @@ body.rounded #avatar {
 
 hr {
   border-top: 1px dotted var(--clr-white);
-  margin: 21px 0;
+  margin: 10px 0;
 }
 
 .custom-hr {
@@ -1718,6 +1721,10 @@ body.rounded #modal-thumbs .modal-thumb {
  * Pensamentos
  * ---------------------------------------------- */
 
+table.pensamentos {
+  margin: 0;
+}
+
 a.postlist-titulo {
   font-family: var(--fonte-corpo);
   font-weight: bold;
@@ -2176,7 +2183,6 @@ body.rounded .letterboxd-embed-tc-poster img {
   border: 1px solid var(--clr-gray-a0);
   padding: 14px;
   width: 50%;
-  margin-top: 30px;
   overflow: hidden; /* Added to prevent content overflow */
 }
 
