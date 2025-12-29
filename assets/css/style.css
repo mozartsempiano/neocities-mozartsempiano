@@ -2822,11 +2822,12 @@ ul {
 img.nsfw {
 	filter: blur(18px);
 	clip-path: inset(0 round var(--b-radius));
-	transition: filter 0.3s ease-in-out;
+	transition: all 0.3s ease !important;
 }
 
 img.nsfw:hover {
-	filter: none; /* Remove blur e herda outros filtros se houver */
+	filter: none;
+	/* clip-path: none; */
 }
 
 /* Desabilitar blur NSFW quando o switch estiver desativado */
