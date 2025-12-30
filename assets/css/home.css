@@ -311,15 +311,11 @@ body.rounded .marquee-track img {
   position: relative; /* establish containing block for pseudo */
 }
 
-/* Render the gunnm flag as a pseudo-element so it appears automatically
-   whenever #header-expandida is present in the page markup. Using
-   content:url() preserves the image's intrinsic size; animation is the
-   same as the original. */
 #header-expandida::before {
   content: url("/assets/img/gunnm-float-v2.png");
   position: absolute;
   left: 50%;
-  top: -515px; /* vertical offset, matches previous placement */
+  top: -515px;
   transform: translateX(-50%);
   pointer-events: none;
   opacity: 0.7;
