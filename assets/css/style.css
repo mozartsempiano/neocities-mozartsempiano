@@ -854,16 +854,11 @@ footer,
 }
 
 #col-centro {
-<<<<<<< HEAD
-  width: 100%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-=======
 	width: 100%;
 	text-align: left;
->>>>>>> f0f00f6e08248293c387c6cfb4c8c84f7bc01b41
+	display: flex;
+	flex-direction: column;
+	gap: 0;
 }
 
 #avatar {
@@ -900,8 +895,8 @@ footer,
 }
 
 hr {
-  border-top: 1px dotted var(--clr-white);
-  margin: 10px 0;
+	border-top: 1px dotted var(--clr-white);
+	margin: 10px 0;
 }
 
 .custom-hr {
@@ -1707,7 +1702,7 @@ section.links-section {
  * ---------------------------------------------- */
 
 table.pensamentos {
-  margin: 0;
+	margin: 0;
 }
 
 a.postlist-titulo {
@@ -1770,6 +1765,18 @@ a.postlist-titulo {
 	text-align: left;
 	width: 100%;
 	flex: none;
+}
+
+article.post-conteudo::after {
+	content: "Obrigado por ler!";
+	margin: 2rem 0px;
+	text-align: center;
+	font-size: inherit;
+	font-style: italic;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	clear: both;
 }
 
 .post-texto {
@@ -2141,14 +2148,14 @@ div.sub.letterboxd-log.in-view div.scroll {
  * ---------------------------------------------- */
 
 .quadrado {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  border: 1px solid var(--clr-gray-a0);
-  padding: 14px;
-  width: 50%;
-  overflow: hidden; /* Added to prevent content overflow */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	border: 1px solid var(--clr-gray-a0);
+	padding: 14px;
+	width: 50%;
+	overflow: hidden; /* Added to prevent content overflow */
 	border-radius: var(--b-radius);
 }
 
