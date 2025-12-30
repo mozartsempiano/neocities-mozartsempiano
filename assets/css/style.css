@@ -419,7 +419,7 @@ div#conteudo div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
 	margin-top: 0;
 	font-size: 2.4em;
 	color: var(--clr-main-a30);
-	border-bottom: 1px solid var(--clr-gray-a0);
+	border-bottom: 1px solid var(--clr-gray-a10);
 	padding-bottom: 7px;
 	margin-bottom: 16px;
 	text-transform: lowercase;
@@ -763,7 +763,7 @@ a:not([href]) {
 	display: none;
 	position: absolute;
 	background-color: var(--clr-black-a0);
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	/* box-shadow: 2px 2px var(--clr-black-a0); */
 	max-width: 150px;
 	width: max-content;
@@ -825,7 +825,7 @@ footer,
 #col-centro,
 #nav-atual,
 .box-inner {
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	border-radius: var(--b-radius);
 }
 
@@ -873,7 +873,7 @@ footer,
 	margin: 5px auto;
 	/* 'auto' centraliza a div */
 	margin-bottom: 12px;
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	position: relative;
 	pointer-events: none;
 	border-radius: var(--b-radius);
@@ -1004,7 +1004,7 @@ span.tooltip-hover {
 
 section.links-section {
 	margin: 14px 0 0 0;
-	border-top: 1px solid var(--clr-gray-a0);
+	border-top: 1px solid var(--clr-gray-a10);
 	padding-top: 16px;
 }
 
@@ -1014,7 +1014,7 @@ section.links-section {
 
 .caixa-rolavel {
 	width: 100%;
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	padding: 8px 12px;
 	overflow-y: auto;
 	/* Rolagem vertical */
@@ -1512,7 +1512,7 @@ section.links-section {
 #modal-info,
 .filter-gallery-content img {
 	background-color: var(--clr-black-a0);
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 }
 
 #modal-media img,
@@ -1845,7 +1845,7 @@ summary {
 }
 
 details {
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	padding: 10px 16px;
 	margin-bottom: 14px;
 	overflow: hidden;
@@ -2033,7 +2033,7 @@ details#web {
 
 .colecao-details {
 	padding: 0;
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	height: 420px;
 	overflow: hidden;
 }
@@ -2063,7 +2063,7 @@ div.sub.letterboxd-log.in-view div.scroll {
 
 .colecoes .sub {
 	margin-top: 10px;
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	border-radius: var(--b-radius) var(--b-radius) 0 0;
 }
 
@@ -2093,7 +2093,7 @@ div.sub.letterboxd-log.in-view div.scroll {
  * ---------------------------------------------- */
 
 .letterboxd-embed-tc-diary-entry img {
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	margin-right: 6px;
 
 	image-rendering: pixelated;
@@ -2138,7 +2138,7 @@ div.sub.letterboxd-log.in-view div.scroll {
 }
 
 .letterboxd-embed-tc-divider {
-	border-bottom: 1px solid var(--clr-gray-a0) !important;
+	border-bottom: 1px solid var(--clr-gray-a10) !important;
 	width: 98%;
 	margin: 10px 0;
 }
@@ -2152,7 +2152,7 @@ div.sub.letterboxd-log.in-view div.scroll {
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	padding: 14px;
 	width: 50%;
 	overflow: hidden; /* Added to prevent content overflow */
@@ -2173,7 +2173,7 @@ div.sub.letterboxd-log.in-view div.scroll {
 .collage-quadrado {
 	width: 100%;
 	aspect-ratio: 1 / 1;
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	overflow: unset;
 	position: relative; /* Added for better image containment */
 	border-radius: var(--b-radius);
@@ -2339,13 +2339,13 @@ table.full {
 table,
 td,
 th {
-	border: 1px solid var(--clr-gray-a0);
+	border: 1px solid var(--clr-gray-a10);
 	padding: 7px;
 	text-align: left;
 }
 
 th {
-	background-color: var(--clr-gray-a0);
+	background-color: var(--clr-gray-a10);
 	color: var(--clr-white);
 
 	pointer-events: none;
@@ -2374,7 +2374,7 @@ table tr.l-laranja td {
 }
 
 table tr.l-riscado td {
-	background-color: var(--clr-gray-a0) !important;
+	background-color: var(--clr-gray-a10) !important;
 	opacity: 50%;
 	text-decoration: line-through;
 }
@@ -2824,7 +2824,7 @@ ul {
 	z-index: 30;
 }
 .book-controls button {
-	background: var(--clr-gray-a0);
+	background: var(--clr-gray-a10);
 	color: var(--clr-white);
 	border: none;
 	padding: 8px 12px;
@@ -2862,12 +2862,12 @@ body.disable-nsfw-blur img.nsfw:hover {
 	margin: 24px 14px 7px 12px;
 	padding: 8px 14px;
 
-	background: var(--clr-gray-a0);
+	background: var(--clr-gray-a10);
 	box-shadow: -2px 0 12px rgba(0, 0, 0, 0.4);
 
 	font-family: var(--fonte-corpo);
 	font-size: 0.98rem;
 	color: var(--clr-white);
 	border-radius: var(--b-radius);
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-gray-a20);
 }

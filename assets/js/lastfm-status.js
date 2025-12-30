@@ -1,30 +1,30 @@
 // lastfm-status.js — renders last.fm latest track and supports a square card with marquee
 document.addEventListener("DOMContentLoaded", async () => {
-  const statusDiv = document.getElementById("lastfm-status");
-  if (!statusDiv) return;
+	const statusDiv = document.getElementById("lastfm-status");
+	if (!statusDiv) return;
 
-  // support an alternate presentation mode controlled from markup
-  // usage: <div id="lastfm-status" data-user="wrired" data-mode="square"></div>
-  const mode = statusDiv.dataset.mode || statusDiv.dataset.layout;
-  // we rely on the data-mode attribute for styling; do not add helper class
+	// support an alternate presentation mode controlled from markup
+	// usage: <div id="lastfm-status" data-user="wrired" data-mode="square"></div>
+	const mode = statusDiv.dataset.mode || statusDiv.dataset.layout;
+	// we rely on the data-mode attribute for styling; do not add helper class
 
-  const user = statusDiv.dataset.user;
-  if (!user) return;
-  const url = `https://lastfm-last-played.biancarosa.com.br/${user}/latest-song`;
+	const user = statusDiv.dataset.user;
+	if (!user) return;
+	const url = `https://lastfm-last-played.biancarosa.com.br/${user}/latest-song`;
 
-  try {
-    const res = await fetch(url);
-    const json = await res.json();
+	try {
+		const res = await fetch(url);
+		const json = await res.json();
 
-    statusDiv.classList.add("music-status", "fade-in");
+		statusDiv.classList.add("music-status", "fade-in");
 
-    const isPlaying = json.track?.["@attr"]?.nowplaying;
-    const statusText = isPlaying ? "Ouvindo agora:" : "Ouviu por último:";
+		const isPlaying = json.track?.["@attr"]?.nowplaying;
+		const statusText = isPlaying ? "Ouvindo agora:" : "Ouviu por último:";
 
-    // base styles (small, non-square defaults). Square CSS moved to css/home.css.
-    const style = document.createElement("style");
-    style.id = "status-lastfm-style";
-    style.innerHTML = `
+		// base styles (small, non-square defaults). Square CSS moved to css/home.css.
+		const style = document.createElement("style");
+		style.id = "status-lastfm-style";
+		style.innerHTML = `
       #lastfm-status {
         margin: 24px auto 0 auto;
       }
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       .box-inner:has(div#lastfm-status) {
-        border: 1px solid var(--clr-gray-a0);
+        border: 1px solid var(--clr-gray-a10);
         padding: 10px;
         transition: border 0.25s ease;
       }
@@ -196,11 +196,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       }
       `;
-    document.head.appendChild(style);
+		document.head.appendChild(style);
 
-    // Render HTML for square mode or default inline mode
-    if (mode === "square") {
-      statusDiv.innerHTML = `
+		// Render HTML for square mode or default inline mode
+		if (mode === "square") {
+			statusDiv.innerHTML = `
         <a href="https://www.last.fm/user/${user}" target="_blank" class="lastfm-square-link">
           <div class="lastfm-square-cover"><img class="dither" src="${json.track.image[2]["#text"]}" loading="lazy"></div>
           <div class="lastfm-square-meta">
@@ -215,8 +215,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           </div>
         </a>
       `;
-    } else {
-      statusDiv.innerHTML = `
+		} else {
+			statusDiv.innerHTML = `
         <a href="https://www.last.fm/user/${user}" target="_blank">
           <img class="dither" src="${json.track.image[1]["#text"]}" loading="lazy">
           <span class="lastfm-text">
@@ -225,47 +225,58 @@ document.addEventListener("DOMContentLoaded", async () => {
           </span>
         </a>
       `;
-    }
+		}
 
-    // Manage ASCII bar swapping with a JS interval (stored on statusDiv to
-    // avoid globals). We rotate through small/mid/large permutations.
-    try {
-      const ouvElem = statusDiv.querySelector(".lastfm-ouvindo");
-      const barStrings = ["▁▂▃", "▂▃▁", "▃▁▂", "▂▁▃", "▂▇▃", "▃▇▁", "▇▁▂", "▂▁▇", "▁▇▂", "▃▂▇"];
-      // const barStrings = ["▁▂▃", "▂▇▃", "▃▇▁", "▇▁▂", "▂▁▇"];
+		// Manage ASCII bar swapping with a JS interval (stored on statusDiv to
+		// avoid globals). We rotate through small/mid/large permutations.
+		try {
+			const ouvElem = statusDiv.querySelector(".lastfm-ouvindo");
+			const barStrings = [
+				"▁▂▃",
+				"▂▃▁",
+				"▃▁▂",
+				"▂▁▃",
+				"▂▇▃",
+				"▃▇▁",
+				"▇▁▂",
+				"▂▁▇",
+				"▁▇▂",
+				"▃▂▇",
+			];
+			// const barStrings = ["▁▂▃", "▂▇▃", "▃▇▁", "▇▁▂", "▂▁▇"];
 
-      if (ouvElem) {
-        // clear any previous interval
-        if (statusDiv._lastfmBarsInterval) {
-          clearInterval(statusDiv._lastfmBarsInterval);
-          statusDiv._lastfmBarsInterval = null;
-        }
+			if (ouvElem) {
+				// clear any previous interval
+				if (statusDiv._lastfmBarsInterval) {
+					clearInterval(statusDiv._lastfmBarsInterval);
+					statusDiv._lastfmBarsInterval = null;
+				}
 
-        if (isPlaying) {
-          ouvElem.classList.add("playing");
-          ouvElem.dataset.bars = barStrings[0];
-          let idx = 0;
-          statusDiv._lastfmBarsInterval = setInterval(() => {
-            idx = (idx + 1) % barStrings.length;
-            ouvElem.dataset.bars = barStrings[idx];
-          }, 300);
-        } else {
-          ouvElem.classList.remove("playing");
-          ouvElem.removeAttribute("data-bars");
-        }
-      }
-    } catch (err) {
-      // defensive: do nothing if DOM query fails
-    }
+				if (isPlaying) {
+					ouvElem.classList.add("playing");
+					ouvElem.dataset.bars = barStrings[0];
+					let idx = 0;
+					statusDiv._lastfmBarsInterval = setInterval(() => {
+						idx = (idx + 1) % barStrings.length;
+						ouvElem.dataset.bars = barStrings[idx];
+					}, 300);
+				} else {
+					ouvElem.classList.remove("playing");
+					ouvElem.removeAttribute("data-bars");
+				}
+			}
+		} catch (err) {
+			// defensive: do nothing if DOM query fails
+		}
 
-    // marquee behavior removed; keep overflow:ellipsis only
-  } catch (e) {
-    statusDiv.style.alignContent = "center";
-    statusDiv.style.textAlign = "center";
-    statusDiv.style.color = "var(--clr-gray-a30)";
-    statusDiv.style.title = none;
-    statusDiv.textContent = "Erro ao carregar status do Last.fm";
-    statusDiv.classList.add("fade-in");
-    console.error(e);
-  }
+		// marquee behavior removed; keep overflow:ellipsis only
+	} catch (e) {
+		statusDiv.style.alignContent = "center";
+		statusDiv.style.textAlign = "center";
+		statusDiv.style.color = "var(--clr-gray-a30)";
+		statusDiv.style.title = none;
+		statusDiv.textContent = "Erro ao carregar status do Last.fm";
+		statusDiv.classList.add("fade-in");
+		console.error(e);
+	}
 });
