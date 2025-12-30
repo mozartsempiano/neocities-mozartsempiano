@@ -152,6 +152,14 @@ summary {
 	text-align: left;
 }
 
+#curriculo ul > li::before {
+	content: unset;
+}
+
+#curriculo ul > li a {
+	text-decoration: none;
+}
+
 #curriculo ul b {
 	font-weight: 700;
 }

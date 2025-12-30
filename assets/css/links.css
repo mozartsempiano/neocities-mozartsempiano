@@ -1,0 +1,13 @@
+section.links-section h2:first-child {
+	background-color: var(--clr-main-a20);
+	padding: 0.25em 0.4em;
+	font-weight: bold;
+}
+
+table.sitelist tbody tr:nth-child(even) {
+	background: var(--clr-gray-a0);
+}
+
+table.sitelist tr td {
+	background-color: unset;
+}

@@ -12,14 +12,14 @@
 
 	/* --clr-black-a0: #090909; */
 	--clr-black-a0: #0d0d0c;
-	--clr-black-a10: #121112;
+	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
 
-	--clr-gray-a0: lch(from var(--clr-gray-a30) calc(l - 30) c h);
-	--clr-gray-a10: lch(from var(--clr-gray-a30) calc(l - 20) c h);
-	--clr-gray-a20: lch(from var(--clr-gray-a30) calc(l - 10) c h);
-	--clr-gray-a30: #565157;
-	--clr-gray-a40: lch(from var(--clr-gray-a30) calc(l + 10) c h);
-	--clr-gray-a50: lch(from var(--clr-gray-a30) calc(l + 40) c h);
+	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l + 5) c calc(h + 10));
+	--clr-gray-a10: lch(from var(--clr-black-a0) calc(l + 10) c calc(h + 10));
+	--clr-gray-a20: lch(from var(--clr-black-a0) calc(l + 15) c calc(h + 10));
+	--clr-gray-a30: lch(from var(--clr-black-a0) calc(l + 25) c calc(h + 10));
+	--clr-gray-a40: lch(from var(--clr-black-a0) calc(l + 50) c calc(h + 10));
+	--clr-gray-a50: lch(from var(--clr-black-a0) calc(l + 75) c calc(h + 10));
 
 	--clr-white: #f8edff;
 	--clr-white-bluish: #e7f7ff;
