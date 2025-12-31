@@ -163,6 +163,13 @@ h1.titulo-secao.main {
 	text-align: center;
 }
 
+.info-desc {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 div.box.sobre div.box-inner div.info-desc p:first-of-type {
 	margin-top: 26px;
 }
@@ -437,14 +444,39 @@ body.rounded .marquee-track img {
 .info-contato a:hover {
 	background-color: transparent;
 }
-a.leia-mais {
+
+.info-links {
 	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	gap: 8px;
+	width: 100%;
+}
+
+a#link-curriculo,
+a.leia-mais {
+	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	gap: 0.3em;
 	justify-content: center;
-	color: var(--clr-main-a30);
+	align-items: center;
+	color: var(--clr-white);
 	text-decoration: none;
+	padding: 0.25em 0.7em;
+	border: 1px solid var(--clr-gray-a40);
+	width: fit-content;
+	white-space: nowrap;
+}
+a#link-curriculo:hover,
+a.leia-mais:hover {
+	border-color: var(--clr-main-a30);
+	color: var(--clr-black-a0);
+	background-color: var(--clr-main-a40);
+}
+a.leia-mais {
+	color: var(--clr-main-a30);
+	border-color: var(--clr-main-a30);
 }
 a.leia-mais svg {
 	fill: currentColor;
@@ -455,11 +487,6 @@ a.leia-mais svg {
 }
 a.leia-mais:hover svg {
 	transform: translateX(4px);
-}
-a.leia-mais:hover {
-	background-color: transparent;
-	text-decoration: dotted underline;
-	color: var(--clr-main-a30);
 }
 
 #ascii-art-container {

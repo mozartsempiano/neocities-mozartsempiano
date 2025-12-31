@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+:root {
+	--clr-white: #f5f5f5;
+	--clr-neutral: #444;
+	--clr-neutral-deemphasized: #777;
+	--clr-dark: #000;
+
+	--font-body: "IBM Plex Sans", sans-serif;
+	--font-header: "IBM Plex Serif", serif;
+
+	--align-header: left;
+}
+
+* {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--clr-neutral);
+	background-color: var(--clr-white);
+	font-family: var(--font-body);
+	padding: 0 1rem 10rem 1rem;
+	max-width: 650px;
+	margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	transition: color 0.3s;
+}
+
+a:hover {
+	filter: brightness(0%);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+ul li p {
+	margin: 0.5em 0 2em 0;
+}
+
+header {
+	text-align: var(--align-header);
+	display: flex;
+	flex-direction: column;
+}
+
+header#site-header {
+	font-size: 0.75rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 10rem;
+	padding-block: 1rem;
+	text-transform: uppercase;
+	color: var(--clr-neutral-deemphasized);
+}
+
+main header {
+	position: relative;
+	padding: 0 0 40px 0;
+	gap: 1rem;
+	text-align: var(--align-header);
+	justify-content: var(--align-header);
+}
+
+main header h1:first-of-type {
+	font-size: 2em;
+	margin: 0;
+	font-family: var(--font-header);
+}
+
+main header h2:first-of-type {
+	font-size: 2em;
+	font-weight: normal;
+	margin: 0;
+	color: var(--clr-neutral-deemphasized);
+	font-family: var(--font-header);
+}
+
+/* main header h1:first-of-type,
+main header h2:first-of-type {
+	text-transform: uppercase;
+} */
+
+main header #header-title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+main header section {
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	justify-content: var(--align-header);
+}
+
+main header section span {
+	font-size: 0.8em;
+	margin: 0;
+}
+
+main header nav.table-of-contents {
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	font-size: 0.9em;
+	margin-top: 1.5rem;
+}
+
+main header nav.table-of-contents a {
+	color: inherit;
+	position: relative;
+	display: inline-block;
+	text-decoration: none;
+}
+
+section.page-section {
+	position: relative;
+	padding: 40px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+section.page-section::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	display: block;
+	height: 1px;
+	content: "";
+	background-color: var(--clr-neutral-deemphasized);
+	opacity: 0.4;
+}
+
+section.page-section h2:first-child {
+	font-family: var(--font-header);
+}
+
+section.page-section svg {
+	max-width: 11rem;
+	margin-bottom: 1rem;
+	vertical-align: middle;
+	fill: currentColor;
+	color: var(--clr-neutral-deemphasized);
+}
+
+section.page-section h3 {
+	font-size: 1em;
+	font-weight: normal;
+	margin: 0;
+}
+
+section.page-section ul li time {
+	font-size: 0.8em;
+	color: var(--clr-neutral-deemphasized);
+	text-transform: uppercase;
+}
+
+section.page-section p {
+	color: var(--clr-neutral-deemphasized);
+}
+
+html body main section.page-section ul li div.mesma-linha {
+	display: flex;
+	flex-direction: row;
+	gap: 0.7rem;
+	align-items: flex-start;
+}
+
+section.page-section ul li address {
+	color: var(--clr-neutral-deemphasized);
+	font-size: 0.9em;
+}
+
+section.page-section ul li address {
+	margin: 0em 0 1.5em 0;
+}
+
+section#conhecimentos.page-section section h3 {
+	font-size: 0.8em;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: var(--clr-neutral-deemphasized);
+}
+
+section#conhecimentos.page-section section#conhecimentos-conteudo {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+section#conhecimentos.page-section section#conhecimentos-conteudo section {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
