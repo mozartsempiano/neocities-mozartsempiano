@@ -3,118 +3,116 @@
  * ---------------------------------------------- */
 
 :root {
-	--clr-main-a0: var(--clr-pink-a0);
-	--clr-main-a10: var(--clr-pink-a10);
-	--clr-main-a20: var(--clr-pink-a20);
-	--clr-main-a30: var(--clr-pink-a30);
-	--clr-main-a40: var(--clr-pink-a40);
-	--clr-main-a50: var(--clr-pink-a50);
+  --clr-main-a0: var(--clr-pink-a0);
+  --clr-main-a10: var(--clr-pink-a10);
+  --clr-main-a20: var(--clr-pink-a20);
+  --clr-main-a30: var(--clr-pink-a30);
+  --clr-main-a40: var(--clr-pink-a40);
+  --clr-main-a50: var(--clr-pink-a50);
 
-	/* --clr-black-a0: #090909; */
-	--clr-black-a0: #0d0d0c;
-	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
+  /* --clr-black-a0: #090909; */
+  --clr-black-a0: #0d0d0c;
+  --clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
 
-	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l + 5) c calc(h + 10));
-	--clr-gray-a10: lch(from var(--clr-black-a0) calc(l + 10) c calc(h + 10));
-	--clr-gray-a20: lch(from var(--clr-black-a0) calc(l + 15) c calc(h + 10));
-	--clr-gray-a30: lch(from var(--clr-black-a0) calc(l + 25) c calc(h + 10));
-	--clr-gray-a40: lch(from var(--clr-black-a0) calc(l + 50) c calc(h + 10));
-	--clr-gray-a50: lch(from var(--clr-black-a0) calc(l + 75) c calc(h + 10));
+  --clr-gray-a0: lch(from var(--clr-black-a0) calc(l + 5) c calc(h + 10));
+  --clr-gray-a10: lch(from var(--clr-black-a0) calc(l + 10) c calc(h + 10));
+  --clr-gray-a20: lch(from var(--clr-black-a0) calc(l + 15) c calc(h + 10));
+  --clr-gray-a30: lch(from var(--clr-black-a0) calc(l + 25) c calc(h + 10));
+  --clr-gray-a40: lch(from var(--clr-black-a0) calc(l + 50) c calc(h + 10));
+  --clr-gray-a50: lch(from var(--clr-black-a0) calc(l + 75) c calc(h + 10));
 
-	--clr-white: #f8edff;
-	--clr-white-bluish: #e7f7ff;
+  --clr-white: #f8edff;
 
-	--clr-yellow-0: lch(from var(--clr-yellow-30) calc(l - 30) c h);
-	--clr-yellow-10: lch(from var(--clr-yellow-30) calc(l - 20) c h);
-	--clr-yellow-20: lch(from var(--clr-yellow-30) calc(l - 10) c h);
-	--clr-yellow-30: #ffd227;
-	--clr-yellow-40: lch(from var(--clr-yellow-30) calc(l + 10) c h);
-	--clr-yellow-50: lch(from var(--clr-yellow-30) calc(l + 20) c h);
+  --clr-yellow-0: lch(from var(--clr-yellow-30) calc(l - 30) c h);
+  --clr-yellow-10: lch(from var(--clr-yellow-30) calc(l - 20) c h);
+  --clr-yellow-20: lch(from var(--clr-yellow-30) calc(l - 10) c h);
+  --clr-yellow-30: #ffd227;
+  --clr-yellow-40: lch(from var(--clr-yellow-30) calc(l + 10) c h);
+  --clr-yellow-50: lch(from var(--clr-yellow-30) calc(l + 20) c h);
 
-	--clr-yellow-a0-old: lch(from var(--clr-yellow-a30-old) calc(l - 30) c h);
-	--clr-yellow-a10-old: lch(from var(--clr-yellow-a30-old) calc(l - 20) c h);
-	--clr-yellow-a20-old: lch(from var(--clr-yellow-a30-old) calc(l - 10) c h);
-	--clr-yellow-a30-old: #c1b492;
-	--clr-yellow-a40-old: lch(from var(--clr-yellow-a30-old) calc(l + 10) c h);
-	--clr-yellow-a50-old: lch(from var(--clr-yellow-a30-old) calc(l + 20) c h);
+  --clr-yellow-a0-old: lch(from var(--clr-yellow-a30-old) calc(l - 30) c h);
+  --clr-yellow-a10-old: lch(from var(--clr-yellow-a30-old) calc(l - 20) c h);
+  --clr-yellow-a20-old: lch(from var(--clr-yellow-a30-old) calc(l - 10) c h);
+  --clr-yellow-a30-old: #c1b492;
+  --clr-yellow-a40-old: lch(from var(--clr-yellow-a30-old) calc(l + 10) c h);
+  --clr-yellow-a50-old: lch(from var(--clr-yellow-a30-old) calc(l + 20) c h);
 
-	--clr-orange-a0: lch(from var(--clr-orange-a30) calc(l - 30) c h);
-	--clr-orange-a10: lch(from var(--clr-orange-a30) calc(l - 20) c h);
-	--clr-orange-a20: lch(from var(--clr-orange-a30) calc(l - 10) c h);
-	--clr-orange-a30: #e65f29;
-	--clr-orange-a40: lch(from var(--clr-orange-a30) calc(l + 10) c h);
-	--clr-orange-a50: lch(from var(--clr-orange-a30) calc(l + 20) c h);
+  --clr-orange-a0: lch(from var(--clr-orange-a30) calc(l - 30) c h);
+  --clr-orange-a10: lch(from var(--clr-orange-a30) calc(l - 20) c h);
+  --clr-orange-a20: lch(from var(--clr-orange-a30) calc(l - 10) c h);
+  --clr-orange-a30: #e65f29;
+  --clr-orange-a40: lch(from var(--clr-orange-a30) calc(l + 10) c h);
+  --clr-orange-a50: lch(from var(--clr-orange-a30) calc(l + 20) c h);
 
-	--clr-orange-a0-old: lch(from var(--clr-orange-a30-old) calc(l - 30) c h);
-	--clr-orange-a10-old: lch(from var(--clr-orange-a30-old) calc(l - 20) c h);
-	--clr-orange-a20-old: lch(from var(--clr-orange-a30-old) calc(l - 10) c h);
-	--clr-orange-a30-old: #e3b676;
-	--clr-orange-a40-old: lch(from var(--clr-orange-a30-old) calc(l + 10) c h);
-	--clr-orange-a50-old: lch(from var(--clr-orange-a30-old) calc(l + 20) c h);
+  --clr-orange-a0-old: lch(from var(--clr-orange-a30-old) calc(l - 30) c h);
+  --clr-orange-a10-old: lch(from var(--clr-orange-a30-old) calc(l - 20) c h);
+  --clr-orange-a20-old: lch(from var(--clr-orange-a30-old) calc(l - 10) c h);
+  --clr-orange-a30-old: #e3b676;
+  --clr-orange-a40-old: lch(from var(--clr-orange-a30-old) calc(l + 10) c h);
+  --clr-orange-a50-old: lch(from var(--clr-orange-a30-old) calc(l + 20) c h);
 
-	--clr-red-a0: lch(from var(--clr-red-a30) calc(l - 30) c h);
-	--clr-red-a10: lch(from var(--clr-red-a30) calc(l - 20) c h);
-	--clr-red-a20: lch(from var(--clr-red-a30) calc(l - 10) c h);
-	--clr-red-a30: #c10b0b;
-	--clr-red-a40: lch(from var(--clr-red-a30) calc(l + 10) c h);
-	--clr-red-a50: lch(from var(--clr-red-a30) calc(l + 20) c h);
+  --clr-red-a0: lch(from var(--clr-red-a30) calc(l - 30) c h);
+  --clr-red-a10: lch(from var(--clr-red-a30) calc(l - 20) c h);
+  --clr-red-a20: lch(from var(--clr-red-a30) calc(l - 10) c h);
+  --clr-red-a30: #c10b0b;
+  --clr-red-a40: lch(from var(--clr-red-a30) calc(l + 10) c h);
+  --clr-red-a50: lch(from var(--clr-red-a30) calc(l + 20) c h);
 
-	--clr-pink-a0: lch(from var(--clr-pink-a30) calc(l - 30) c h);
-	--clr-pink-a10: lch(from var(--clr-pink-a30) calc(l - 20) c h);
-	--clr-pink-a20: lch(from var(--clr-pink-a30) calc(l - 10) c h);
-	--clr-pink-a30: #d45c95;
-	--clr-pink-a40: lch(from var(--clr-pink-a30) calc(l + 10) c h);
-	--clr-pink-a50: lch(from var(--clr-pink-a30) calc(l + 20) c h);
+  --clr-pink-a0: lch(from var(--clr-pink-a30) calc(l - 30) c h);
+  --clr-pink-a10: lch(from var(--clr-pink-a30) calc(l - 20) c h);
+  --clr-pink-a20: lch(from var(--clr-pink-a30) calc(l - 10) c h);
+  --clr-pink-a30: #d45c95;
+  --clr-pink-a40: lch(from var(--clr-pink-a30) calc(l + 10) c h);
+  --clr-pink-a50: lch(from var(--clr-pink-a30) calc(l + 20) c h);
 
-	--clr-purple-a0: lch(from var(--clr-purple-a30) calc(l - 30) c h);
-	--clr-purple-a10: lch(from var(--clr-purple-a30) calc(l - 20) c h);
-	--clr-purple-a20: lch(from var(--clr-purple-a30) calc(l - 10) c h);
-	--clr-purple-a30: #525ceb;
-	--clr-purple-a40: lch(from var(--clr-purple-a30) calc(l + 10) c h);
-	--clr-purple-a50: lch(from var(--clr-purple-a30) calc(l + 20) c h);
+  --clr-purple-a0: lch(from var(--clr-purple-a30) calc(l - 30) c h);
+  --clr-purple-a10: lch(from var(--clr-purple-a30) calc(l - 20) c h);
+  --clr-purple-a20: lch(from var(--clr-purple-a30) calc(l - 10) c h);
+  --clr-purple-a30: #525ceb;
+  --clr-purple-a40: lch(from var(--clr-purple-a30) calc(l + 10) c h);
+  --clr-purple-a50: lch(from var(--clr-purple-a30) calc(l + 20) c h);
 
-	--clr-blue-a0: lch(from var(--clr-blue-a30) calc(l - 30) c h);
-	--clr-blue-a10: lch(from var(--clr-blue-a30) calc(l - 20) c h);
-	--clr-blue-a20: lch(from var(--clr-blue-a30) calc(l - 10) c h);
-	--clr-blue-a30: #4d96ff;
-	--clr-blue-a40: lch(from var(--clr-blue-a30) calc(l + 10) c h);
-	--clr-blue-a50: lch(from var(--clr-blue-a30) calc(l + 20) c h);
+  --clr-blue-a0: lch(from var(--clr-blue-a30) calc(l - 30) c h);
+  --clr-blue-a10: lch(from var(--clr-blue-a30) calc(l - 20) c h);
+  --clr-blue-a20: lch(from var(--clr-blue-a30) calc(l - 10) c h);
+  --clr-blue-a30: #4d96ff;
+  --clr-blue-a40: lch(from var(--clr-blue-a30) calc(l + 10) c h);
+  --clr-blue-a50: lch(from var(--clr-blue-a30) calc(l + 20) c h);
 
-	--clr-green-a0: lch(from var(--clr-green-a30) calc(l - 30) c h);
-	--clr-green-a10: lch(from var(--clr-green-a30) calc(l - 20) c h);
-	--clr-green-a20: lch(from var(--clr-green-a30) calc(l - 10) c h);
-	--clr-green-a30: #16c47f;
-	--clr-green-a40: lch(from var(--clr-green-a30) calc(l + 10) c h);
-	--clr-green-a50: lch(from var(--clr-green-a30) calc(l + 20) c h);
+  --clr-green-a0: lch(from var(--clr-green-a30) calc(l - 30) c h);
+  --clr-green-a10: lch(from var(--clr-green-a30) calc(l - 20) c h);
+  --clr-green-a20: lch(from var(--clr-green-a30) calc(l - 10) c h);
+  --clr-green-a30: #16c47f;
+  --clr-green-a40: lch(from var(--clr-green-a30) calc(l + 10) c h);
+  --clr-green-a50: lch(from var(--clr-green-a30) calc(l + 20) c h);
 
-	--clr-green-grayish: #b2bdb8;
+  --clr-green-grayish: #b2bdb8;
 
-	--clr-green-military: #465850;
+  --clr-green-military: #465850;
 
-	--fonte-titulo: "Redaction50", serif;
-	--fonte-tituloheader: "Voxel", serif;
-	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
+  --fonte-titulo: "Redaction50", serif;
+  --fonte-tituloheader: "Voxel", serif;
+  --fonte-corpo: "ANK", "MS UI Gothic", monospace;
 
-	--b-radius: 0px;
+  --b-radius: 0px;
 }
 
 /* Tema claro */
 :root[data-theme="light"] {
-	--clr-black-a0: #f5f6fa;
-	--clr-black-a10: #fff;
+  --clr-black-a0: #f5f6fa;
+  --clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
 
-	--clr-gray-a0: #dddddb;
-	--clr-gray-a10: #cfcfd2;
-	--clr-gray-a20: #b1b1b6;
-	--clr-gray-a30: #93939a;
-	--clr-gray-a40: #7b7b85;
-	--clr-gray-a50: #67717d;
+  --clr-gray-a0: lch(from var(--clr-black-a0) calc(l - 10) c calc(h + 10));
+  --clr-gray-a10: lch(from var(--clr-black-a0) calc(l - 15) c calc(h + 10));
+  --clr-gray-a20: lch(from var(--clr-black-a0) calc(l - 20) c calc(h + 10));
+  --clr-gray-a30: lch(from var(--clr-black-a0) calc(l - 30) c calc(h + 10));
+  --clr-gray-a40: lch(from var(--clr-black-a0) calc(l - 50) c calc(h + 10));
+  --clr-gray-a50: lch(from var(--clr-black-a0) calc(l - 60) c calc(h + 10));
 
-	--clr-white: #252525;
-	--clr-white-bluish: #222;
-	/* Filter applied to header pseudo-image when themes toggle. Set here to match existing img.img-clr-main rule. */
-	--img-main-filter: brightness(3) contrast(1.3);
+  --clr-white: #333;
+
+  --img-main-filter: brightness(3) contrast(1.3);
 }
 :root[data-theme="light"] img.img-clr-main {
-	filter: var(--img-main-filter) !important;
+  filter: var(--img-main-filter) !important;
 }

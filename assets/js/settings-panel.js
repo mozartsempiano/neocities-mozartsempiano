@@ -1,7 +1,7 @@
 export function initSettingsPanel() {
-	const panel = document.createElement("div");
-	panel.id = "settings-panel";
-	panel.innerHTML = `
+  const panel = document.createElement("div");
+  panel.id = "settings-panel";
+  panel.innerHTML = `
     <div id="settings-gear">
       <span>
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -10,19 +10,18 @@ export function initSettingsPanel() {
       </span>
     </div>
     <div id="settings-box">
-      <label class="switch-placeholder" id="crt-switch-container"></label>
       <label class="switch-placeholder" id="theme-switch-container"></label>
+      <label class="switch-placeholder" id="crt-switch-container"></label>
       <label class="switch-placeholder" id="festive-switch-container"></label>
       <label class="switch-placeholder" id="nsfw-blur-switch-container"></label>
     </div>
   `;
-	document.body.appendChild(panel);
+  document.body.appendChild(panel);
 
-	const style = document.createElement("style");
-	style.textContent = `
+  const style = document.createElement("style");
+  style.textContent = `
     #settings-panel { 
-      position: fixed; bottom: 20px; left: 20px; z-index: 997; 
-      font-family: VT323, monospace;
+      position: fixed; bottom: 20px; left: 20px; z-index: 997;
     }
 
     #settings-gear { 
@@ -109,8 +108,9 @@ export function initSettingsPanel() {
       text-overflow: ellipsis;
       min-width: 0;
       text-align: left;
-      font-size: 1em;
+      font-size: 0.9rem;
       font-family: var(--fonte-corpo);
+      font-weight: normal;
     }
 
     #settings-box label.switch-placeholder input[type="checkbox"] { display: none; }
@@ -128,77 +128,75 @@ export function initSettingsPanel() {
     #settings-box label.switch-placeholder input:checked + .slider { background: var(--clr-main-a40); }
     #settings-box label.switch-placeholder input:checked + .slider::before { transform: translateX(18px); }
   `;
-	document.head.appendChild(style);
+  document.head.appendChild(style);
 
-	// Criar switches visuais
-	const crtContainer = document.getElementById("crt-switch-container");
-	crtContainer.innerHTML = `<input type="checkbox" id="panel-crt-toggle"><span class="slider"></span><span class="switch-label">CRT</span>`;
-	const themeContainer = document.getElementById("theme-switch-container");
-	themeContainer.innerHTML = `<input type="checkbox" id="panel-theme-toggle"><span class="slider"></span><span class="switch-label">Light</span>`;
-	const festiveContainer = document.getElementById("festive-switch-container");
-	festiveContainer.innerHTML = `<input type="checkbox" id="panel-festive-toggle"><span class="slider"></span><span class="switch-label">Visuais festivos</span>`;
-	const nsfwBlurContainer = document.getElementById(
-		"nsfw-blur-switch-container"
-	);
-	nsfwBlurContainer.innerHTML = `<input type="checkbox" id="panel-nsfw-blur-toggle"><span class="slider"></span><span class="switch-label">Blur NSFW</span>`;
+  // Criar switches visuais
+  const crtContainer = document.getElementById("crt-switch-container");
+  crtContainer.innerHTML = `<input type="checkbox" id="panel-crt-toggle"><span class="slider"></span><span class="switch-label">CRT</span>`;
+  const themeContainer = document.getElementById("theme-switch-container");
+  themeContainer.innerHTML = `<input type="checkbox" id="panel-theme-toggle"><span class="slider"></span><span class="switch-label">Tema claro</span>`;
+  const festiveContainer = document.getElementById("festive-switch-container");
+  festiveContainer.innerHTML = `<input type="checkbox" id="panel-festive-toggle"><span class="slider"></span><span class="switch-label">Visuais festivos</span>`;
+  const nsfwBlurContainer = document.getElementById("nsfw-blur-switch-container");
+  nsfwBlurContainer.innerHTML = `<input type="checkbox" id="panel-nsfw-blur-toggle"><span class="slider"></span><span class="switch-label">Desfocar imagens NSFW</span>`;
 
-	const crtCheckbox = document.getElementById("panel-crt-toggle");
-	const themeCheckbox = document.getElementById("panel-theme-toggle");
-	const festiveCheckbox = document.getElementById("panel-festive-toggle");
-	const nsfwBlurCheckbox = document.getElementById("panel-nsfw-blur-toggle");
+  const crtCheckbox = document.getElementById("panel-crt-toggle");
+  const themeCheckbox = document.getElementById("panel-theme-toggle");
+  const festiveCheckbox = document.getElementById("panel-festive-toggle");
+  const nsfwBlurCheckbox = document.getElementById("panel-nsfw-blur-toggle");
 
-	// Estado inicial
-	crtCheckbox.checked = localStorage.getItem("switchCRT") === "true";
-	themeCheckbox.checked = localStorage.getItem("theme") === "light";
-	festiveCheckbox.checked = localStorage.getItem("festiveEffects") !== "false"; // padrão ativado
-	nsfwBlurCheckbox.checked = localStorage.getItem("nsfwBlur") !== "false"; // padrão ativado
+  // Estado inicial
+  crtCheckbox.checked = localStorage.getItem("switchCRT") === "true";
+  themeCheckbox.checked = localStorage.getItem("theme") === "light";
+  festiveCheckbox.checked = localStorage.getItem("festiveEffects") !== "false"; // padrão ativado
+  nsfwBlurCheckbox.checked = localStorage.getItem("nsfwBlur") !== "false"; // padrão ativado
 
-	// Eventos usando as funções dos scripts
-	crtCheckbox.addEventListener("change", () => {
-		window.toggleCRTState(crtCheckbox.checked);
-	});
-	themeCheckbox.addEventListener("change", () => {
-		window.toggleLightMode(themeCheckbox.checked);
-	});
-	festiveCheckbox.addEventListener("change", () => {
-		localStorage.setItem("festiveEffects", festiveCheckbox.checked);
-		// Recarregar a página para aplicar/remover efeitos festivos
-		window.location.reload();
-	});
-	nsfwBlurCheckbox.addEventListener("change", () => {
-		localStorage.setItem("nsfwBlur", nsfwBlurCheckbox.checked);
-		toggleNSFWBlur(nsfwBlurCheckbox.checked);
-	});
+  // Eventos usando as funções dos scripts
+  crtCheckbox.addEventListener("change", () => {
+    window.toggleCRTState(crtCheckbox.checked);
+  });
+  themeCheckbox.addEventListener("change", () => {
+    window.toggleLightMode(themeCheckbox.checked);
+  });
+  festiveCheckbox.addEventListener("change", () => {
+    localStorage.setItem("festiveEffects", festiveCheckbox.checked);
+    // Recarregar a página para aplicar/remover efeitos festivos
+    window.location.reload();
+  });
+  nsfwBlurCheckbox.addEventListener("change", () => {
+    localStorage.setItem("nsfwBlur", nsfwBlurCheckbox.checked);
+    toggleNSFWBlur(nsfwBlurCheckbox.checked);
+  });
 
-	// Função para controlar blur NSFW
-	function toggleNSFWBlur(enabled) {
-		if (enabled) {
-			document.body.classList.remove("disable-nsfw-blur");
-		} else {
-			document.body.classList.add("disable-nsfw-blur");
-		}
-	}
+  // Função para controlar blur NSFW
+  function toggleNSFWBlur(enabled) {
+    if (enabled) {
+      document.body.classList.remove("disable-nsfw-blur");
+    } else {
+      document.body.classList.add("disable-nsfw-blur");
+    }
+  }
 
-	// Aplicar estado inicial do blur NSFW
-	toggleNSFWBlur(nsfwBlurCheckbox.checked);
+  // Aplicar estado inicial do blur NSFW
+  toggleNSFWBlur(nsfwBlurCheckbox.checked);
 
-	// Mostrar/ocultar painel
-	const gear = document.getElementById("settings-gear");
-	const box = document.getElementById("settings-box");
-	let hideTimeout;
+  // Mostrar/ocultar painel
+  const gear = document.getElementById("settings-gear");
+  const box = document.getElementById("settings-box");
+  let hideTimeout;
 
-	function showBox() {
-		clearTimeout(hideTimeout);
-		box.classList.add("open");
-	}
-	function hideBox() {
-		hideTimeout = setTimeout(() => {
-			box.classList.remove("open");
-		}, 200);
-	}
+  function showBox() {
+    clearTimeout(hideTimeout);
+    box.classList.add("open");
+  }
+  function hideBox() {
+    hideTimeout = setTimeout(() => {
+      box.classList.remove("open");
+    }, 200);
+  }
 
-	gear.addEventListener("mouseenter", showBox);
-	gear.addEventListener("mouseleave", hideBox);
-	box.addEventListener("mouseenter", showBox);
-	box.addEventListener("mouseleave", hideBox);
+  gear.addEventListener("mouseenter", showBox);
+  gear.addEventListener("mouseleave", hideBox);
+  box.addEventListener("mouseenter", showBox);
+  box.addEventListener("mouseleave", hideBox);
 }

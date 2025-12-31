@@ -5,7 +5,7 @@ export const sitemap = [
     group: true,
     items: [
       { href: "/home.html", label: "/home" },
-      { href: "/sobre.html", label: "/sobre" },
+      { href: "/sobre.html", label: "/sobre", children: [{ href: "/curriculo.html", label: "/curriculo" }] },
       {
         href: "/portfolio/index.html",
         label: "/portfolio",
