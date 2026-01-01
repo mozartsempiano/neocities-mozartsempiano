@@ -111,11 +111,25 @@ export function carregarNavbar() {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin-bottom: 26px;
+    margin-top: 495px;
+    position: relative; /* establish containing block for pseudo */
   }
 
-  #header-expandida {
-    margin-top: 14px;
-    margin-bottom: 26px;
+  #header-expandida::before {
+    content: url("/assets/img/gunnm-float-v2.png");
+    position: absolute;
+    left: 50%;
+    top: -515px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    user-select: none;
+    z-index: -2;
+    transform-origin: center;
+    animation: fragmentFloat 8s infinite ease-in-out;
+    filter: var(--img-main-filter, none);
   }
 
   #header-compacta {
@@ -125,6 +139,15 @@ export function carregarNavbar() {
 
   #header-expandida pre {
     margin: 0;
+  }  
+
+  #ascii-art-container {
+    width: 100%;
+    text-align: center;
+    display: block;
+    user-select: none;
+    animation: flickerAnim 1s normal forwards ease-in-out;
+    margin-bottom: 12px;
   }
 
   #header-expandida pre a:hover,
@@ -256,6 +279,11 @@ export function carregarNavbar() {
   }
 
   @media (max-width: 1024px) {
+    #ascii-art-container {
+      font-size: 0.8em;
+      display: none;
+    }
+
     #side-menu.open {
       display: flex;
       transform: translateX(0);
