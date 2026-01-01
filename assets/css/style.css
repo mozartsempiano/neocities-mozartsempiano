@@ -890,7 +890,7 @@ section.links-section {
   background: var(--clr-gray-a10);
   color: var(--clr-white);
   border: 1px solid var(--clr-gray-a20);
-  padding: 0.25em 0.75em;
+  padding: 0.5em 0.75em;
   font-size: 0.9em;
   cursor: pointer;
   transition: background 0.25s, color 0.25s, opacity 0.25s;
@@ -901,6 +901,7 @@ section.links-section {
 .filter-gallery-tags .filter-gallery-tag {
   font-size: 0.84em;
   opacity: 0.8;
+  padding: 0.25em 0.6em;
 }
 
 .filter-gallery-tag.selected,
