@@ -63,6 +63,7 @@ styleSheet.textContent = `
   display: flex;
   flex-wrap: wrap;
   gap: 6px; /* 10px vertical, 12px horizontal */
+  align-items: center;
 }
 
 #filter-gallery-galeria {
@@ -587,14 +588,25 @@ function setupGalleryFilter({
   function renderFiltros() {
     const filtrosEl = document.getElementById(filtrosId);
     if (!filtrosEl) return;
-    filtrosEl.innerHTML = allTags
-      .map(
-        (tag) =>
-          `<span class="filter-gallery-tag${
-            selectedTags.includes(tag) ? " selected" : ""
-          }" data-tag="${tag}">#${tag}</span>`
-      )
-      .join(" ");
+
+    const iconeFiltro = false;
+    let filtroIcone = "";
+
+    if (iconeFiltro) {
+      // Criar ícone de filtro
+      filtroIcone = '<div class="icone filter-icone" title="Tags" style="background-color: var(--clr-gray-a40)"></div>';
+    }
+
+    filtrosEl.innerHTML =
+      filtroIcone +
+      allTags
+        .map(
+          (tag) =>
+            `<span class="filter-gallery-tag${
+              selectedTags.includes(tag) ? " selected" : ""
+            }" data-tag="${tag}">#${tag}</span>`
+        )
+        .join(" ");
     filtrosEl.querySelectorAll(".filter-gallery-tag").forEach((el) => {
       el.onclick = () => {
         const tag = el.getAttribute("data-tag");
