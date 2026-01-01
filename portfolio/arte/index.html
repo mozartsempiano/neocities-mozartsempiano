@@ -1,139 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<!-- Dados -->
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!--<meta http-equiv="Cache-Control" content="no-cache">-->
-		<meta name="author" content="Mozart Mattar" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
+    <meta name="author" content="Mozart Mattar" />
 
-		<title>mozartsempiano</title>
-		<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+    <title>mozartsempiano</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
 
-		<!-- CSS -->
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-		/>
-		<!-- Latest compiled and minified CSS -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		<!-- Icon library -->
-		<link rel="stylesheet" href="/assets/css/style.css" />
-		<!-- Custom CSS -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
 
-		<!-- Fontes Externas -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-			rel="stylesheet"
-		/>
+    <!-- Fontes Externas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-		<!-- Script -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<!-- jQuery library -->
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-		<style>
-			ul {
-				padding: 28px 32px;
-				border: 1px solid var(--clr-gray-a10);
-				margin-bottom: 24px;
-			}
+    <style>
+      ul {
+        padding: 28px 32px;
+        border: 1px solid var(--clr-gray-a10);
+        margin-bottom: 24px;
+      }
 
-			ul li:not(:first-child) {
-				margin-top: 10px;
-			}
-		</style>
-	</head>
+      ul li:not(:first-child) {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
 
-	<body>
-		<div id="container">
-			<div id="header-compacta"></div>
-			<div id="header-mobile"></div>
+  <body>
+    <div id="container">
+      <div id="header-compacta"></div>
+      <div id="header-mobile"></div>
 
-			<div id="conteudo">
-				<div id="nav-atual">
-					<a href="/home.html">home</a> >
-					<a href="/portfolio/index.html">portfolio</a> >
-					<span class="animate-flicker">arte</span>
-				</div>
-				<div id="col-centro">
-					<h1>Arte</h1>
+      <div id="conteudo">
+        <div id="nav-atual">
+          <a href="/home.html">home</a> > <a href="/portfolio/index.html">portfolio</a> >
+          <span class="animate-flicker">arte</span>
+        </div>
+        <div id="col-centro">
+          <h1>Arte</h1>
 
-					<ul>
-						<!-- <li><a href="tradicional.html">Tradicional</a></li> -->
-						<li><a href="sketchbook-2022.html">Sketchbook 2022</a></li>
-						<li><a href="sketchbook-2019.html">Sketchbook 2019</a></li>
-					</ul>
+          <ul>
+            <!-- <li><a href="tradicional.html">Tradicional</a></li> -->
+            <li><a href="sketchbook-2022.html">Sketchbook 2022</a></li>
+            <li><a href="sketchbook-2019.html">Sketchbook 2019</a></li>
+          </ul>
 
-					<div id="filter-gallery-filtros"></div>
-					<div id="filter-gallery-galeria"></div>
+          <div id="filter-gallery-filtros"></div>
+          <div id="filter-gallery-galeria"></div>
 
-					<div class="modal" id="modal">
-						<div id="modal-content">
-							<div id="modal-media"></div>
-							<div id="modal-sidebar">
-								<div id="modal-info">
-									<div id="modal-title" class="modal-title"></div>
-									<div id="modal-desc" class="modal-desc"></div>
-								</div>
-								<div id="modal-thumbs" class="modal-thumbs"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+          <div class="modal" id="modal">
+            <div id="modal-content">
+              <div id="modal-media"></div>
+              <div id="modal-sidebar">
+                <div id="modal-info">
+                  <div id="modal-title" class="modal-title"></div>
+                  <div id="modal-desc" class="modal-desc"></div>
+                </div>
+                <div id="modal-thumbs" class="modal-thumbs"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<footer></footer>
-		</div>
+      <footer></footer>
+    </div>
 
-		<script type="module" src="/assets/js/main.js"></script>
-		<script src="/assets/js/gallery-filter.js"></script>
-		<script>
-			const meusDesigns = [
-				{
-					title: "Nostalgia, e amadurecer com a dor",
-					year: 2025,
-					type: "",
-					client: "",
-					desc: "Conjunto de cartas e objetos que guardei no meu passado, associados a momentos que, embora difíceis, pavimentaram o caminho que me trouxe até aqui.",
-					programs: ["photoshop"],
-					tags: ["tradicional", "colagem"],
-					medias: [
-						{
-							type: "image",
-							src: "/assets/img/arte/Nostalgia e amadurecer com a dor.jpg",
-						},
-					],
-				},
-				{
-					title: "Fim do arco-íris",
-					year: 2023,
-					type: "",
-					client: "",
-					desc: "Desenho tradicional que sobrepus com uma fotografia que tirei.",
-					programs: ["photoshop"],
-					tags: ["tradicional"],
-					medias: [
-						{ type: "image", src: "/assets/img/arte/fim_do_arco_iris.jpg" },
-					],
-				},
-				{
-					title: "Morte",
-					year: 2022,
-					type: "",
-					client: "",
-					desc: "Redesign de uma personagem minha de infância, a Morte.",
-					programs: "",
-					tags: ["tradicional"],
-					medias: [{ type: "image", src: "/assets/img/arte/morte.jpg" }],
-				},
-				/* {
+    <script type="module" src="/assets/js/main.js"></script>
+    <script src="/assets/js/gallery-filter.js"></script>
+    <script>
+      const meusDesigns = [
+        {
+          title: "Nostalgia, e amadurecer com a dor",
+          year: 2025,
+          type: "",
+          client: "",
+          desc: "Conjunto de cartas e objetos que guardei no meu passado, associados a momentos que, embora difíceis, pavimentaram o caminho que me trouxe até aqui.",
+          programs: ["photoshop"],
+          tags: ["tradicional", "colagem"],
+          medias: [
+            {
+              type: "image",
+              src: "/assets/img/arte/Nostalgia e amadurecer com a dor.jpg",
+            },
+          ],
+        },
+        {
+          title: "Fim do arco-íris",
+          year: 2023,
+          type: "",
+          client: "",
+          desc: "Desenho tradicional que sobrepus com uma fotografia que tirei.",
+          programs: ["photoshop"],
+          tags: ["tradicional"],
+          medias: [{ type: "image", src: "/assets/img/arte/fim_do_arco_iris.jpg" }],
+        },
+        {
+          title: "Morte",
+          year: 2022,
+          type: "",
+          client: "",
+          desc: "Redesign de uma personagem minha de infância, a Morte.",
+          programs: "",
+          tags: ["tradicional"],
+          medias: [{ type: "image", src: "/assets/img/arte/morte.jpg" }],
+        },
+        /* {
 					title: "Sem título",
 					year: 2022,
 					type: "",
@@ -143,77 +123,77 @@
 					tags: ["tradicional"],
 					medias: [{ type: "image", src: "/assets/img/arte/Image_20250421_0005.jpg" }],
 				}, */
-				{
-					title: "Mascote Comissão III",
-					year: 2025,
-					type: "Mascote em vetor",
-					client: "Comissão de formatura XVII Direito USP Ribeirão",
-					desc: "",
-					programs: ["illustrator"],
-					tags: ["digital", "mascote", "comissão direito usp ribeirão"],
-					medias: [
-						{
-							type: "image",
-							src: "/assets/img/arte/digital/Comissao_Bufalo_2025.jpg",
-						},
-					],
-				},
-				{
-					title: "Mascote Comissão II",
-					year: 2024,
-					type: "Mascote em vetor",
-					client: "Comissão de formatura XVI Direito USP Ribeirão",
-					desc: "",
-					programs: ["illustrator"],
-					tags: ["digital", "mascote", "comissão direito usp ribeirão"],
-					medias: [
-						{
-							type: "image",
-							src: "/assets/img/arte/digital/Comissao_Boi_2024.jpg",
-						},
-					],
-				},
-				{
-					title: "Mascote Comissão I",
-					year: 2023,
-					type: "Mascote em vetor e logo",
-					client: "Comissão de formatura XV Direito USP Ribeirão",
-					desc: "",
-					programs: ["illustrator"],
-					tags: ["digital", "mascote", "comissão direito usp ribeirão"],
-					medias: [
-						{
-							type: "image",
-							src: "/assets/img/arte/digital/Comissao_Boi_2023.jpg",
-						},
-						{
-							type: "image",
-							src: "/assets/img/designs/marcas/Logo_Comissao.jpg",
-						},
-					],
-				},
-				{
-					title: "Mestre Ensinador",
-					year: 2022,
-					type: "Pixel art",
-					client: "",
-					desc: "",
-					programs: ["aseprite"],
-					tags: ["digital", "pixel"],
-					medias: [
-						{
-							type: "image",
-							src: "/assets/img/arte/digital/mestre_ensinador_2022.jpg",
-						},
-					],
-				},
-			];
+        {
+          title: "Mascote Comissão III",
+          year: 2025,
+          type: "Mascote em vetor",
+          client: "Comissão de formatura XVII Direito USP Ribeirão",
+          desc: "",
+          programs: ["illustrator"],
+          tags: ["digital", "mascote", "comissão direito usp ribeirão"],
+          medias: [
+            {
+              type: "image",
+              src: "/assets/img/arte/digital/Comissao_Bufalo_2025.jpg",
+            },
+          ],
+        },
+        {
+          title: "Mascote Comissão II",
+          year: 2024,
+          type: "Mascote em vetor",
+          client: "Comissão de formatura XVI Direito USP Ribeirão",
+          desc: "",
+          programs: ["illustrator"],
+          tags: ["digital", "mascote", "comissão direito usp ribeirão"],
+          medias: [
+            {
+              type: "image",
+              src: "/assets/img/arte/digital/Comissao_Boi_2024.jpg",
+            },
+          ],
+        },
+        {
+          title: "Mascote Comissão I",
+          year: 2023,
+          type: "Mascote em vetor e logo",
+          client: "Comissão de formatura XV Direito USP Ribeirão",
+          desc: "",
+          programs: ["illustrator"],
+          tags: ["digital", "mascote", "comissão direito usp ribeirão"],
+          medias: [
+            {
+              type: "image",
+              src: "/assets/img/arte/digital/Comissao_Boi_2023.jpg",
+            },
+            {
+              type: "image",
+              src: "/assets/img/designs/marcas/Logo_Comissao.jpg",
+            },
+          ],
+        },
+        {
+          title: "Mestre Ensinador",
+          year: 2022,
+          type: "Pixel art",
+          client: "",
+          desc: "",
+          programs: ["aseprite"],
+          tags: ["digital", "pixel"],
+          medias: [
+            {
+              type: "image",
+              src: "/assets/img/arte/digital/mestre_ensinador_2022.jpg",
+            },
+          ],
+        },
+      ];
 
-			setupGalleryFilter({
-				items: meusDesigns,
-				filtrosId: "filter-gallery-filtros",
-				galeriaId: "filter-gallery-galeria",
-			});
-		</script>
-	</body>
+      setupGalleryFilter({
+        items: meusDesigns,
+        filtrosId: "filter-gallery-filtros",
+        galeriaId: "filter-gallery-galeria",
+      });
+    </script>
+  </body>
 </html>
