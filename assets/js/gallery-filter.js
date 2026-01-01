@@ -366,14 +366,15 @@ styleSheet.textContent = `
 }
 
 #modal-title {
-  font-weight: 650;
+  font-weight: normal;
   text-transform: uppercase;
   font-size: 1.25em;
 }
 
 .modal-type,
 .modal-client {
-  font-size: 1em;
+  font-size: 0.9em;
+  color: var(--clr-gray-a50);
 }
 
 #modal-desc:empty {
@@ -438,7 +439,7 @@ styleSheet.textContent = `
 
 .modal-media-caption {
   font-size: 0.85em;
-  color: #ccc;
+  color: var(--clr-gray-a50);
   text-align: center;
   margin: 1em 0;
   cursor: default;
@@ -455,7 +456,7 @@ styleSheet.textContent = `
   display: flex;
   align-items: center;
   font-size: 0.95em;
-  color: #ccc;
+  color: var(--clr-gray-a50);
   gap: 0.7em;
 }
 
@@ -564,6 +565,52 @@ styleSheet.textContent = `
 }
 `;
 document.head.appendChild(styleSheet);
+
+function applyTooltips(container) {
+  container.querySelectorAll("[title]").forEach((el) => {
+    const title = el.getAttribute("title");
+    if (title) {
+      el.dataset.smtTitle = title;
+      el.removeAttribute("title");
+
+      let tooltipTimeout;
+
+      el.addEventListener("mouseenter", (e) => {
+        tooltipTimeout = setTimeout(() => {
+          const tooltip = document.getElementById("s-m-t-tooltip");
+          if (tooltip) {
+            const inner = tooltip.querySelector("div");
+            if (inner) {
+              inner.textContent = el.dataset.smtTitle;
+              tooltip.style.display = "block";
+
+              const updatePosition = (event) => {
+                tooltip.style.left = `${event.pageX + 10}px`;
+                tooltip.style.top = `${event.pageY + 10}px`;
+              };
+
+              updatePosition(e);
+              el.addEventListener("mousemove", updatePosition);
+              el._updatePosition = updatePosition;
+            }
+          }
+        }, 0);
+      });
+
+      el.addEventListener("mouseleave", () => {
+        clearTimeout(tooltipTimeout);
+        const tooltip = document.getElementById("s-m-t-tooltip");
+        if (tooltip) {
+          tooltip.style.display = "none";
+        }
+        if (el._updatePosition) {
+          el.removeEventListener("mousemove", el._updatePosition);
+          delete el._updatePosition;
+        }
+      });
+    }
+  });
+}
 
 function setupGalleryFilter({
   items = [],
@@ -707,13 +754,12 @@ function setupGalleryFilter({
           modalInfo.innerHTML = "";
 
           // título
-          if (d.title) {
-            const titleEl = document.createElement("div");
-            titleEl.id = "modal-title";
-            titleEl.className = "modal-title";
-            titleEl.textContent = d.year ? `${d.title} / ${d.year}` : d.title;
-            modalInfo.appendChild(titleEl);
-          }
+          const title = d.title && d.title.trim() ? d.title : "Sem título";
+          const titleEl = document.createElement("div");
+          titleEl.id = "modal-title";
+          titleEl.className = "modal-title";
+          titleEl.textContent = d.year ? `${title} / ${d.year}` : title;
+          modalInfo.appendChild(titleEl);
 
           // tipo
           if (d.type) {
@@ -747,6 +793,7 @@ function setupGalleryFilter({
 
             const icon = document.createElement("span");
             icon.className = "icone camera-icone";
+            icon.title = "Câmera utilizada";
 
             const text = document.createElement("span");
             text.textContent = getCamera(d);
@@ -822,55 +869,9 @@ function setupGalleryFilter({
             });
 
             modalInfo.appendChild(programsEl);
-
-            // Aplica tooltips aos novos elementos criados dinamicamente
-            setTimeout(() => {
-              programsEl.querySelectorAll(".program-icon[title]").forEach((el) => {
-                const title = el.getAttribute("title");
-                if (title) {
-                  el.dataset.smtTitle = title;
-                  el.removeAttribute("title");
-
-                  // Adiciona eventos de tooltip
-                  let tooltipTimeout;
-
-                  el.addEventListener("mouseenter", (e) => {
-                    tooltipTimeout = setTimeout(() => {
-                      const tooltip = document.getElementById("s-m-t-tooltip");
-                      if (tooltip) {
-                        const inner = tooltip.querySelector("div");
-                        if (inner) {
-                          inner.textContent = el.dataset.smtTitle;
-                          tooltip.style.display = "block";
-
-                          const updatePosition = (event) => {
-                            tooltip.style.left = `${event.pageX + 10}px`;
-                            tooltip.style.top = `${event.pageY + 10}px`;
-                          };
-
-                          updatePosition(e);
-                          el.addEventListener("mousemove", updatePosition);
-                          el._updatePosition = updatePosition;
-                        }
-                      }
-                    }, 0);
-                  });
-
-                  el.addEventListener("mouseleave", () => {
-                    clearTimeout(tooltipTimeout);
-                    const tooltip = document.getElementById("s-m-t-tooltip");
-                    if (tooltip) {
-                      tooltip.style.display = "none";
-                    }
-                    if (el._updatePosition) {
-                      el.removeEventListener("mousemove", el._updatePosition);
-                      delete el._updatePosition;
-                    }
-                  });
-                }
-              });
-            }, 0);
           }
+
+          applyTooltips(modalInfo);
         }
 
         const medias = getMedias(d);
@@ -983,6 +984,10 @@ function setupGalleryFilter({
 
   renderFiltros();
   renderGaleria();
+
+  // Aplica tooltips na galeria
+  const galeriaEl = document.getElementById(galeriaId);
+  if (galeriaEl) applyTooltips(galeriaEl);
 
   function closeModal(modalId) {
     const modal = document.getElementById(modalId);
