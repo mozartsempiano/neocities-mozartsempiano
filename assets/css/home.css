@@ -372,6 +372,18 @@ body.rounded .marquee-track img {
   text-decoration: none;
 }
 
+.ultimo-post {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  text-align: left;
+}
+
+.ultimo-post .post-data {
+  font-size: 0.9em;
+  color: var(--clr-gray-a50);
+}
+
 .banners {
   justify-content: center;
   margin: 0;
