@@ -102,8 +102,8 @@
   --clr-black-a0: #f5f6fa;
   --clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
 
-  --clr-gray-a0: lch(from var(--clr-black-a0) calc(l - 10) c calc(h + 10));
-  --clr-gray-a10: lch(from var(--clr-black-a0) calc(l - 15) c calc(h + 10));
+  --clr-gray-a0: lch(from var(--clr-black-a0) calc(l - 5) c calc(h + 10));
+  --clr-gray-a10: lch(from var(--clr-black-a0) calc(l - 11) c calc(h + 10));
   --clr-gray-a20: lch(from var(--clr-black-a0) calc(l - 20) c calc(h + 10));
   --clr-gray-a30: lch(from var(--clr-black-a0) calc(l - 30) c calc(h + 10));
   --clr-gray-a40: lch(from var(--clr-black-a0) calc(l - 50) c calc(h + 10));

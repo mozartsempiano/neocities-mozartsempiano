@@ -1,5 +1,12 @@
 [
   {
+    "date": "2025-12-31",
+    "items": [
+      "página <a href=\"/curriculo.html\">currículo</a> adicionada",
+      "mais <a href=\"/links.html\">links</a> adicionados"
+    ]
+  },
+  {
     "date": "2025-12-26",
     "items": [
       "remoção (temporária?) do guestbook e alterações na <a href=\"/home.html\">home</a>",
