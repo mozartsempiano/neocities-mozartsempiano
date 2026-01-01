@@ -12,20 +12,24 @@ styleSheet.textContent = `
 		margin: 0 auto;
 		z-index: 10;
 	}
+
   .filter-gallery-content {
     position: relative;
   }
+
   .filter-gallery-thumb {
     position: relative;
   }
+
   .filter-gallery-thumb img {
     display: block;
     width: 100%;
   }
+
   .media-count {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    top: 10px;
+    right: 10px;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 4px 8px;
@@ -35,6 +39,7 @@ styleSheet.textContent = `
     user-select: none;
     pointer-events: none;
   }
+
   .video-play-icon {
     position: absolute;
     top: 50%;
@@ -73,7 +78,7 @@ styleSheet.textContent = `
 .filter-gallery-item {
   display: inline-block;
   width: 100%;
-  margin: 0 0 18px 0;
+  margin: 0;
   background: transparent;
   box-sizing: border-box;
   break-inside: avoid;
@@ -91,10 +96,29 @@ styleSheet.textContent = `
 }
 
 .filter-gallery-tags {
+  opacity: 0;
+  transition: opacity 0.25s;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin: 6px 0 0 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 100%;
+  background-image: linear-gradient(to top,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.filter-gallery-tags > * {
+  pointer-events: auto;
+}
+
+.filter-gallery-item:hover .filter-gallery-tags {
+  opacity: 1;
 }
 
 .filter-gallery-tag {
@@ -111,7 +135,6 @@ styleSheet.textContent = `
 
 .filter-gallery-tags .filter-gallery-tag {
   font-size: 0.84em;
-  opacity: 0.8;
   padding: 0.25em 0.6em;
 }
 

@@ -1,10 +1,13 @@
 [
   {
-    "date": "2025-12-31",
+    "date": "2026-01-01",
     "items": [
       "página <a href=\"/curriculo.html\">currículo</a> adicionada",
+      "mais <a href=\"/portfolio/fotografia/index.html\">fotografias</a> adicionadas",
       "mais <a href=\"/links.html\">links</a> adicionados",
-      "alterações no texto e ordem dos itens da caixa de configurações"
+      "alterações no visual das tags nas galerias",
+      "alterações no texto e ordem dos itens da caixa de configurações",
+      "diversas correções no css geral, organização dos códigos, e remoção de trechos e arquivos inutilizados"
     ]
   },
   {
