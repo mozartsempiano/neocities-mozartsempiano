@@ -1,13 +1,59 @@
 section.links-section h2:first-child {
-	background-color: var(--clr-main-a20);
-	padding: 0.25em 0.4em;
-	font-weight: bold;
+  background-color: var(--clr-main-a20);
+  padding: 0.25em 0.4em;
+  font-weight: bold;
 }
 
-table.sitelist tbody tr:nth-child(even) {
-	background: var(--clr-gray-a0);
+table {
+  column-count: 1;
+  text-transform: lowercase;
+  width: 100%;
 }
 
-table.sitelist tr td {
-	background-color: unset;
+table td:has(img) {
+  text-align: center;
+}
+
+table.sl1 {
+  column-count: 1;
+}
+
+table.sl2 {
+  column-count: 2;
+}
+
+table.sl3 {
+  column-count: 3;
+}
+
+table.sl4 {
+  column-count: 4;
+}
+
+table > li {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 0;
+}
+
+table > li > ul {
+  margin-left: 20px;
+  padding-left: 0;
+  list-style-type: disc;
+}
+
+table > li > ul > li {
+  margin-bottom: 0;
+  list-style: disc;
+  list-style-position: inside;
+}
+
+table tr td {
+  background-color: unset;
+}
+
+@media (max-width: 1024px) {
+  .sitelist {
+    column-count: 1;
+  }
 }

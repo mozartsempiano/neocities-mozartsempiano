@@ -7,7 +7,7 @@ import { initHeaderMobile } from "/assets/js/header-mobile.js";
 import { enableLightMode } from "/assets/js/light-mode.js";
 import { initSettingsPanel } from "/assets/js/settings-panel.js";
 // import { smoothScroll } from "/assets/js/smooth-scroll.js";
-import { setupViewportAnimations } from "/assets/js/viewport-animations.js";
+// import { setupViewportAnimations } from "/assets/js/viewport-animations.js";
 import { wavyText } from "/assets/js/wavy-text.js";
 
 function isDate(month1to12, day) {
@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
   wavyText();
 
   // Inicializa animações de scroll
-  setupViewportAnimations({
-    cascade: true,
-    selector: ".animate-on-scroll", // seletor dos elementos que vão animar
-    animationClass: "fade-in", // animação padrão
-  });
+  // setupViewportAnimations({
+  //   cascade: true,
+  //   selector: ".animate-on-scroll",
+  //   animationClass: "fade-in",
+  // });
 
   const style = document.createElement("style");
   style.id = "custom-body-effect";
