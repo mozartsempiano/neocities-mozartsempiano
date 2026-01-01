@@ -1,5 +1,4 @@
 // Créditos do ícone da câmera: https://www.svgrepo.com/svg/478422/camera-9
-// Ícones dos programas: https://www.svgrepo.com/collection/pictonic-logo-icons/
 
 // Injeta os estilos CSS necessários
 const styleSheet = document.createElement("style");
@@ -750,28 +749,48 @@ function setupGalleryFilter({
             const programMap = {
               photoshop: {
                 aliases: ["photoshop", "ps", "adobe photoshop"],
-                file: "photoshop-icon.svg",
+                cssClass: "icon-photoshop",
                 title: "Adobe Photoshop",
               },
               illustrator: {
                 aliases: ["illustrator", "ai", "adobe illustrator"],
-                file: "illustrator-icon.svg",
+                cssClass: "icon-illustrator",
                 title: "Adobe Illustrator",
+              },
+              indesign: {
+                aliases: ["indesign", "id", "adobe indesign"],
+                cssClass: "icon-indesign",
+                title: "Adobe InDesign",
               },
               "after-effects": {
                 aliases: ["after", "after effects", "after-effects", "ae", "adobe after effects"],
-                file: "after-effects-icon.svg",
+                cssClass: "icon-after-effects",
                 title: "Adobe After Effects",
               },
               premiere: {
                 aliases: ["premiere", "premiere pro", "adobe premiere"],
-                file: "premiere-icon.svg",
+                cssClass: "icon-premiere",
                 title: "Adobe Premiere",
               },
               aseprite: {
                 aliases: ["aseprite", "ap"],
-                file: "aseprite-icon.svg",
+                cssClass: "icon-aseprite",
                 title: "Aseprite",
+              },
+              python: {
+                aliases: ["python", "py"],
+                cssClass: "icon-python",
+                title: "Python",
+              },
+              javascript: {
+                aliases: ["javascript", "js"],
+                cssClass: "icon-javascript",
+                title: "JavaScript",
+              },
+              css: {
+                aliases: ["css"],
+                cssClass: "icon-css",
+                title: "CSS",
               },
             };
 
@@ -784,17 +803,61 @@ function setupGalleryFilter({
 
               const prog = programMap[key];
               const span = document.createElement("span");
-              span.className = "program-icon";
+              span.className = `program-icon ${prog.cssClass}`;
               span.title = prog.title;
-
-              // define a máscara direto no style
-              span.style.maskImage = `url('/assets/img/icones/${prog.file}')`;
-              span.style.webkitMaskImage = `url('/assets/img/icones/${prog.file}')`;
 
               programsEl.appendChild(span);
             });
 
             modalInfo.appendChild(programsEl);
+
+            // Aplica tooltips aos novos elementos criados dinamicamente
+            setTimeout(() => {
+              programsEl.querySelectorAll(".program-icon[title]").forEach((el) => {
+                const title = el.getAttribute("title");
+                if (title) {
+                  el.dataset.smtTitle = title;
+                  el.removeAttribute("title");
+
+                  // Adiciona eventos de tooltip
+                  let tooltipTimeout;
+
+                  el.addEventListener("mouseenter", (e) => {
+                    tooltipTimeout = setTimeout(() => {
+                      const tooltip = document.getElementById("s-m-t-tooltip");
+                      if (tooltip) {
+                        const inner = tooltip.querySelector("div");
+                        if (inner) {
+                          inner.textContent = el.dataset.smtTitle;
+                          tooltip.style.display = "block";
+
+                          const updatePosition = (event) => {
+                            tooltip.style.left = `${event.pageX + 10}px`;
+                            tooltip.style.top = `${event.pageY + 10}px`;
+                          };
+
+                          updatePosition(e);
+                          el.addEventListener("mousemove", updatePosition);
+                          el._updatePosition = updatePosition;
+                        }
+                      }
+                    }, 0);
+                  });
+
+                  el.addEventListener("mouseleave", () => {
+                    clearTimeout(tooltipTimeout);
+                    const tooltip = document.getElementById("s-m-t-tooltip");
+                    if (tooltip) {
+                      tooltip.style.display = "none";
+                    }
+                    if (el._updatePosition) {
+                      el.removeEventListener("mousemove", el._updatePosition);
+                      delete el._updatePosition;
+                    }
+                  });
+                }
+              });
+            }, 0);
           }
         }
 
