@@ -62,7 +62,7 @@ export function carregarNavbar() {
   }
   #navbar .dropdown-content,
   #navbar-compacta .dropdown-content {
-    display: none;
+    display: block;
     position: absolute;
     background-color: var(--clr-black-a0);
     border: 1px solid var(--clr-gray-a10);
@@ -70,9 +70,12 @@ export function carregarNavbar() {
     width: max-content;
     z-index: 500;
     overflow: hidden;
-    animation: dropdownAnimation ease 1s !important;
-    animation-fill-mode: forwards;
     border-radius: 0 var(--b-radius) var(--b-radius) 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0);
+    transition: opacity 0.15s, transform 0.3s, visibility 0.15s;
   }
   #navbar .dropdown-content a,
   #navbar-compacta .dropdown-content a {
@@ -92,7 +95,10 @@ export function carregarNavbar() {
   }
   #navbar .dropdown:hover .dropdown-content,
   #navbar-compacta .dropdown:hover .dropdown-content {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(5px);
   }
   #navbar-compacta {
     display: flex;
