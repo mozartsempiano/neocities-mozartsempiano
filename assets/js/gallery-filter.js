@@ -1,6 +1,5 @@
 // Créditos do ícone da câmera: https://www.svgrepo.com/svg/478422/camera-9
 
-// Injeta os estilos CSS necessários
 const styleSheet = document.createElement("style");
 styleSheet.textContent = `
 	#modal-media video {
@@ -629,7 +628,20 @@ function setupGalleryFilter({
 } = {}) {
   if (!Array.isArray(items)) items = [];
 
-  const allTags = Array.from(new Set(items.flatMap((it) => getTags(it) || []))).sort();
+  // Combina tags originais com câmera e ano
+  function getAllTagsForItem(item) {
+    const tags = getTags(item) || [];
+    const camera = getCamera(item);
+    const year = getYear(item);
+
+    const allItemTags = [...tags];
+    if (camera) allItemTags.push(camera.toLowerCase());
+    if (year) allItemTags.push(year.toString().toLowerCase());
+
+    return allItemTags;
+  }
+
+  const allTags = Array.from(new Set(items.flatMap(getAllTagsForItem))).sort();
   let selectedTags = [];
 
   function renderFiltros() {
@@ -640,7 +652,6 @@ function setupGalleryFilter({
     let filtroIcone = "";
 
     if (iconeFiltro) {
-      // Criar ícone de filtro
       filtroIcone = '<div class="icone filter-icone" title="Tags" style="background-color: var(--clr-gray-a40)"></div>';
     }
 
@@ -677,8 +688,8 @@ function setupGalleryFilter({
     let filtered = items;
     if (selectedTags.length) {
       filtered = items.filter((d) => {
-        const tags = getTags(d) || [];
-        return selectedTags.every((tag) => tags.includes(tag));
+        const allItemTags = getAllTagsForItem(d);
+        return selectedTags.every((tag) => allItemTags.includes(tag));
       });
     }
 
@@ -687,7 +698,9 @@ function setupGalleryFilter({
 
     galeriaEl.innerHTML = filtered
       .map((d) => {
-        const tags = (getTags(d) || [])
+        const allItemTags = getAllTagsForItem(d);
+
+        const tags = allItemTags
           .map(
             (tag) =>
               `<span class="filter-gallery-tag${
@@ -753,7 +766,6 @@ function setupGalleryFilter({
         function renderModalInfo(d) {
           modalInfo.innerHTML = "";
 
-          // título
           const title = d.title && d.title.trim() ? d.title : "Sem título";
           const titleEl = document.createElement("div");
           titleEl.id = "modal-title";
@@ -761,7 +773,6 @@ function setupGalleryFilter({
           titleEl.textContent = d.year ? `${title} / ${d.year}` : title;
           modalInfo.appendChild(titleEl);
 
-          // tipo
           if (d.type) {
             const typeEl = document.createElement("div");
             typeEl.className = "modal-type";
@@ -769,7 +780,6 @@ function setupGalleryFilter({
             modalInfo.appendChild(typeEl);
           }
 
-          // cliente
           if (d.client) {
             const clientEl = document.createElement("div");
             clientEl.className = "modal-client";
@@ -777,7 +787,6 @@ function setupGalleryFilter({
             modalInfo.appendChild(clientEl);
           }
 
-          // descrição
           if (d.desc) {
             const descEl = document.createElement("div");
             descEl.id = "modal-desc";
@@ -786,7 +795,6 @@ function setupGalleryFilter({
             modalInfo.appendChild(descEl);
           }
 
-          // câmera
           if (getCamera(d)) {
             const cameraEl = document.createElement("div");
             cameraEl.className = "modal-camera";
@@ -803,7 +811,6 @@ function setupGalleryFilter({
             modalInfo.appendChild(cameraEl);
           }
 
-          // programas com mapa de aliases
           if (d.programs && d.programs.length) {
             const programMap = {
               photoshop: {
@@ -924,14 +931,12 @@ function setupGalleryFilter({
           }
         }
 
-        // === renderModalThumbs() ===
         function renderModalThumbs(initialIdx = 0) {
           modalThumbs.innerHTML = "";
 
           const videoIdx = medias.findIndex((m) => m.type === "video");
 
           medias.forEach((m, i) => {
-            // Thumb normal de imagem
             if (m.type === "image" && !m.thumbOnly) {
               const thumb = document.createElement("div");
               thumb.className = "modal-thumb";
@@ -948,7 +953,6 @@ function setupGalleryFilter({
               modalThumbs.appendChild(thumb);
             }
 
-            // Thumb representando vídeo
             if (m.thumbOnly && videoIdx !== -1) {
               const thumb = document.createElement("div");
               thumb.className = "modal-thumb video-thumb";
@@ -985,7 +989,6 @@ function setupGalleryFilter({
   renderFiltros();
   renderGaleria();
 
-  // Aplica tooltips na galeria
   const galeriaEl = document.getElementById(galeriaId);
   if (galeriaEl) applyTooltips(galeriaEl);
 
@@ -993,7 +996,6 @@ function setupGalleryFilter({
     const modal = document.getElementById(modalId);
     if (!modal) return;
 
-    // pausa vídeos removendo src
     const iframes = modal.querySelectorAll("iframe");
     iframes.forEach((iframe) => (iframe.src = ""));
 

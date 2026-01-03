@@ -30,6 +30,7 @@ Desktop.ini
 /dist/
 /build/
 *.exe
+*.bat
 *.dll
 *.so
 *.dylib
@@ -87,3 +88,10 @@ $RECYCLE.BIN/
 # assets/img/sketchbooks/*
 # assets/fontes/*
 # assets/css/*
+
+shrines/*
+assets/css/pokemon.css
+assets/css/minecraft.css
+assets/img/pokemon/*
+assets/fontes/pokemon-bw.ttf
+assets/fontes/Pokemon-Classic.ttf
