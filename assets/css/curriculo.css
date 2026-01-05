@@ -268,7 +268,7 @@ section#conhecimentos.page-section section#conhecimentos-conteudo section {
 		max-width: none;
 		margin: 0;
 		color: var(--clr-neutral);
-		background-color: var(--clr-white) !important;
+		background-color: #fff !important;
 		font-family: var(--font-body);
 	}
 
