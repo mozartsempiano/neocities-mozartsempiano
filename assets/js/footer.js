@@ -49,9 +49,9 @@ export function carregarFooter() {
           </h2>
           <p>Brasil, Terra — <span id="hora-brasilia"></span></p>
           <a href="/sitemap.html">Sitemap</a>
-          <br><br>
+          <br>
           <!-- <p>while self.location != bauru.self.apt<br>self.location.freeRoaming(bauru.streets,0)</p> -->
-          <p>if(self.status != online)<br>self.status.connect()</p>
+          <p id="status-bottom">if(self.status != online)<br>self.status.connect()</p>
         </div>
         <div class="footer-coluna">
           <h1>Tem uma ideia legal?</h1><h1 style="margin-top: 7px">Vamos conversar! d(^‿^)b</h1>
@@ -121,6 +121,10 @@ export function carregarFooter() {
 
       footer p {
         font-size: 1em;
+      }
+
+      footer #status-bottom {
+        font-size: 0.9em;
       }
 
       :root[data-theme="light"] footer,

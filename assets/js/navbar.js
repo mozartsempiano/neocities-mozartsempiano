@@ -9,17 +9,20 @@ export function carregarNavbar() {
     text-transform: capitalize;
     letter-spacing: 1px;
     font-size: 1em;
-    transition: all 0.25s ease;
+    transition: var(--transition-time);
     user-select: none;
   }
   #navbar {
     text-align: center;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 22px;
     position: relative;
-    margin-bottom: 22px;
     display: flex;
     justify-content: center;
+  }
+  #navbar-compacta {
+    display: flex;
+    text-align: left;
   }
   #navbar a.atual,
   #navbar-compacta a.atual {
@@ -29,7 +32,6 @@ export function carregarNavbar() {
   #navbar-compacta a {
     cursor: pointer !important;
   }
-  a:not([href]),
   a:not([href]) {
     cursor: default;
   }
@@ -46,12 +48,8 @@ export function carregarNavbar() {
     vertical-align: middle;
     width: 1em;
     height: 1em;
-    -webkit-mask-image: var(--svg);
-    mask-image: var(--svg);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
+    mask: var(--svg) no-repeat center/contain;
+    -webkit-mask: var(--svg) no-repeat center/contain;
     background-color: currentColor;
     pointer-events: none;
     padding-left: 6px;
@@ -63,29 +61,27 @@ export function carregarNavbar() {
   }
   #navbar .dropdown-content,
   #navbar-compacta .dropdown-content {
-    display: block;
     position: absolute;
+    top: 100%;
+    margin-top: -1px;
     background-color: var(--clr-black-a0);
     border: 1px solid var(--clr-gray-a10);
+    border-radius: 0 var(--b-radius) var(--b-radius) 0;
     max-width: 150px;
     width: max-content;
     z-index: 500;
-    overflow: hidden;
-    border-radius: 0 var(--b-radius) var(--b-radius) 0;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-5px);
     transition: opacity 0.15s, transform 0.3s, visibility 0.15s;
-    top: 100%;
-    margin-top: -1px;
   }
   #navbar .dropdown-content a,
   #navbar-compacta .dropdown-content a {
-    color: var(--clr-white);
-    padding: 8px 12px;
-    text-decoration: none;
     display: block;
+    padding: 8px 12px;
+    color: var(--clr-white);
+    text-decoration: none;
     text-align: left;
     white-space: normal;
     overflow-wrap: anywhere;
@@ -94,7 +90,6 @@ export function carregarNavbar() {
   #navbar .dropdown-content a:hover,
   #navbar-compacta .dropdown-content a:hover {
     background-color: var(--clr-main-a40);
-    color: var(--clr-white);
   }
   #navbar .dropdown:hover .dropdown-content,
   #navbar-compacta .dropdown:hover .dropdown-content {
@@ -102,10 +97,6 @@ export function carregarNavbar() {
     visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
-  }
-  #navbar-compacta {
-    display: flex;
-    text-align: left;
   }
 
   #header-expandida {
@@ -116,13 +107,9 @@ export function carregarNavbar() {
     text-align: center;
     min-height: 75px;
     width: 100%;
-    justify-content: left;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
-    margin-bottom: 26px;
-    margin-top: 495px;
-    position: relative; /* establish containing block for pseudo */
+    margin: 495px 0 26px;
+    position: relative;
   }
 
   #header-expandida::before {
@@ -134,7 +121,6 @@ export function carregarNavbar() {
     pointer-events: none;
     opacity: 0.7;
     transition: opacity 0.2s ease;
-    user-select: none;
     z-index: -2;
     transform-origin: center;
     animation: fragmentFloat 8s infinite ease-in-out;
@@ -142,8 +128,7 @@ export function carregarNavbar() {
   }
 
   #header-compacta {
-    margin-top: 24px;
-    margin-bottom: 64px;
+    margin: 24px 0 64px;
   }
 
   #header-expandida pre {
@@ -153,7 +138,6 @@ export function carregarNavbar() {
   #ascii-art-container {
     width: 100%;
     text-align: center;
-    display: block;
     user-select: none;
     animation: flickerAnim 1s normal forwards ease-in-out;
     margin-bottom: 12px;
@@ -164,20 +148,13 @@ export function carregarNavbar() {
   #site-title a:hover,
   #header-mobile a:hover {
     color: var(--clr-main-a40) !important;
-    /* opacity: 0.65 !important; */
     text-decoration: none !important;
   }
 
-  /* Botão Doar no navbar */
-  #header-expandida a.btn-doar:link,
-  #header-expandida a.btn-doar:visited,
-  #header-expandida a.btn-doar:active,
-  #header-compacta a.btn-doar:link,
-  #header-compacta a.btn-doar:visited,
-  #header-compacta a.btn-doar:active,
-  #header-mobile a.btn-doar:link,
-  #header-mobile a.btn-doar:visited,
-  #header-mobile a.btn-doar:active {
+  /* Botão Doar */
+  #header-expandida a.btn-doar,
+  #header-compacta a.btn-doar,
+  #header-mobile a.btn-doar {
     color: var(--clr-main-a30);
     text-decoration: none;
   }
@@ -194,9 +171,8 @@ export function carregarNavbar() {
   #header-titulo-compacto,
   #title-mobile {
     font-family: var(--fonte-tituloheader);
-    font-size: 1.2em;
+    font-size: 1.43em;
     color: var(--clr-white);
-    background: transparent;
   }
 
   #header-titulo-compacto {
@@ -208,16 +184,16 @@ export function carregarNavbar() {
     display: none;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
+    padding: 10px 20px;
   }
 
   #header-mobile a {
     color: var(--clr-white);
-    background-color: transparent;
     text-decoration: none;
   }
 
-  #menu-btn {
+  #menu-btn,
+  #close-menu {
     background: none;
     border: none;
     color: var(--clr-white);
@@ -225,18 +201,24 @@ export function carregarNavbar() {
     cursor: pointer;
   }
 
-  #menu-btn:hover {
+  #menu-btn:hover,
+  #close-menu:hover {
     color: var(--clr-main-a40);
   }
 
   #menu-btn svg {
-    width: 1em;
-    height: 1em;
+    width: 0.9em;
+    height: 0.9em;
     fill: currentColor;
   }
 
+  #close-menu {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+  }
+
   #side-menu {
-    display: flex;
     position: fixed;
     top: 0;
     right: 0;
@@ -247,12 +229,30 @@ export function carregarNavbar() {
     color: var(--clr-white);
     box-shadow: -2px 0 12px rgba(0, 0, 0, 0.4);
     z-index: 998;
-    padding: 32px 24px 24px 24px;
+    padding: 32px 24px 24px;
+    display: flex;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
     scrollbar-width: thin;
+  }
+
+  #side-menu.open {
+    transform: translateX(0);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #side-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    transition: opacity 0.25s;
+    opacity: 0;
+    pointer-events: none;
   }
 
   #side-menu.open ~ #side-menu-overlay,
@@ -272,46 +272,13 @@ export function carregarNavbar() {
     margin: 13px 0;
     color: var(--clr-white);
     font-size: 1.14em;
-    text-decoration: none;
     transition: color 0.25s;
-  }
-
-  #close-menu {
-    background: none;
-    border: none;
-    color: var(--clr-white);
-    font-size: 2.29em;
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    cursor: pointer;
   }
 
   @media (max-width: 1024px) {
     #ascii-art-container {
       font-size: 0.8em;
       display: none;
-    }
-
-    #side-menu.open {
-      display: flex;
-      transform: translateX(0);
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-
-    #side-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 998;
-      transition: opacity 0.25s;
-      opacity: 0;
-      pointer-events: none;
     }
 
     #title-mobile {
@@ -327,9 +294,8 @@ export function carregarNavbar() {
     #site-title {
       display: block !important;
       font-family: var(--fonte-tituloheader) !important;
-      font-size: 1.71em !important;
+      font-size: 1.2em !important;
       text-align: left !important;
-      margin: 0 0 16px 0 !important;
       letter-spacing: 0;
     }
   }
