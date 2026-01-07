@@ -194,7 +194,7 @@ export function carregarNavbar() {
   #header-titulo-compacto,
   #title-mobile {
     font-family: var(--fonte-tituloheader);
-    font-size: 1.43em;
+    font-size: 1.2em;
     color: var(--clr-white);
     background: transparent;
   }
@@ -230,8 +230,8 @@ export function carregarNavbar() {
   }
 
   #menu-btn svg {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: 1em;
     fill: currentColor;
   }
 
