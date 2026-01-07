@@ -598,6 +598,7 @@ hr {
 
 p {
   font-size: 1em;
+  text-align: justify;
 }
 
 p:first-of-type {

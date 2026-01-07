@@ -39,6 +39,36 @@ div#conteudo div#col-centro .caixinha h1:first-of-type {
   text-transform: lowercase;
 }
 
+div:has(> a#curriculo-btn) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+a#curriculo-btn {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.3em;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.8em 1.2em;
+  border: 1px solid var(--clr-gray-a10);
+  color: var(--clr-main-a40) !important;
+  background-color: var(--clr-black-a10) !important;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+a#curriculo-btn:hover {
+  background-color: var(--clr-main-a40);
+  border-color: var(--clr-main-a40);
+  color: var(--clr-black-a10);
+}
+
 .sobre-links {
   display: flex;
   flex-wrap: wrap;

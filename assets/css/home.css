@@ -178,10 +178,6 @@ div.box.sobre div.box-inner div.info-desc div.info-texto {
   margin-bottom: 1.5em;
 }
 
-div.box.sobre div.box-inner p {
-  text-align: left;
-}
-
 .guestbook {
   flex: 1.3;
   padding: 0;
