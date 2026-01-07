@@ -23,7 +23,7 @@ a:hover {
   color: var(--clr-white);
   /* background-color: var(--clr-black-a0) !important; */
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
 }
 
 a#clique-para-entrar-link {
@@ -45,7 +45,7 @@ a#clique-para-entrar-link p#clique-para-entrar {
   font-family: "Redaction50", serif;
   font-size: 1.5em;
   color: var(--clr-white);
-  transition: color 0.3s ease;
+  transition: color var(--transition-time);
 }
 
 a#clique-para-entrar-link:hover p#clique-para-entrar {
@@ -57,7 +57,7 @@ img#logo {
   height: auto;
   animation: logo-anim 6s cubic-bezier(0.43, 0, 0.43, 1) infinite;
   user-select: none;
-  transition: filter 0.5s ease;
+  transition: filter var(--transition-time-long);
   margin: 0 auto;
 }
 :root[data-theme="light"] img#logo {
@@ -136,7 +136,7 @@ div#classificacao {
   justify-content: center;
 
   opacity: 0;
-  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 :root[data-theme="light"] #preloader {

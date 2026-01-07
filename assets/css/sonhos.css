@@ -187,7 +187,7 @@ img#img-header {
   padding: 0 6px;
   cursor: pointer;
   font-size: 1.2em;
-  transition: color 0.3s ease;
+  transition: color var(--transition-time);
   text-shadow: 0 -1px var(--cor-contorno), 1px 0 var(--cor-contorno), 0 1px var(--cor-contorno),
     -1px 0 var(--cor-contorno);
   width: 24px;
@@ -245,7 +245,7 @@ body.rounded #calendar-grid {
   align-items: center;
   justify-content: center;
   cursor: default;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  transition: opacity calc(var(--transition-time) + 0.1s), transform var(--transition-time);
   border: 1px solid transparent;
   aspect-ratio: 1/1;
 }
@@ -333,14 +333,14 @@ body.rounded #calendar-grid {
 /* Modal open/close animations */
 .modal {
   opacity: 1;
-  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--transition-time-long) cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal.modal-fade-in {
-  animation: modalFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: modalFadeIn var(--transition-time-long) cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
 }
 .modal.modal-fade-out {
-  animation: modalFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: modalFadeOut var(--transition-time-long) cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   pointer-events: none;
 }
@@ -371,7 +371,7 @@ body.rounded #calendar-grid {
   position: absolute;
   right: 16px;
   top: 16px;
-  transition: color 0.2s ease;
+  transition: color var(--transition-time);
   user-select: none;
 }
 

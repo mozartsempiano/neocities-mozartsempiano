@@ -26,7 +26,7 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 
-  transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+  transition: color var(--transition-time), background-color var(--transition-time), border-color var(--transition-time);
 }
 
 html,
@@ -197,7 +197,7 @@ body {
 .contato-item a:active {
   color: var(--clr-white);
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
 }
 
 .sitemap a:hover,
@@ -216,7 +216,7 @@ a:active {
   text-decoration: underline dotted;
   color: var(--clr-main-a40);
   padding: 3px;
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
 }
 
 div#nav-atual a:link,
@@ -271,13 +271,13 @@ h6 a {
 a:link img,
 a:visited img,
 a:active img {
-  transition: box-shadow 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  transition: box-shadow var(--transition-time), filter var(--transition-time), transform var(--transition-time);
 }
 
 a:hover:not(:has(img)) {
   color: var(--clr-black-a0);
   background-color: var(--clr-main-a40);
-  /* animation: glow 1s ease-in-out infinite alternate; */
+  /* animation: glow 1s-in-out infinite alternate; */
 }
 
 a:hover img {
@@ -401,7 +401,7 @@ h3.subtitulo {
 }
 
 button {
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
   cursor: pointer;
 }
 
@@ -474,7 +474,7 @@ pre a:active,
   /* Mantém a proporção entre as linhas */
   white-space: pre;
   text-decoration: none !important;
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
 }
 
 #conteudo-inner {
@@ -556,11 +556,11 @@ footer,
   overflow: hidden;
   width: 47%;
   float: left;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all var(--transition-time-long);
+  -moz-transition: all var(--transition-time-long);
+  -o-transition: all var(--transition-time-long);
+  -ms-transition: all var(--transition-time-long);
+  transition: all var(--transition-time-long);
 }
 
 .img_design:hover {
@@ -661,7 +661,7 @@ p.indent {
 
 #descricao-sobre a:link {
   letter-spacing: 1px;
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
 }
 
 #descricao-sobre a:hover {
@@ -842,7 +842,7 @@ details summary::before {
   vertical-align: top;
   pointer-events: none;
   margin-right: 8px;
-  transition: transform 0.3s;
+  transition: transform var(--transition-time);
   display: inline-block;
   /* Precisa disso pra animação da setinha */
 }
@@ -863,7 +863,7 @@ details[open] > summary::before {
 
 details,
 summary {
-  transition: all 0.25s;
+  transition: all var(--transition-time);
 }
 
 details:not([open]) summary {
@@ -1389,7 +1389,7 @@ ul {
 img.nsfw {
   filter: blur(18px);
   clip-path: inset(0 round var(--b-radius));
-  transition: all 0.3s ease !important;
+  transition: var(--transition-time) !important;
 }
 
 img.nsfw:hover {

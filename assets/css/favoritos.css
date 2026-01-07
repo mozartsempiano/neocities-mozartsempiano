@@ -1,7 +1,7 @@
 .chart {
   width: 100%;
   image-rendering: auto;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-time);
 }
 
 .grid {
@@ -23,7 +23,7 @@
 .grid img {
   image-rendering: pixelated;
   outline: 1px solid var(--clr-gray-a20);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow var(--transition-time-long);
   transform-style: preserve-3d;
 }
 
@@ -207,7 +207,7 @@ details#web {
 }
 
 .colecoes img {
-  transition: all 0.3s ease;
+  transition: all var(--transition-time);
   z-index: 0;
   border-radius: var(--b-radius);
 }

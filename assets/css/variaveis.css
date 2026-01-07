@@ -81,6 +81,8 @@
   --fonte-corpo: "ANK", "MS UI Gothic", monospace;
 
   --b-radius: 0px;
+  --transition-time: 0.25s;
+  --transition-time-long: 0.4s;
 }
 
 /* Tema claro */

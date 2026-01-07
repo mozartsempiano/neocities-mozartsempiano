@@ -41,7 +41,7 @@ table.pensamentos tbody tr:not(:last-child) {
   color: var(--clr-white);
   text-decoration: none;
   opacity: 0.5;
-  transition: all 0.25s ease;
+  transition: var(--transition-time);
 }
 
 .postlist-tags a:hover {
