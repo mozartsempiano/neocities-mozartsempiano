@@ -33,7 +33,8 @@ export function carregarNavbar() {
   a:not([href]) {
     cursor: default;
   }
-  #navbar .dropdown {
+  #navbar .dropdown,
+  #navbar-compacta .dropdown {
     position: relative;
     display: inline-block;
   }
@@ -74,8 +75,10 @@ export function carregarNavbar() {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(0);
+    transform: translateY(-5px);
     transition: opacity 0.15s, transform 0.3s, visibility 0.15s;
+    top: 100%;
+    margin-top: -1px;
   }
   #navbar .dropdown-content a,
   #navbar-compacta .dropdown-content a {
@@ -98,7 +101,7 @@ export function carregarNavbar() {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateY(5px);
+    transform: translateY(0);
   }
   #navbar-compacta {
     display: flex;
