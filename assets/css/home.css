@@ -275,14 +275,14 @@ body.rounded .marquee-track img {
   max-width: none;
 
   transform-origin: center;
-  animation: fragmentFloat 8s infinite-in-out;
+  animation: fragmentFloat 8s infinite ease-in-out;
 }
 
 #gunnm-flag img::before {
   content: "";
   position: absolute;
   pointer-events: none;
-  animation: gradientShift 4s infinite-in-out;
+  animation: gradientShift 4s infinite ease-in-out;
 }
 
 @keyframes fragmentFloat {

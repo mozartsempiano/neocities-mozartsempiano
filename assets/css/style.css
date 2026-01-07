@@ -277,7 +277,7 @@ a:active img {
 a:hover:not(:has(img)) {
   color: var(--clr-black-a0);
   background-color: var(--clr-main-a40);
-  /* animation: glow 1s-in-out infinite alternate; */
+  /* animation: glow 1s ease-in-out infinite alternate; */
 }
 
 a:hover img {
@@ -1402,23 +1402,6 @@ img.nsfw:hover {
 body.disable-nsfw-blur img.nsfw,
 body.disable-nsfw-blur img.nsfw:hover {
   filter: none !important;
-}
-
-/* ----------------------------------------------
- * Efeito CRT
- * ---------------------------------------------- */
-
-body.crt::before {
-  content: " ";
-  display: block;
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: auto, auto;
-  z-index: 99999;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
 }
 
 /* style-my-tootltips plugin, tooltip styling */
