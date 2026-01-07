@@ -23,19 +23,12 @@
 
   --clr-white: #f8edff;
 
-  --clr-yellow-0: lch(from var(--clr-yellow-30) calc(l - 30) c h);
-  --clr-yellow-10: lch(from var(--clr-yellow-30) calc(l - 20) c h);
-  --clr-yellow-20: lch(from var(--clr-yellow-30) calc(l - 10) c h);
-  --clr-yellow-30: #ffd227;
-  --clr-yellow-40: lch(from var(--clr-yellow-30) calc(l + 10) c h);
-  --clr-yellow-50: lch(from var(--clr-yellow-30) calc(l + 20) c h);
-
-  --clr-yellow-a0-old: lch(from var(--clr-yellow-a30-old) calc(l - 30) c h);
-  --clr-yellow-a10-old: lch(from var(--clr-yellow-a30-old) calc(l - 20) c h);
-  --clr-yellow-a20-old: lch(from var(--clr-yellow-a30-old) calc(l - 10) c h);
-  --clr-yellow-a30-old: #c1b492;
-  --clr-yellow-a40-old: lch(from var(--clr-yellow-a30-old) calc(l + 10) c h);
-  --clr-yellow-a50-old: lch(from var(--clr-yellow-a30-old) calc(l + 20) c h);
+  --clr-yellow-a0: lch(from var(--clr-yellow-a30) calc(l - 30) c h);
+  --clr-yellow-a10: lch(from var(--clr-yellow-a30) calc(l - 20) c h);
+  --clr-yellow-a20: lch(from var(--clr-yellow-a30) calc(l - 10) c h);
+  --clr-yellow-a30: #ffd227;
+  --clr-yellow-a40: lch(from var(--clr-yellow-a30) calc(l + 10) c h);
+  --clr-yellow-a50: lch(from var(--clr-yellow-a30) calc(l + 20) c h);
 
   --clr-orange-a0: lch(from var(--clr-orange-a30) calc(l - 30) c h);
   --clr-orange-a10: lch(from var(--clr-orange-a30) calc(l - 20) c h);
@@ -43,13 +36,6 @@
   --clr-orange-a30: #e65f29;
   --clr-orange-a40: lch(from var(--clr-orange-a30) calc(l + 10) c h);
   --clr-orange-a50: lch(from var(--clr-orange-a30) calc(l + 20) c h);
-
-  --clr-orange-a0-old: lch(from var(--clr-orange-a30-old) calc(l - 30) c h);
-  --clr-orange-a10-old: lch(from var(--clr-orange-a30-old) calc(l - 20) c h);
-  --clr-orange-a20-old: lch(from var(--clr-orange-a30-old) calc(l - 10) c h);
-  --clr-orange-a30-old: #e3b676;
-  --clr-orange-a40-old: lch(from var(--clr-orange-a30-old) calc(l + 10) c h);
-  --clr-orange-a50-old: lch(from var(--clr-orange-a30-old) calc(l + 20) c h);
 
   --clr-red-a0: lch(from var(--clr-red-a30) calc(l - 30) c h);
   --clr-red-a10: lch(from var(--clr-red-a30) calc(l - 20) c h);
@@ -110,6 +96,10 @@
   --clr-gray-a50: lch(from var(--clr-black-a0) calc(l - 60) c calc(h + 10));
 
   --clr-white: #333;
+
+  --clr-pink-a30: #cd2c58;
+  --clr-green-a30: #5f966d;
+  --clr-yellow-a30: #ff9d00;
 
   --img-main-filter: brightness(3) contrast(1.3);
 }
