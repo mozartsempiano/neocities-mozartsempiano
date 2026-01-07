@@ -9,11 +9,13 @@
 	</head>
 	<body>
 		<header id="site-header">
-			<span>Currículo</span><span id="hora-atual"></span>
+			<span>Currículo</span>
+			<button id="gerar-pdf" onclick="gerarPDF()">Gerar PDF</button>
+			<span id="hora-atual"></span>
 		</header>
 		<main>
 			<header>
-				<div style="display: flex; flex-direction: column; gap: 1rem">
+				<div id="header-content">
 					<div id="header-title">
 						<h1>Mozart Mattar</h1>
 						<h2>Designer</h2>
@@ -229,6 +231,11 @@
 			}
 			setInterval(atualizarHora, 1000);
 			atualizarHora();
+
+			function gerarPDF() {
+				window.focus();
+				window.print();
+			}
 		</script>
 	</body>
 </html>
