@@ -1,20 +1,20 @@
 import { setupViewportAnimations } from "/assets/js/viewport-animations.js";
 
 export function carregarFooter() {
-  if (window.DISABLE_CRT_TOGGLE) return;
+	if (window.DISABLE_CRT_TOGGLE) return;
 
-  // Inicializa animações de scroll
-  setupViewportAnimations({
-    cascade: true,
-    selector: ".animate-on-scroll", // seletor dos elementos que vão animar
-  });
+	// Inicializa animações de scroll
+	setupViewportAnimations({
+		cascade: true,
+		selector: ".animate-on-scroll", // seletor dos elementos que vão animar
+	});
 
-  const footer = document.querySelector("footer");
-  const footer_index = document.getElementById("footer-index");
-  const anoAtual = new Date().getFullYear();
+	const footer = document.querySelector("footer");
+	const footer_index = document.getElementById("footer-index");
+	const anoAtual = new Date().getFullYear();
 
-  if (footer_index) {
-    footer_index.innerHTML = `
+	if (footer_index) {
+		footer_index.innerHTML = `
     <div class="footer-conteudo animate-on-scroll" data-animate="fade-in-up">
       <div class="footer-direitos">
         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#fff"><path d="M373.23-325.23h213.54v-95.96h-47.96v48H421.19v-213.62h117.62v48h47.96v-95.96H373.23v309.54Zm107.14 201.15q-73.43 0-138.34-27.82-64.92-27.83-113.66-76.6-48.73-48.77-76.51-113.51-27.78-64.74-27.78-138.36 0-73.69 27.82-138.1 27.83-64.42 76.6-113.16 48.77-48.73 113.51-76.51 64.74-27.78 138.36-27.78 73.69 0 138.1 27.82 64.42 27.83 113.16 76.6 48.73 48.77 76.51 113.28 27.78 64.51 27.78 137.85 0 73.43-27.82 138.34-27.83 64.92-76.6 113.66-48.77 48.73-113.28 76.51-64.51 27.78-137.85 27.78Zm-.38-47.96q127.89 0 217.93-90.02 90.04-90.03 90.04-217.93 0-127.89-90.02-217.93-90.03-90.04-217.93-90.04-127.89 0-217.93 90.02-90.04 90.03-90.04 217.93 0 127.89 90.02 217.93 90.03 90.04 217.93 90.04ZM480-480Z"/></svg>
@@ -22,18 +22,18 @@ export function carregarFooter() {
       </div>
     </div>
     `;
-    if (!document.getElementById("footer-style")) {
-      const style = document.createElement("style");
-      style.id = "footer-style";
-      style.textContent = `
+		if (!document.getElementById("footer-style")) {
+			const style = document.createElement("style");
+			style.id = "footer-style";
+			style.textContent = `
       footer#footer-index {
         background: transparent;
       }
       `;
-      document.head.appendChild(style);
-    }
-  } else if (footer) {
-    footer.innerHTML = `
+			document.head.appendChild(style);
+		}
+	} else if (footer) {
+		footer.innerHTML = `
       <div class="footer-conteudo animate-on-scroll" data-animate="fade-in-up">
         <div class="footer-coluna">
           <h2>
@@ -47,11 +47,11 @@ export function carregarFooter() {
             </svg>
             <a id="home-link" href="/home.html">mozartsempiano</a> <small><a href="https://github.com/mozartsempiano/neocities-mozartsempiano" target="_blank" style="text-decoration: none">Source</a></small>
           </h2>
-          <p>Brasil, Terra — <span id="hora-brasilia"></span></p>
+          <p>Brasil, Terra — <time id="hora-brasilia"></time></p>
           <a href="/sitemap.html">Sitemap</a>
           <br>
           <!-- <p>while self.location != bauru.self.apt<br>self.location.freeRoaming(bauru.streets,0)</p> -->
-          <p id="status-bottom">if(self.status != online)<br>self.status.connect()</p>
+          <pre id="status-bottom">if(self.status != online)<br>self.status.connect()</pre>
         </div>
         <div class="footer-coluna">
           <h1>Tem uma ideia legal?</h1><h1 style="margin-top: 7px">Vamos conversar! d(^‿^)b</h1>
@@ -71,12 +71,12 @@ export function carregarFooter() {
       </div>
     `;
 
-    if (!document.getElementById("footer-style")) {
-      const style = document.createElement("style");
-      style.id = "footer-style";
-      style.textContent = `
+		if (!document.getElementById("footer-style")) {
+			const style = document.createElement("style");
+			style.id = "footer-style";
+			style.textContent = `
       footer {
-        margin-top: auto;
+        margin-top: 42px;
         padding: 24px 48px 32px 48px;
         background-color: var(--clr-black-a10);
       }
@@ -123,8 +123,11 @@ export function carregarFooter() {
         font-size: 1em;
       }
 
-      footer #status-bottom {
-        font-size: 0.9em;
+      footer pre#status-bottom {
+        font-size: 0.94em;
+        font-family: inherit;
+        color: inherit;
+        line-height: 1.4em;
       }
 
       :root[data-theme="light"] footer,
@@ -192,13 +195,13 @@ export function carregarFooter() {
           }
       }
       `;
-      document.head.appendChild(style);
-    }
-  }
+			document.head.appendChild(style);
+		}
+	}
 
-  const style = document.createElement("style");
-  style.id = "footer-geral-style";
-  style.textContent = `
+	const style = document.createElement("style");
+	style.id = "footer-geral-style";
+	style.textContent = `
       html, body {
         height: 100%;
         margin: 0;
@@ -311,20 +314,20 @@ export function carregarFooter() {
         to   { transform: rotate(360deg); }
       }
   `;
-  document.head.appendChild(style);
+	document.head.appendChild(style);
 
-  function atualizarHoraBrasilia() {
-    const agora = new Date().toLocaleTimeString("pt-BR", {
-      timeZone: "America/Sao_Paulo",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-    const span = document.getElementById("hora-brasilia");
-    if (span) {
-      span.textContent = agora;
-    }
-  }
+	function atualizarHoraBrasilia() {
+		const agora = new Date().toLocaleTimeString("pt-BR", {
+			timeZone: "America/Sao_Paulo",
+			hour: "2-digit",
+			minute: "2-digit",
+		});
+		const timeElement = document.getElementById("hora-brasilia");
+		if (timeElement) {
+			timeElement.textContent = agora;
+		}
+	}
 
-  setInterval(atualizarHoraBrasilia, 1000);
-  atualizarHoraBrasilia();
+	setInterval(atualizarHoraBrasilia, 1000);
+	atualizarHoraBrasilia();
 }

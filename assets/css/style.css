@@ -70,7 +70,7 @@ body {
 	z-index: 2;
 }
 
-#conteudo {
+main {
 	min-height: 400px;
 	max-width: 1024px;
 	width: 1024px;
@@ -83,7 +83,7 @@ body {
 	justify-content: space-between;
 }
 
-#conteudo.full {
+main.full {
 	width: 100vw;
 	max-width: 100% !important;
 	padding: 0 16px;
@@ -371,7 +371,7 @@ h6 {
 	font-weight: normal;
 }
 
-div#conteudo div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
+main div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
 	margin-top: 0;
 	font-size: 2.4em;
 	color: var(--clr-main-a30);
@@ -462,17 +462,15 @@ pre a:active,
 #site-title a:link,
 #site-title a:visited,
 #site-title a:active {
-	background-color: transparent !important;
-	color: var(--clr-white) !important;
+	background-color: transparent;
+	color: var(--clr-white);
 	border: 0px;
 	width: 100%;
 	overflow: hidden;
-	font-size: clamp(0.7em, 3vw, 1em) !important;
-	/* Ajusta o tamanho da fonte dinamicamente */
-	line-height: 1em !important;
-	/* Mantém a proporção entre as linhas */
+	font-size: clamp(0.7em, 3vw, 1em);
+	line-height: 1em;
 	white-space: pre;
-	text-decoration: none !important;
+	text-decoration: none;
 	transition: var(--transition-time);
 }
 
@@ -1129,7 +1127,7 @@ ul {
  * ---------------------------------------------- */
 
 @media (max-width: 1240px) {
-	#conteudo {
+	main {
 		max-width: 90%;
 	}
 }
@@ -1192,7 +1190,7 @@ ul {
     background: transparent;
   } */
 
-	#conteudo {
+	main {
 		max-width: 100%;
 		gap: 6px;
 	}

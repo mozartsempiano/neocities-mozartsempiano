@@ -1,78 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
-    <meta name="author" content="Mozart Mattar" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--<meta http-equiv="Cache-Control" content="no-cache">-->
+		<meta name="author" content="Mozart Mattar" />
 
-    <title>mozartsempiano</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+		<title>mozartsempiano</title>
+		<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/pensamentos.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="/assets/css/pensamentos.css" />
 
-    <!-- Fontes Externas -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- Fontes Externas -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<!-- Script -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <style>
-      table {
-        margin-top: 20px;
-        border: 0;
-      }
+		<style>
+			table {
+				margin-top: 20px;
+				border: 0;
+			}
 
-      th,
-      td {
-        padding: 8px 16px 8px 0;
-        text-align: left;
-        border: 0;
-        vertical-align: top;
-      }
+			th,
+			td {
+				padding: 8px 16px 8px 0;
+				text-align: left;
+				border: 0;
+				vertical-align: top;
+			}
 
-      .tag-link {
-        text-decoration: none;
-        cursor: pointer;
-        transition: background 0.2s;
-        /* border-radius: 4px; */
-        /* padding: 1px 4px; */
-      }
+			.tag-link {
+				text-decoration: none;
+				cursor: pointer;
+				transition: background 0.2s;
+				/* border-radius: 4px; */
+				/* padding: 1px 4px; */
+			}
 
-      .tag-link.tag-selected {
-        /* background: var(--clr-main-a40) !important; */
-        color: var(--clr-white) !important;
-        font-weight: bold !important;
-        opacity: 1 !important;
-        text-decoration: underline solid !important;
-      }
-    </style>
-  </head>
+			.tag-link.tag-selected {
+				/* background: var(--clr-main-a40) !important; */
+				color: var(--clr-white) !important;
+				font-weight: bold !important;
+				opacity: 1 !important;
+				text-decoration: underline solid !important;
+			}
+		</style>
+	</head>
 
-  <body>
-    <div id="container">
-      <div id="header-compacta"></div>
-      <div id="header-mobile"></div>
+	<body>
+		<div id="container">
+			<header id="header-compacta"></header>
+			<header id="header-mobile"></header>
 
-      <div id="conteudo" class="pequeno">
-        <div id="nav-atual"><a href="/home.html">home</a> > <span class="animate-flicker">pensamentos</span></div>
-        <div id="col-centro">
-          <!--<div class="undercon"></div>-->
-          <h1>Pensamentos</h1>
-          <p>Sussurros entre paredes esquecidas.</p>
-          <p>Veja também minhas <a href="/anotacoes.html">anotações</a>.</p>
-          <hr />
-          <div id="pensamentos-list"></div>
-        </div>
-      </div>
+			<main>
+				<div id="nav-atual">
+					<a href="/home.html">home</a> >
+					<span class="animate-flicker">pensamentos</span>
+				</div>
+				<div id="col-centro">
+					<!--<div class="undercon"></div>-->
+					<h1>Pensamentos</h1>
+					<p>Sussurros entre paredes esquecidas.</p>
+					<p>Veja também minhas <a href="/anotacoes.html">anotações</a>.</p>
+					<hr />
+					<div id="pensamentos-list"></div>
+				</div>
+			</main>
 
-      <footer></footer>
-    </div>
+			<footer></footer>
+		</div>
 
-    <script type="module" src="/assets/js/main.js"></script>
-    <script src="/assets/js/pensamentos.js" defer></script>
-  </body>
+		<script type="module" src="/assets/js/main.js"></script>
+		<script src="/assets/js/pensamentos.js" defer></script>
+	</body>
 </html>

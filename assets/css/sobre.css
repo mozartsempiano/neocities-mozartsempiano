@@ -32,7 +32,7 @@ body.rounded .caixinha {
 	border-radius: 5px;
 }
 
-div#conteudo div#col-centro .caixinha h1:first-of-type {
+main div#col-centro .caixinha h1:first-of-type {
 	font-size: 1.43rem;
 	font-family: var(--fonte-corpo);
 	color: var(--clr-white);

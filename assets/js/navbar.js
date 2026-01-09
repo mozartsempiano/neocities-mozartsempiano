@@ -1,10 +1,10 @@
 export function carregarNavbar() {
-  const headerHome = document.getElementById("header-expandida");
-  const headerCompacta = document.getElementById("header-compacta");
-  const headerMobile = document.getElementById("header-mobile");
+	const headerHome = document.getElementById("header-expandida");
+	const headerCompacta = document.getElementById("header-compacta");
+	const headerMobile = document.getElementById("header-mobile");
 
-  const navbarCSS = `#navbar,
-  #navbar-compacta {
+	const navbarCSS = `#navbar,
+  nav {
     gap: 20px;
     text-transform: capitalize;
     letter-spacing: 1px;
@@ -20,28 +20,28 @@ export function carregarNavbar() {
     display: flex;
     justify-content: center;
   }
-  #navbar-compacta {
+  nav {
     display: flex;
     text-align: left;
   }
   #navbar a.atual,
-  #navbar-compacta a.atual {
+  nav a.atual {
     color: var(--clr-main-a40);
   }
   #navbar a,
-  #navbar-compacta a {
+  nav a {
     cursor: pointer !important;
   }
   a:not([href]) {
     cursor: default;
   }
   #navbar .dropdown,
-  #navbar-compacta .dropdown {
+  nav .dropdown {
     position: relative;
     display: inline-block;
   }
   #navbar .dropdown::after,
-  #navbar-compacta .dropdown::after {
+  nav .dropdown::after {
     --svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>');
     content: "";
     display: inline-block;
@@ -55,12 +55,12 @@ export function carregarNavbar() {
     padding-left: 6px;
   }
   #navbar .dropbtn,
-  #navbar-compacta .dropbtn {
+  nav .dropbtn {
     text-decoration: none;
     color: inherit;
   }
   #navbar .dropdown-content,
-  #navbar-compacta .dropdown-content {
+  nav .dropdown-content {
     position: absolute;
     top: 100%;
     margin-top: -1px;
@@ -77,7 +77,7 @@ export function carregarNavbar() {
     transition: opacity 0.15s, transform 0.3s, visibility 0.15s;
   }
   #navbar .dropdown-content a,
-  #navbar-compacta .dropdown-content a {
+  nav .dropdown-content a {
     display: block;
     padding: 8px 12px;
     color: var(--clr-white);
@@ -88,11 +88,11 @@ export function carregarNavbar() {
     word-break: break-word;
   }
   #navbar .dropdown-content a:hover,
-  #navbar-compacta .dropdown-content a:hover {
+  nav .dropdown-content a:hover {
     background-color: var(--clr-main-a40);
   }
   #navbar .dropdown:hover .dropdown-content,
-  #navbar-compacta .dropdown:hover .dropdown-content {
+  nav .dropdown:hover .dropdown-content {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -135,7 +135,7 @@ export function carregarNavbar() {
     margin: 0;
   }  
 
-  #ascii-art-container {
+  #ascii-art-container pre {
     width: 100%;
     text-align: center;
     user-select: none;
@@ -301,27 +301,27 @@ export function carregarNavbar() {
   }
   `;
 
-  function injectNavbarCSS() {
-    if (!document.getElementById("navbar-style")) {
-      const style = document.createElement("style");
-      style.id = "navbar-style";
-      style.textContent = navbarCSS;
-      document.head.appendChild(style);
-    }
-  }
-  injectNavbarCSS();
-  const links = {
-    sobre: { label: "Sobre", href: "/sobre.html" },
-    portfolio: {
-      label: "Portfólio",
-      href: "/portfolio/index.html",
-      children: [
-        { label: "Design", href: "/portfolio/design/index.html" },
-        { label: "Arte", href: "/portfolio/arte/index.html" },
-        { label: "Fotografia", href: "/portfolio/fotografia/index.html" },
-      ],
-    },
-    /*projetos: {
+	function injectNavbarCSS() {
+		if (!document.getElementById("navbar-style")) {
+			const style = document.createElement("style");
+			style.id = "navbar-style";
+			style.textContent = navbarCSS;
+			document.head.appendChild(style);
+		}
+	}
+	injectNavbarCSS();
+	const links = {
+		sobre: { label: "Sobre", href: "/sobre.html" },
+		portfolio: {
+			label: "Portfólio",
+			href: "/portfolio/index.html",
+			children: [
+				{ label: "Design", href: "/portfolio/design/index.html" },
+				{ label: "Arte", href: "/portfolio/arte/index.html" },
+				{ label: "Fotografia", href: "/portfolio/fotografia/index.html" },
+			],
+		},
+		/*projetos: {
 			label: "Projetos",
 			children: [
 				{ label: "AkatsukiGames", href: "/akatsukigames.html" },
@@ -329,58 +329,64 @@ export function carregarNavbar() {
 				{ label: "mplace", href: "/mplace/index.html" },
 			],
 		},*/
-    outros: {
-      label: "Outros",
-      children: [
-        { label: "Pensamentos", href: "/pensamentos/index.html" },
-        { label: "Sonhos", href: "/sonhos.html" },
-        { label: "Inventário", href: "/inventario.html" },
-        { label: "Links", href: "/links.html" },
-      ],
-    },
-    doar: { label: "Doar", href: "/doar.html" },
-  };
+		outros: {
+			label: "Outros",
+			children: [
+				{ label: "Pensamentos", href: "/pensamentos/index.html" },
+				{ label: "Sonhos", href: "/sonhos.html" },
+				{ label: "Inventário", href: "/inventario.html" },
+				{ label: "Links", href: "/links.html" },
+			],
+		},
+		doar: { label: "Doar", href: "/doar.html" },
+	};
 
-  function gerarNavbarLinks(obj) {
-    return Object.values(obj)
-      .map((item) => {
-        const isDoar = item.href === "/doar.html";
-        const linkClass = isDoar ? "btn-doar" : "";
-        if (item.children && item.children.length) {
-          const childrenHTML = item.children.map((c) => `<a href="${c.href}">${c.label}</a>`).join("");
-          return `
-          <div class="dropdown"><a href="${item.href || "#"}" class="${linkClass} dropbtn">${
-            item.label
-          }</a><div class="dropdown-content">${childrenHTML}</div></div>
+	function gerarNavbarLinks(obj) {
+		return Object.values(obj)
+			.map((item) => {
+				const isDoar = item.href === "/doar.html";
+				const linkClass = isDoar ? "btn-doar" : "";
+				if (item.children && item.children.length) {
+					const childrenHTML = item.children
+						.map((c) => `<a href="${c.href}">${c.label}</a>`)
+						.join("");
+					return `
+          <div class="dropdown"><a href="${
+						item.href || "#"
+					}" class="${linkClass} dropbtn">${
+						item.label
+					}</a><div class="dropdown-content">${childrenHTML}</div></div>
         `;
-        } else {
-          return `<div><a href="${item.href}" class="${linkClass}">${item.label}</a></div>`;
-        }
-      })
-      .join("");
-  }
+				} else {
+					return `<div><a href="${item.href}" class="${linkClass}">${item.label}</a></div>`;
+				}
+			})
+			.join("");
+	}
 
-  function gerarNavbarMobile(obj) {
-    return Object.values(obj)
-      .map((item) => {
-        const isDoar = item.href === "/doar.html";
-        const itemClass = isDoar ? "btn-doar" : "";
-        if (item.children && item.children.length) {
-          const childrenHTML = item.children.map((c) => `<li><a href="${c.href}">${c.label}</a></li>`).join("");
-          if (item.href) {
-            return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li><ul>${childrenHTML}</ul>`;
-          } else {
-            return `<li class="nopage">${item.label}</li><ul>${childrenHTML}</ul>`;
-          }
-        } else {
-          return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li>`;
-        }
-      })
-      .join("");
-  }
+	function gerarNavbarMobile(obj) {
+		return Object.values(obj)
+			.map((item) => {
+				const isDoar = item.href === "/doar.html";
+				const itemClass = isDoar ? "btn-doar" : "";
+				if (item.children && item.children.length) {
+					const childrenHTML = item.children
+						.map((c) => `<li><a href="${c.href}">${c.label}</a></li>`)
+						.join("");
+					if (item.href) {
+						return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li><ul>${childrenHTML}</ul>`;
+					} else {
+						return `<li class="nopage">${item.label}</li><ul>${childrenHTML}</ul>`;
+					}
+				} else {
+					return `<li><a href="${item.href}" class="${itemClass}">${item.label}</a></li>`;
+				}
+			})
+			.join("");
+	}
 
-  if (headerHome) {
-    const asciiArt = `                       
+	if (headerHome) {
+		const asciiArt = `                       
                                                                   mm                  
                                                                   MM                  
             \`7MMpMMMb.pMMMb.  ,pW"Wq.  M"""MMV  ,6"Yb.  \`7Mb,od8 mmMMmm                
@@ -401,26 +407,26 @@ M9mmmP'  \`Mbmmd'.JMML  JMML  JMML. MMbmmd' .JMML.\`Moo9^Yo..JMML  JMML.\`Ybmd9'
                                  .JMML.                                        
 `;
 
-    headerHome.innerHTML = `
+		headerHome.innerHTML = `
         <div id="ascii-art-container"><pre><a href="/index.html">${asciiArt}</a></pre></div>
         <h1 id="simple-title"><a href="/home.html">mozartsempiano</a></h1>
-        <div id="navbar-compacta">${gerarNavbarLinks(links)}</div>
+        <nav>${gerarNavbarLinks(links)}</nav>
     `;
-  }
+	}
 
-  if (headerCompacta) {
-    headerCompacta.innerHTML = `
+	if (headerCompacta) {
+		headerCompacta.innerHTML = `
       <div class="wrap">
         <div id="header-titulo-compacto">
           <a href="/home.html">mozartsempiano</a>
         </div>
-        <div id="navbar-compacta">${gerarNavbarLinks(links)}</div>
+        <nav>${gerarNavbarLinks(links)}</nav>
       </div>
     `;
-  }
+	}
 
-  if (headerMobile) {
-    headerMobile.innerHTML = `
+	if (headerMobile) {
+		headerMobile.innerHTML = `
         <div id="title-mobile">
           <a href="/home.html"><span id="site-title">mozartsempiano</span></a>
           <button id="menu-btn" aria-label="Abrir menu">
@@ -433,5 +439,5 @@ M9mmmP'  \`Mbmmd'.JMML  JMML  JMML. MMbmmd' .JMML.\`Moo9^Yo..JMML  JMML.\`Ybmd9'
           <ul>${gerarNavbarMobile(links)}</ul>
         </nav>
     `;
-  }
+	}
 }

@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<meta http-equiv="Cache-Control" content="no-cache">-->
-    <meta name="author" content="Mozart Mattar" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--<meta http-equiv="Cache-Control" content="no-cache">-->
+		<meta name="author" content="Mozart Mattar" />
 
-    <title>mozartsempiano</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+		<title>mozartsempiano</title>
+		<link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="/assets/css/style.css" />
 
-    <!-- Fontes Externas -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- Fontes Externas -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<!-- Script -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  </head>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	</head>
 
-  <body>
-    <div id="container">
-      <div id="header-compacta"></div>
-      <div id="header-mobile"></div>
+	<body>
+		<div id="container">
+			<header id="header-compacta"></header>
+			<header id="header-mobile"></header>
 
-      <div id="conteudo">
-        <div id="nav-atual"><a href="/home.html">home</a> > <span class="animate-flicker">sitemap</span></div>
-        <div id="col-centro">
-          <div class="sitemap">
-            <!-- Sitemap gerado com o conteúdo de js/sitemap-build.js -->
-          </div>
-          <script type="module" src="/assets/js/sitemap-build.js"></script>
-        </div>
-      </div>
+			<main>
+				<div id="nav-atual">
+					<a href="/home.html">home</a> >
+					<span class="animate-flicker">sitemap</span>
+				</div>
+				<div id="col-centro">
+					<div class="sitemap">
+						<!-- Sitemap gerado com o conteúdo de js/sitemap-build.js -->
+					</div>
+					<script type="module" src="/assets/js/sitemap-build.js"></script>
+				</div>
+			</main>
 
-      <footer></footer>
-    </div>
+			<footer></footer>
+		</div>
 
-    <script type="module" src="/assets/js/main.js"></script>
-  </body>
+		<script type="module" src="/assets/js/main.js"></script>
+	</body>
 </html>
