@@ -214,7 +214,7 @@ div.box.sobre div.box-inner div.info-desc div.info-texto {
 	height: 250px;
 	width: auto;
 	object-fit: contain;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	image-rendering: auto;
 }
 

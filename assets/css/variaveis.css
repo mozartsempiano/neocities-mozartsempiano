@@ -10,13 +10,18 @@
 	--clr-main-a40: var(--clr-pink-a40);
 	--clr-main-a50: var(--clr-pink-a50);
 
-	/* --clr-black-a0: #090909; */
-	--clr-black-a0: #0d0d0c;
-	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
+	--clr-texto: var(--clr-white);
+	--clr-link: var(--clr-main-a30);
+	--clr-borda: var(--clr-gray-a20);
+	--clr-fundoMain: var(--clr-black-a10);
 
-	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l + 5) c calc(h + 10));
-	--clr-gray-a10: lch(from var(--clr-black-a0) calc(l + 10) c calc(h + 10));
-	--clr-gray-a20: lch(from var(--clr-black-a0) calc(l + 15) c calc(h + 10));
+	/* --clr-black-a0: #090909; */
+	--clr-black-a0: #150e10;
+	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 5) c h);
+
+	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l + 10) c calc(h + 10));
+	--clr-gray-a10: lch(from var(--clr-black-a0) calc(l + 15) c calc(h + 10));
+	--clr-gray-a20: lch(from var(--clr-black-a0) calc(l + 20) c calc(h + 10));
 	--clr-gray-a30: lch(from var(--clr-black-a0) calc(l + 25) c calc(h + 10));
 	--clr-gray-a40: lch(from var(--clr-black-a0) calc(l + 50) c calc(h + 10));
 	--clr-gray-a50: lch(from var(--clr-black-a0) calc(l + 75) c calc(h + 10));
@@ -72,6 +77,13 @@
 	--clr-blue-a40: lch(from var(--clr-blue-a30) calc(l + 10) c h);
 	--clr-blue-a50: lch(from var(--clr-blue-a30) calc(l + 20) c h);
 
+	--clr-lightblue-a0: lch(from var(--clr-lightblue-a30) calc(l - 30) c h);
+	--clr-lightblue-a10: lch(from var(--clr-lightblue-a30) calc(l - 20) c h);
+	--clr-lightblue-a20: lch(from var(--clr-lightblue-a30) calc(l - 10) c h);
+	--clr-lightblue-a30: #88c9d1;
+	--clr-lightblue-a40: lch(from var(--clr-lightblue-a30) calc(l + 10) c h);
+	--clr-lightblue-a50: lch(from var(--clr-lightblue-a30) calc(l + 20) c h);
+
 	--clr-green-a0: lch(from var(--clr-green-a30) calc(l - 30) c h);
 	--clr-green-a10: lch(from var(--clr-green-a30) calc(l - 20) c h);
 	--clr-green-a20: lch(from var(--clr-green-a30) calc(l - 10) c h);
@@ -107,6 +119,7 @@
 	--clr-white: #333;
 
 	--clr-pink-a30: #cd2c58;
+	--clr-lightblue-a30: #407292;
 	--clr-green-a30: #5f966d;
 	--clr-yellow-a30: #ff9d00;
 

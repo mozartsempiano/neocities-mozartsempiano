@@ -22,23 +22,6 @@ body.rounded .img-main {
 	/* Impede que o ícone diminua */
 }
 
-.caixinha {
-	border: 1px solid var(--clr-gray-a10);
-	padding: 10px 16px;
-	overflow: hidden;
-}
-
-body.rounded .caixinha {
-	border-radius: 5px;
-}
-
-main div#col-centro .caixinha h1:first-of-type {
-	font-size: 1.43rem;
-	font-family: var(--fonte-corpo);
-	color: var(--clr-white);
-	text-transform: lowercase;
-}
-
 div:has(> a#curriculo-btn) {
 	display: flex;
 	flex-direction: column;
@@ -56,7 +39,7 @@ a#curriculo-btn {
 	align-items: center;
 	text-decoration: none;
 	padding: 0.8em 1.2em;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	color: var(--clr-main-a40) !important;
 	background-color: var(--clr-black-a10) !important;
 	width: fit-content;
@@ -71,18 +54,19 @@ a#curriculo-btn:hover {
 
 .sobre-links {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;
 	padding: 10px 0;
 	gap: 10px;
-	width: 80%;
+	width: 100%;
+	flex-direction: row;
 }
 
 .sobre-links a {
 	display: inline-flex;
-	flex: 0 0 auto;
+	flex: 0 1 fit-content;
 	gap: 0.7em;
 
 	align-items: center;
@@ -95,7 +79,7 @@ a#curriculo-btn:hover {
 	white-space: nowrap;
 	padding: 0.8em 1.2em;
 
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	border-radius: 50px;
 
 	transition: var(--transition-time);
@@ -271,32 +255,131 @@ body.rounded .skill-bar {
 	background-color: var(--clr-main-a50);
 }
 
-#semaninhas {
-	display: flex;
-	gap: 16px;
+/* Blinkies e selos */
+
+.web-flex {
+	gap: 24px;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	/* width: 100%; */
+
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#semaninhas .quadrado p {
+.selos img,
+.blinkies img {
+	filter: saturate(0) brightness(0.9);
+	transition: var(--transition-time-long)
+		cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.selos img:hover,
+.blinkies img:hover {
+	filter: saturate(1) brightness(1);
+	transform: scale(1.1);
+}
+
+.selos {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 99px);
+	grid-gap: 6px;
+	justify-content: center;
+	margin: 24px 0;
+
+	/* background: #fef8e0;
+	background: radial-gradient(
+		circle,
+		rgba(254, 248, 194, 1) 0%,
+		rgba(255, 248, 246, 1) 50%,
+		rgba(247, 242, 205, 1) 100%
+	);
+	border: 1px dashed #000;
+	border-radius: 0 var(--b-radius) var(--b-radius) 0; */
+
+	z-index: 0;
+}
+
+/* .selos:hover {
+	transform: rotate(-1deg) scale(1.05);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+	z-index: 10;
+} */
+
+.selos img {
+	width: 99px;
+	height: 56px;
+	image-rendering: auto;
+	z-index: 0;
+}
+
+/* .selos {
+	transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.selos img {
+	transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.selos img:hover {
+	transform: scale(1.4) rotate(3deg);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	z-index: 10;
+} */
+
+.blinkies {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 150px);
+	grid-gap: 6px;
+	justify-content: center;
 	text-align: center;
-	margin-top: 0;
+	margin: 24px 0;
+
+	/* background: linear-gradient(
+		180deg,
+		rgba(70, 88, 80, 1) 0%,
+		rgba(30, 27, 33, 1) 80%
+	);
+	padding: 20px;
+	border: 1px dashed #000;
+	border-radius: var(--b-radius); */
+
+	backface-visibility: hidden;
+	overflow: visible;
+
+	z-index: 0;
 }
 
-div.caixinha.sub.letterboxd-log h1 {
-	font-size: 1.4rem !important;
-	font-weight: normal !important;
+.blinkies img {
+	width: 150px;
+	height: 20px;
+	transform-style: inherit;
+	z-index: 0;
 }
+
+/* .blinkies {
+	transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.blinkies img {
+	transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.blinkies img:hover {
+	transform: rotateY(-8deg) rotateX(25deg) scale(1.4);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	z-index: 10;
+} */
+
+/* Responsividade */
 
 @media (max-width: 1024px) {
-	.quadrado {
+	.caixinha {
 		width: 100%;
 		margin-bottom: 0;
 	}
 
-	.quadrado + .quadrado {
+	.caixinha + .caixinha {
 		margin-top: 0;
 	}
 
-	/* O container dos quadrados (ajuste o seletor se necessário) */
+	/* O container dos caixinhas (ajuste o seletor se necessário) */
 	#col-centro > div[style*="display: flex"] {
 		flex-direction: column;
 		align-items: stretch;

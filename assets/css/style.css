@@ -30,6 +30,10 @@
 		background-color var(--transition-time), border-color var(--transition-time);
 }
 
+*:focus {
+	outline: none;
+}
+
 html,
 body {
 	height: 100%;
@@ -45,8 +49,6 @@ body {
 
 body {
 	background-color: var(--clr-black-a0);
-	/* SVG tile (16x16) with a single thin diagonal line. Transparent
-    background so only diagonal lines appear over the page color. */
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 16 16'><line x1='0' y1='16' x2='16' y2='0' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='2' stroke-linecap='square'/></svg>");
 	background-size: 9px;
 	background-attachment: fixed;
@@ -81,6 +83,10 @@ main {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}
+
+main:has(#col-centro) {
+	flex-direction: column;
 }
 
 main.full {
@@ -128,7 +134,6 @@ main.full {
 	/* Halftone 2 */
 	background-repeat: no-repeat, repeat, repeat;
 	background-attachment: fixed, fixed, fixed;
-	/* Fixa todos os backgrounds */
 	background-color: var(--clr-black-a0);
 
 	filter: blur(3px) contrast(10) grayscale(1);
@@ -183,7 +188,7 @@ main.full {
 	margin-left: 4px;
 	box-sizing: border-box;
 	resize: none;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	padding: 5px;
 	font-size: 0.9em;
 }
@@ -319,6 +324,17 @@ a:hover img {
 	image-rendering: pixelated !important;
 }
 
+.construction-separator {
+	height: 1em;
+	background: repeating-linear-gradient(
+		-45deg,
+		#020605,
+		#020605 10px,
+		var(--clr-orange-a30) 10px,
+		var(--clr-orange-a30) calc(2 * 10px)
+	);
+}
+
 .centralizar {
 	position: fixed;
 	top: 50%;
@@ -371,15 +387,21 @@ h6 {
 	font-weight: normal;
 }
 
-main div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
+main div#col-centro > h1:first-of-type:not(.sobre-meu-nome) {
 	margin-top: 0;
 	font-size: 2.4em;
 	color: var(--clr-main-a30);
-	border-bottom: 1px solid var(--clr-gray-a10);
+	border-bottom: 1px solid var(--clr-borda);
 	padding-bottom: 7px;
 	margin-bottom: 16px;
 	text-transform: lowercase;
 	font-weight: bold;
+}
+
+main div#col-centro > nav#back ul {
+	margin-top: 0;
+	text-align: left;
+	font-size: 0.94em;
 }
 
 .flexy {
@@ -495,7 +517,7 @@ footer,
 #col-centro,
 #nav-atual,
 .box-inner {
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	border-radius: var(--b-radius);
 }
 
@@ -543,7 +565,7 @@ footer,
 	margin: 5px auto;
 	/* 'auto' centraliza a div */
 	margin-bottom: 12px;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	position: relative;
 	pointer-events: none;
 	border-radius: var(--b-radius);
@@ -566,13 +588,10 @@ footer,
 }
 
 hr {
-	all: unset;
-	display: block;
+	height: 2px;
 	border: none;
-	border-top: 1px solid var(--clr-gray-a20);
-	margin: 16px 0;
-	width: 100%;
-	height: 0;
+	background-color: var(--clr-borda);
+	margin: 20px 0;
 }
 
 .custom-hr {
@@ -594,21 +613,17 @@ hr {
 	padding: 0 10px;
 }
 
+hr.custom-divider-2 {
+	background-color: var(--clr-black-a0);
+	width: 100%;
+	height: 30px;
+	margin-top: 110px;
+	border-radius: 0px var(--b-radius) 0px 0px;
+}
+
 p {
 	font-size: 1em;
 	text-align: justify;
-}
-
-p:first-of-type {
-	margin: 0 0 1em 0;
-}
-
-p:last-of-type {
-	margin: 1em 0 0 0;
-}
-
-p:not(:first-of-type):not(:last-of-type) {
-	margin: 1em 0;
 }
 
 p.indent {
@@ -683,7 +698,7 @@ span.tooltip-hover {
 
 section.links-section {
 	margin: 14px 0 0 0;
-	border-top: 1px solid var(--clr-gray-a10);
+	border-top: 1px solid var(--clr-borda);
 	padding-top: 16px;
 }
 
@@ -762,20 +777,12 @@ summary {
 }
 
 details {
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	padding: 10px 16px;
 	margin-bottom: 14px;
 	overflow: hidden;
 	/* Previne outline azul no Safari. :s */
 	border-radius: var(--b-radius);
-}
-
-div.letterboxd-log {
-	height: 407px;
-}
-
-div.letterboxd-log .scroll {
-	padding: 1em 0;
 }
 
 details summary::before {
@@ -820,6 +827,10 @@ details[open] {
 	opacity: 1;
 }
 
+.scroll {
+	width: 100%;
+}
+
 /* ----------------------------------------------
  * Coleções
  * ---------------------------------------------- */
@@ -828,10 +839,6 @@ details[open] {
 .scroll {
 	max-height: 349px;
 	overflow-y: auto;
-}
-
-div.sub.letterboxd-log.in-view div.scroll {
-	max-height: 358px;
 }
 
 .colecao-details table,
@@ -865,7 +872,7 @@ div.sub.letterboxd-log.in-view div.scroll {
  * ---------------------------------------------- */
 
 .letterboxd-embed-tc-diary-entry img {
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	margin-right: 6px;
 
 	image-rendering: pixelated;
@@ -916,39 +923,49 @@ div.sub.letterboxd-log.in-view div.scroll {
  * Last.fm
  * ---------------------------------------------- */
 
-.quadrado {
+.caixinha {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	padding: 14px;
-	width: 50%;
+	width: 100%;
 	overflow: hidden; /* Added to prevent content overflow */
 	border-radius: var(--b-radius);
 }
 
-.quadrado p {
+.caixinha h1:first-of-type {
+	font-size: 1.4rem;
+	margin-top: 0;
+	margin-bottom: 16px;
+	border-bottom: 1px solid var(--clr-borda);
+	padding: 2px 4px 8px 4px;
+	text-transform: lowercase;
+	font-weight: normal;
+}
+
+.caixinha p {
 	font-family: var(--fonte-corpo);
 	text-transform: lowercase;
 	margin-bottom: 12px;
 	width: 100%;
 }
 
-.quadrado a {
+.caixinha a {
 	width: 100%; /* Added to contain image link */
 }
 
-.collage-quadrado {
+.collage-caixinha {
 	width: 100%;
 	aspect-ratio: 1 / 1;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	overflow: unset;
 	position: relative; /* Added for better image containment */
 	border-radius: var(--b-radius);
 }
 
-.collage-quadrado img {
+.collage-caixinha img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -975,7 +992,7 @@ table {
 table,
 td,
 th {
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	padding: 0.5em 0.75em;
 	text-align: left;
 }

@@ -3,8 +3,8 @@ export function carregarNavbar() {
 	const headerCompacta = document.getElementById("header-compacta");
 	const headerMobile = document.getElementById("header-mobile");
 
-	const navbarCSS = `#navbar,
-  nav {
+	const navbarCSS = `
+  header nav {
     gap: 20px;
     text-transform: capitalize;
     letter-spacing: 1px;
@@ -12,24 +12,24 @@ export function carregarNavbar() {
     transition: var(--transition-time);
     user-select: none;
   }
-  nav {
+  header nav {
     display: flex;
     text-align: left;
   }
-  nav a.atual {
+  header nav a.atual {
     color: var(--clr-main-a40);
   }
-  nav a {
+  header nav a {
     cursor: pointer !important;
   }
   a:not([href]) {
     cursor: default;
   }
-  nav .dropdown {
+  header nav .dropdown {
     position: relative;
     display: inline-block;
   }
-  nav .dropdown::after {
+  header nav .dropdown::after {
     --svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>');
     content: "";
     display: inline-block;
@@ -42,16 +42,16 @@ export function carregarNavbar() {
     pointer-events: none;
     padding-left: 6px;
   }
-  nav .dropbtn {
+  header nav .dropbtn {
     text-decoration: none;
     color: inherit;
   }
-  nav .dropdown-content {
+  header nav .dropdown-content {
     position: absolute;
     top: 100%;
     margin-top: -1px;
     background-color: var(--clr-black-a0);
-    border: 1px solid var(--clr-gray-a10);
+    border: 1px solid var(--clr-borda);
     border-radius: 0 var(--b-radius) var(--b-radius) 0;
     max-width: 150px;
     width: max-content;
@@ -62,7 +62,7 @@ export function carregarNavbar() {
     transform: translateY(-5px);
     transition: opacity 0.15s, transform 0.3s, visibility 0.15s;
   }
-  nav .dropdown-content a {
+  header nav .dropdown-content a {
     display: block;
     padding: 8px 12px;
     color: var(--clr-white);
@@ -72,10 +72,10 @@ export function carregarNavbar() {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
-  nav .dropdown-content a:hover {
+  header nav .dropdown-content a:hover {
     background-color: var(--clr-main-a40);
   }
-  nav .dropdown:hover .dropdown-content {
+  header nav .dropdown:hover .dropdown-content {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;

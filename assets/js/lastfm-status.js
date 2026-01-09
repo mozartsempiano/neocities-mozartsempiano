@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       .box-inner:has(div#lastfm-status) {
-        border: 1px solid var(--clr-gray-a10);
+        border: 1px solid var(--clr-borda);
         padding: 10px;
         transition: border 0.25s ease;
       }

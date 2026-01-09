@@ -32,7 +32,7 @@ main div#col-centro h1:first-of-type:not(.sobre-meu-nome) {
 	margin: 2em 0;
 	background-color: var(--clr-black-a10);
 	padding: 58px 72px;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	border-radius: var(--b-radius);
 }
 
@@ -179,7 +179,7 @@ a.button .inner {
 	background-color: white;
 	padding: 1em;
 	display: inline-block;
-	border: 1px solid var(--clr-gray-a10);
+	border: 1px solid var(--clr-borda);
 	transition: transform var(--transition-time-long),
 		box-shadow var(--transition-time-long);
 	box-shadow: 0 6px 0 rgba(0, 0, 0, 0.8);
