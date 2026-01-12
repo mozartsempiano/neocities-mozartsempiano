@@ -1,129 +1,155 @@
+@import url("variaveis.css");
+@import url("fonts.css");
+@import url("animations.css");
+@import url("icones.css");
+
 /* ----------------------------------------------
  * Pensamentos
  * ---------------------------------------------- */
 
-table.pensamentos {
-  margin: 0;
+.pensamentos {
+	margin-top: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
 a.postlist-titulo {
-  font-family: var(--fonte-corpo);
-  font-weight: bold;
-  margin-bottom: 12px;
-  font-size: 1.2em;
-  text-decoration: none;
+	font-family: var(--fonte-corpo);
+	font-weight: bold;
+	margin-bottom: 12px;
+	font-size: 1.2em;
+	text-decoration: none;
 }
 
-table.pensamentos tbody tr {
-  background-color: transparent;
+.pensamento-item {
+	display: flex;
+	gap: 18px;
+	align-items: flex-start;
 }
 
-table.pensamentos tbody th,
-table.pensamentos tbody td {
-  padding: 14px 8px 0 0;
-}
-
-table.pensamentos tbody tr:not(:last-child) {
-  border-bottom: 16px solid transparent;
+.pensamento-item:not(:last-child) {
+	border-bottom: 16px solid transparent;
 }
 
 .postlist-data {
+	width: 132px;
+	flex: 0 0 132px;
+	text-align: left;
+	color: var(--clr-white);
+	opacity: 0.9;
+}
+
+.postlist-content {
+	flex: 1 1 auto;
 }
 
 .postlist-tags {
-  font-size: 0.9em;
-  margin-top: 0.16em;
+	font-size: 0.9em;
+	margin-top: 0.16em;
+}
+
+/* loading placeholder */
+.pensamentos-loading {
+	color: var(--clr-white);
+	opacity: 0.85;
+	padding: 8px 0;
+	font-style: italic;
 }
 
 .postlist-tags a:link,
 .postlist-tags a:visited,
 .postlist-tags a:active {
-  color: var(--clr-white);
-  text-decoration: none;
-  opacity: 0.5;
-  transition: var(--transition-time);
+	color: var(--clr-white);
+	text-decoration: none;
+	opacity: 0.5;
+	transition: var(--transition-time);
 }
 
 .postlist-tags a:hover {
-  opacity: 1;
-  background-color: transparent;
-  text-decoration: underline solid;
+	opacity: 1;
+	background-color: transparent;
+	text-decoration: underline solid;
 }
 
 .post {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  /* margin: 6px 0; */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4px;
+	/* margin: 6px 0; */
 }
 
 .post-data {
-  text-align: left;
-  width: 100%;
-  padding: 4px 0;
-  align-self: flex-start;
+	text-align: left;
+	width: 100%;
+	padding: 4px 0;
+	align-self: flex-start;
 }
 
 .post-conteudo {
-  text-align: left;
-  width: 100%;
-  flex: none;
+	text-align: left;
+	width: 100%;
+	flex: none;
 }
 
 article.post-conteudo::after {
-  content: "Obrigado por ler!";
-  margin: 2rem 0px;
-  text-align: center;
-  font-size: inherit;
-  font-style: italic;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  clear: both;
+	content: "Obrigado por ler!";
+	margin: 2rem 0px;
+	text-align: center;
+	font-size: inherit;
+	font-style: italic;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	clear: both;
 }
 
 .post-texto {
-  width: 100%;
+	width: 100%;
 }
 
 .post-titulo {
-  font-family: var(--fonte-titulo);
-  font-size: 1.9em;
-  margin-bottom: 16px;
-  width: 100%;
+	font-family: var(--fonte-titulo);
+	font-size: 1.9em;
+	margin-bottom: 16px;
+	width: 100%;
 }
 
 .post-conteudo img,
 .post-conteudo .iframe-container {
-  margin: 21px auto;
+	margin: 21px auto;
 }
 
 .post-conteudo img,
 .post-conteudo .iframe-container iframe {
-  border: 1px solid var(--clr-gray-a30);
-  border-radius: var(--b-radius);
+	border: 1px solid var(--clr-borda);
+	outline: 1px solid var(--clr-borda);
+	outline-offset: 1px;
+	border-radius: var(--b-radius);
+	display: block;
 }
 
 .post-conteudo img {
-  max-width: 90%;
-  height: auto;
-  display: block;
+	max-width: 90%;
+	height: auto;
+	display: block;
 }
 
 .post-conteudo .iframe-container {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .censurado {
-  letter-spacing: 0px;
+	letter-spacing: 0px;
 }
 
 summary.post-titulo {
-  font-family: var(--fonte-titulo);
-  font-weight: bold;
-  text-decoration: underline dotted;
-  margin-bottom: 0;
-  font-size: 1.8em;
+	font-family: var(--fonte-titulo);
+	font-weight: bold;
+	text-decoration: underline dotted;
+	margin-bottom: 0;
+	font-size: 1.8em;
 }
