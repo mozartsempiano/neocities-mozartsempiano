@@ -120,9 +120,13 @@
 					.map(
 						(post) => `
             <div class="pensamento-item">
-              <div class="postlist-data">${post.data}</div>
               <div class="postlist-content">
-                <a href="${post.url}" class="postlist-titulo">${post.titulo}</a>
+                <div class="postlist-t">
+                  <a href="${post.url}" class="postlist-titulo">${
+							post.titulo
+						}</a>
+                  <div class="postlist-data">${post.data}</div>
+                </div>
                 <div class="postlist-tags">
                   ${post.tags.map(linkFor).join(", ")}
                 </div>

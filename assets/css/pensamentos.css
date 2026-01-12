@@ -8,7 +8,6 @@
  * ---------------------------------------------- */
 
 .pensamentos {
-	margin-top: 20px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -25,29 +24,43 @@ a.postlist-titulo {
 
 .pensamento-item {
 	display: flex;
+	flex-direction: row;
 	gap: 18px;
 	align-items: flex-start;
+	border: 1px solid var(--clr-borda);
+	/* outline: 1px solid var(--clr-borda);
+	outline-offset: -4px; */
+	padding: 16px 18px;
 }
 
-.pensamento-item:not(:last-child) {
-	border-bottom: 16px solid transparent;
-}
+/* .pensamento-item:not(:last-child) {
+	border-bottom: 1px solid var(--clr-borda);
+} */
 
 .postlist-data {
-	width: 132px;
-	flex: 0 0 132px;
+	/* width: 132px; */
+	flex: 0 0 auto;
 	text-align: left;
-	color: var(--clr-white);
+	color: var(--clr-gray-a50);
 	opacity: 0.9;
+	font-size: 0.9em;
 }
 
 .postlist-content {
 	flex: 1 1 auto;
+	line-height: 1;
+}
+
+.postlist-t {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 0;
 }
 
 .postlist-tags {
 	font-size: 0.9em;
-	margin-top: 0.16em;
 }
 
 /* loading placeholder */
