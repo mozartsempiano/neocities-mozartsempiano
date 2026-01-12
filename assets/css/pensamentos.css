@@ -166,3 +166,9 @@ summary.post-titulo {
 	margin-bottom: 0;
 	font-size: 1.8em;
 }
+
+@media (max-width: 770px) {
+	.post-conteudo img {
+		max-width: 100%;
+	}
+}

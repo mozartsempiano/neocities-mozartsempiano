@@ -20,113 +20,122 @@ export function initSettingsPanel() {
 
 	const style = document.createElement("style");
 	style.textContent = `
-    #settings-panel { 
-      position: fixed; bottom: 20px; left: 20px; z-index: 997;
-    }
+  #settings-panel { 
+    position: fixed; bottom: 20px; left: 20px; z-index: 997;
+  }
 
-    #settings-gear { 
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--clr-black-a0);
-      border: 1px solid var(--clr-borda);
-      cursor: pointer;
-    }
+  #settings-gear { 
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-black-a0);
+    border: 1px solid var(--clr-borda);
+    cursor: pointer;
+    border-radius: var(--b-radius);
+  }
 
-    body.rounded #settings-gear {
-      border-radius: 6px;
-    }
+  #settings-gear span svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--clr-main-a40);
+    transition: transform 0.3s;
+    transform-origin: center center;
+    display: block;
+  }
 
-    #settings-gear span svg {
-      width: 24px;
-      height: 24px;
-      fill: var(--clr-main-a40);
-      transition: transform 0.3s;
-      transform-origin: center center;
-      display: block;
-    }
+  #settings-gear:hover span svg {
+    transform: rotate(24deg);
+  }
 
-    #settings-gear:hover span svg {
-      transform: rotate(24deg);
-    }
+  #settings-box {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    background: var(--clr-black-a0);
+    color: var(--clr-white);
+    border: 1px solid var(--clr-borda);
+    border-radius: var(--b-radius);
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    min-width: 120px;
+    width: max-content;
+    max-width: 250px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+    display: flex;
+    transform: translateY(0);
+    transition: opacity 0.15s, transform 0.35s, color 0.25s, background-color 0.25s, border-color 0.25s;
+  }
 
-    #settings-box {
-      position: absolute;
-      bottom: 50px;
-      left: 0;
-      background: var(--clr-black-a0);
-      color: var(--clr-white);
-      border: 1px solid var(--clr-borda);
-      padding: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      min-width: 120px;
-      width: max-content;
-      max-width: 250px;
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 4px;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      user-select: none;
-      display: flex;
-      transform: translateY(0);
-      transition: opacity 0.15s, transform 0.35s, color 0.25s, background-color 0.25s, border-color 0.25s;
-    }
+  #settings-box.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-5px);
+  }
 
-    #settings-box.open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateY(-5px);
-    }
+  #settings-box label.switch-placeholder {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    padding: 4px 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: var(--b-radius);
+  }
 
-    body.rounded #settings-box {
-      border-radius: 6px;
-    }
+  #settings-box label.switch-placeholder .switch-label {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    text-align: left;
+    font-size: 0.9rem;
+    font-family: var(--fonte-corpo);
+    font-weight: normal;
+  }
 
-    #settings-box label.switch-placeholder {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      cursor: pointer;
-      padding: 4px 8px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+  #settings-box label.switch-placeholder input[type="checkbox"] { display: none; }
 
-    body.rounded #settings-box label.switch-placeholder {
-      border-radius: 4px;
-    }
+  #settings-box label.switch-placeholder .slider {
+    width: 36px;
+    height: 22px;
+    background: #888;
+    border-radius: var(--b-radius);
+    border: 1px solid var(--clr-borda);
+    position: relative;
+    margin-left: auto;
+  }
 
-    #settings-box label.switch-placeholder .switch-label {
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      min-width: 0;
-      text-align: left;
-      font-size: 0.9rem;
-      font-family: var(--fonte-corpo);
-      font-weight: normal;
-    }
+  #settings-box label.switch-placeholder .slider::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    background: #fcf9ff;
+    border-radius: var(--b-radius);
+    transition: transform 0.2s;
+    transform: translateY(-50%) translateX(0);
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.4);
+  }
 
-    #settings-box label.switch-placeholder input[type="checkbox"] { display: none; }
-
-    #settings-box label.switch-placeholder .slider {
-      width: 36px; height: 18px; background: #888; border-radius: 20px;
-      position: relative; transition: background 0.2s; margin-left: auto;
-    }
-
-    #settings-box label.switch-placeholder .slider::before {
-      content: ""; position: absolute; left: 3px; top: 2px;
-      width: 14px; height: 14px; background: #fcf9ff; border-radius: 50%; transition: transform 0.2s; transform: translateX(0);
-    }
-
-    #settings-box label.switch-placeholder input:checked + .slider { background: var(--clr-main-a40); }
-    #settings-box label.switch-placeholder input:checked + .slider::before { transform: translateX(18px); }
+  #settings-box label.switch-placeholder input:checked + .slider {
+    background: var(--clr-main-a40);
+  }
+  #settings-box label.switch-placeholder input:checked + .slider::before {
+    transform: translateY(-50%) translateX(14px);
+  }
   `;
 	document.head.appendChild(style);
 
