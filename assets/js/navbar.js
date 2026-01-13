@@ -191,7 +191,7 @@ export function carregarNavbar() {
     flex-wrap: nowrap;
     gap: 32px;
     height: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 1.7rem 3.5rem 4.5rem;
     width: 100%;
   }

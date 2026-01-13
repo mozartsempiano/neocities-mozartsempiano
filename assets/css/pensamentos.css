@@ -74,7 +74,7 @@ a.postlist-titulo {
 .postlist-tags a:link,
 .postlist-tags a:visited,
 .postlist-tags a:active {
-	color: var(--clr-white);
+	color: var(--clr-white) !important;
 	text-decoration: none;
 	opacity: 0.5;
 	transition: var(--transition-time);
