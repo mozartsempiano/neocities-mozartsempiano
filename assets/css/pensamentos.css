@@ -80,12 +80,6 @@ a.postlist-titulo {
 	transition: var(--transition-time);
 }
 
-.postlist-tags a:hover {
-	opacity: 1;
-	background-color: transparent;
-	text-decoration: underline solid;
-}
-
 .post {
 	display: flex;
 	flex-direction: column;

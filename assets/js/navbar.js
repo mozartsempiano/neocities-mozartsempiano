@@ -4,126 +4,140 @@ export function carregarNavbar() {
 	const headerMobile = document.getElementById("header-mobile");
 
 	const navbarCSS = `
+  /* Header general */
+  header * {
+    box-sizing: border-box;
+  }
+
   header nav {
-    gap: 20px;
+    display: flex;
+    font-size: 1rem;
+    gap: 1.7rem;
+    text-align: left;
     text-transform: capitalize;
-    letter-spacing: 1px;
-    font-size: 1em;
     transition: var(--transition-time);
     user-select: none;
   }
-  header nav {
-    display: flex;
-    text-align: left;
-  }
-  header nav a.atual {
-    color: var(--clr-main-a40);
-  }
+
   header nav a {
     cursor: pointer !important;
   }
+
   a:not([href]) {
     cursor: default;
   }
-  header nav .dropdown {
-    position: relative;
-    display: inline-block;
+
+  header a:link,
+  header a:visited,
+  header a:hover,
+  header a:active {
+    margin: 0;
+    padding: 0;
   }
+
+  /* Dropdown */
+  header nav .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
   header nav .dropdown::after {
     --svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>');
+    background-color: currentColor;
     content: "";
     display: inline-block;
-    vertical-align: middle;
-    width: 1em;
     height: 1em;
     mask: var(--svg) no-repeat center/contain;
-    -webkit-mask: var(--svg) no-repeat center/contain;
-    background-color: currentColor;
+    padding-left: 0.5em;
     pointer-events: none;
-    padding-left: 6px;
+    vertical-align: middle;
+    width: 1em;
+    -webkit-mask: var(--svg) no-repeat center/contain;
   }
+
   header nav .dropbtn {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
   }
+
   header nav .dropdown-content {
-    position: absolute;
-    top: 100%;
-    margin-top: -1px;
     background-color: var(--clr-black-a0);
     border: 1px solid var(--clr-borda);
     border-radius: 0 var(--b-radius) var(--b-radius) 0;
-    max-width: 150px;
-    width: max-content;
-    z-index: 500;
+    max-width: 10rem;
     opacity: 0;
-    visibility: hidden;
     pointer-events: none;
+    position: absolute;
+    top: 100%;
     transform: translateY(-5px);
     transition: opacity 0.15s, transform 0.3s, visibility 0.15s;
+    visibility: hidden;
+    width: max-content;
+    z-index: 500;
+    margin-top: -1px;
   }
+
   header nav .dropdown-content a {
-    display: block;
-    padding: 8px 12px;
     color: var(--clr-white);
-    text-decoration: none;
-    text-align: left;
-    white-space: normal;
+    display: block;
     overflow-wrap: anywhere;
+    padding: 0.6em 0.9em;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
     word-break: break-word;
   }
+
   header nav .dropdown-content a:hover {
     background-color: var(--clr-main-a40);
   }
+
   header nav .dropdown:hover .dropdown-content {
     opacity: 1;
-    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
+    visibility: visible;
   }
 
+  /* Header expandida */
   #header-expandida {
-    display: flex;
-    gap: 21px;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    min-height: 75px;
-    width: 100%;
-    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
     margin: 495px 0 26px;
+    min-height: 75px;
     position: relative;
+    text-align: center;
+    user-select: none;
+    width: 100%;
   }
 
   #header-expandida::before {
+    animation: fragmentFloat 8s infinite ease-in-out;
     content: url("/assets/img/gunnm-float-v2.png");
-    position: absolute;
+    filter: var(--img-main-filter, none);
     left: 50%;
+    opacity: 0.7;
+    pointer-events: none;
+    position: absolute;
     top: -515px;
     transform: translateX(-50%);
-    pointer-events: none;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-    z-index: -2;
     transform-origin: center;
-    animation: fragmentFloat 8s infinite ease-in-out;
-    filter: var(--img-main-filter, none);
-  }
-
-  #header-compacta {
-    margin: 24px 0 64px;
+    transition: opacity var(--transition-time);
+    z-index: -2;
   }
 
   #header-expandida pre {
     margin: 0;
-  }  
+  }
 
   #ascii-art-container pre {
-    width: 100%;
-    text-align: center;
-    user-select: none;
     animation: flickerAnim 1s normal forwards ease-in-out;
     margin-bottom: 12px;
+    text-align: center;
+    user-select: none;
+    width: 100%;
   }
 
   #header-expandida pre a:hover,
@@ -141,7 +155,7 @@ export function carregarNavbar() {
     color: var(--clr-main-a30);
     text-decoration: none;
   }
-    
+
   #header-expandida a.btn-doar:hover,
   #header-compacta a.btn-doar:hover,
   #header-mobile a.btn-doar:hover,
@@ -151,22 +165,42 @@ export function carregarNavbar() {
     color: var(--clr-main-a50);
   }
 
+  /* Header compacta */
+  #header-compacta {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   #header-titulo-compacto,
   #title-mobile {
+    color: var(--clr-white);
     font-family: var(--fonte-tituloheader);
     font-size: 1.43em;
-    color: var(--clr-white);
   }
 
   #header-titulo-compacto {
     text-align: left;
-    margin-right: 32px;
   }
 
+  header div#header-wrap {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 32px;
+    height: 100%;
+    justify-content: space-between;
+    margin: 1.7rem 3.5rem 4.5rem;
+    width: 100%;
+  }
+
+  /* Header mobile */
   #title-mobile {
+    align-items: center;
     display: none;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
   }
 
@@ -180,8 +214,8 @@ export function carregarNavbar() {
     background: none;
     border: none;
     color: var(--clr-white);
-    font-size: 2.29em;
     cursor: pointer;
+    font-size: 2.29em;
   }
 
   #menu-btn:hover,
@@ -190,52 +224,52 @@ export function carregarNavbar() {
   }
 
   #menu-btn svg {
-    width: 0.9em;
-    height: 0.9em;
     fill: currentColor;
+    height: 0.9em;
+    width: 0.9em;
   }
 
   #close-menu {
     position: absolute;
-    top: 12px;
     right: 18px;
+    top: 12px;
   }
 
   #side-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80vw;
-    max-width: 270px;
-    height: 100vh;
     background: var(--clr-black-a0);
-    color: var(--clr-white);
     box-shadow: -2px 0 12px rgba(0, 0, 0, 0.4);
-    z-index: 998;
-    padding: 32px 24px 24px;
+    color: var(--clr-white);
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    max-width: 270px;
+    padding: 32px 24px 24px;
+    position: fixed;
+    right: 0;
+    scrollbar-width: thin;
+    top: 0;
     transform: translateX(100%);
     transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
-    scrollbar-width: thin;
+    width: 80vw;
+    z-index: 998;
   }
 
   #side-menu.open {
-    transform: translateX(0);
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(0);
   }
 
   #side-menu-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 998;
-    transition: opacity 0.25s;
+    display: none;
+    inset: 0;
     opacity: 0;
     pointer-events: none;
+    position: fixed;
+    transition: opacity 0.25s;
+    z-index: 998;
   }
 
   #side-menu.open ~ #side-menu-overlay,
@@ -247,21 +281,21 @@ export function carregarNavbar() {
 
   #side-menu ul {
     list-style: none;
-    padding: 0;
     margin: 0 20px;
+    padding: 0;
   }
 
   #side-menu li {
-    margin: 13px 0;
     color: var(--clr-white);
     font-size: 1.14em;
+    margin: 13px 0;
     transition: color 0.25s;
   }
 
   @media (max-width: 1024px) {
     #ascii-art-container {
-      font-size: 0.8em;
       display: none;
+      font-size: 0.8em;
     }
 
     #title-mobile {
@@ -272,14 +306,14 @@ export function carregarNavbar() {
     #header-compacta {
       display: none !important;
     }
-    
+
     #simple-title,
     #site-title {
       display: block !important;
       font-family: var(--fonte-tituloheader) !important;
       font-size: 1.2em !important;
-      text-align: left !important;
       letter-spacing: 0;
+      text-align: left !important;
     }
   }
   `;
@@ -399,7 +433,7 @@ M9mmmP'  \`Mbmmd'.JMML  JMML  JMML. MMbmmd' .JMML.\`Moo9^Yo..JMML  JMML.\`Ybmd9'
 
 	if (headerCompacta) {
 		headerCompacta.innerHTML = `
-      <div class="wrap">
+      <div id="header-wrap">
         <div id="header-titulo-compacto">
           <a href="/home.html">mozartsempiano</a>
         </div>
