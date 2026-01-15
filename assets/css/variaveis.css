@@ -99,7 +99,7 @@
 	--fonte-tituloheader: "Voxel", serif;
 	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
 
-	--b-radius: 0px;
+	--b-radius: 24px;
 	--transition-time: 0.25s;
 	--transition-time-long: 0.4s;
 	--main-width: 74rem;

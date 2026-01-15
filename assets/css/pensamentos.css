@@ -28,6 +28,7 @@ a.postlist-titulo {
 	gap: 18px;
 	align-items: flex-start;
 	border: 1px solid var(--clr-borda);
+	border-radius: var(--b-radius);
 	/* outline: 1px solid var(--clr-borda);
 	outline-offset: -4px; */
 	padding: 16px 18px;

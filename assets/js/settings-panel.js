@@ -110,7 +110,7 @@ export function initSettingsPanel() {
     width: 36px;
     height: 22px;
     background: #888;
-    border-radius: var(--b-radius);
+    border-radius: calc(var(--b-radius)*50);
     border: 1px solid var(--clr-borda);
     position: relative;
     margin-left: auto;
@@ -119,12 +119,13 @@ export function initSettingsPanel() {
   #settings-box label.switch-placeholder .slider::before {
     content: "";
     position: absolute;
-    left: 3px;
     top: 50%;
-    width: 14px;
+    left: 3px;
+    width: auto;
     height: 14px;
+    aspect-ratio: 1/1;
     background: #fcf9ff;
-    border-radius: var(--b-radius);
+    border-radius: calc(var(--b-radius)*50);
     transition: transform 0.2s;
     transform: translateY(-50%) translateX(0);
     box-shadow: 1px 1px 0px rgba(0,0,0,0.4);

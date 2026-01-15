@@ -23,6 +23,7 @@
 .grid img {
 	image-rendering: pixelated;
 	outline: 1px solid var(--clr-gray-a20);
+	border-radius: var(--b-radius);
 	transition: box-shadow var(--transition-time-long);
 	transform-style: preserve-3d;
 }
@@ -90,6 +91,7 @@ div.midias-secao div.favoritos p a {
 .favoritos {
 	padding: 16px;
 	border: 1px solid var(--clr-borda);
+	border-radius: var(--b-radius);
 }
 
 .colecoes {

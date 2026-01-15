@@ -2,36 +2,43 @@
 
 const styleSheet = document.createElement("style");
 styleSheet.textContent = `
-	#modal-media video {
-		display: block;
-		max-width: 100%;
-		max-height: 70vh;
-		background: #000;
-		margin: 0 auto;
-		z-index: 10;
-	}
+  :root {
+    --padding-tag: 10px;
+  }
+
+  #modal-media video {
+	: block;
+	-width: 100%;
+	-height: 70vh;
+	: #000;
+	: 0 auto;
+	-index: 10;
+  }
 
   .filter-gallery-content {
     position: relative;
+	border-radius: inherit;
   }
 
   .filter-gallery-thumb {
     position: relative;
+	border-radius: inherit;
   }
 
   .filter-gallery-thumb img {
     display: block;
     width: 100%;
+	border-radius: inherit;
   }
 
   .media-count {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: var(--padding-tag);
+    right: var(--padding-tag);
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 4px 8px;
-    border-radius: calc(var(--b-radius) - 10px);
+    border-radius: calc(var(--b-radius) - var(--padding-tag));
     font-size: 0.8em;
     cursor: pointer;
     user-select: none;
@@ -91,7 +98,6 @@ styleSheet.textContent = `
   object-fit: cover;
   background: var(--clr-black-a0);
   margin-bottom: 4px;
-  border-radius: var(--b-radius);
 }
 
 .filter-gallery-tags {
@@ -104,12 +110,13 @@ styleSheet.textContent = `
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 10px;
+  padding: var(--padding-tag);
   width: 100%;
   background-image: linear-gradient(to top,
       rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0));
   pointer-events: none;
+  border-radius: 0 0 var(--b-radius) var(--b-radius);
 }
 
 .filter-gallery-tags > * {
@@ -129,7 +136,7 @@ styleSheet.textContent = `
   cursor: pointer;
   transition: background 0.25s, color 0.25s, opacity 0.25s;
   user-select: none;
-  border-radius: var(--b-radius);
+  border-radius: calc(var(--b-radius) - var(--padding-tag));
 }
 
 .filter-gallery-tags .filter-gallery-tag {

@@ -45,6 +45,7 @@ main {
 
 .box:has(h1) .box-inner {
 	border-width: 0 1px 1px 1px;
+	border-radius: 0 0 var(--b-radius) var(--b-radius);
 }
 
 .box:not(:has(h1)) .box-inner {
@@ -121,7 +122,7 @@ div.subtitulo {
 
 h1.titulo-secao {
 	background: var(--clr-gray-a10);
-	border-radius: 0;
+	border-radius: var(--b-radius) var(--b-radius) 0 0;
 	color: var(--clr-white);
 	font-size: 1em;
 	letter-spacing: 1px;
@@ -403,15 +404,23 @@ body.rounded .marquee-track img {
 
 .info-contato {
 	display: flex;
-	justify-content: center; /* centraliza os ícones */
-	gap: 16px; /* espaçamento entre ícones */
-	margin-top: 10px;
+	justify-content: center;
+	gap: 1.25em;
+	margin-top: 1em;
 }
-.info-contato .icone {
-	width: 26px; /* ou qualquer tamanho desejado */
-	height: 26px;
+.info-contato a {
+	text-decoration: none;
+	width: 28px;
+	height: 28px;
+}
+.info-contato a:hover {
+	background-color: transparent;
+}
+.info-contato a .icone {
+	width: inherit;
+	height: inherit;
 	display: inline-block;
-	background-color: var(--clr-white); /* define a cor do ícone */
+	background-color: var(--clr-white); /* cor do ícone */
 	-webkit-mask-repeat: no-repeat;
 	-webkit-mask-size: contain;
 	mask-repeat: no-repeat;
@@ -420,15 +429,9 @@ body.rounded .marquee-track img {
 		transform var(--transition-time-long);
 	margin: 0;
 }
-.info-contato a {
-	text-decoration: none;
-}
 .info-contato a:hover .icone {
 	background-color: var(--clr-main-a30);
 	transform: translateY(-3px);
-}
-.info-contato a:hover {
-	background-color: transparent;
 }
 
 .info-links {
@@ -439,39 +442,21 @@ body.rounded .marquee-track img {
 	width: 100%;
 }
 
-a#link-curriculo,
-a.leia-mais {
-	display: inline-flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	gap: 0.3em;
-	justify-content: center;
-	align-items: center;
-	color: var(--clr-white);
-	text-decoration: none;
-	padding: 0.25em 0.7em;
-	border: 1px solid var(--clr-gray-a40);
-	width: fit-content;
-	white-space: nowrap;
-}
-a#link-curriculo:hover,
-a.leia-mais:hover {
-	border-color: var(--clr-main-a30);
-	color: var(--clr-black-a0);
-	background-color: var(--clr-main-a40);
-}
-a.leia-mais {
+div.info-links a.leia-mais.button {
 	color: var(--clr-main-a30);
 	border-color: var(--clr-main-a30);
 }
-a.leia-mais svg {
+div.info-links a.leia-mais.button:hover {
+	color: var(--clr-black-a10);
+}
+div.info-links a.leia-mais.button svg {
 	fill: currentColor;
 	width: 1em;
 	height: 1em;
 	align-self: center;
 	transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-a.leia-mais:hover svg {
+div.info-links a.leia-mais.button:hover svg {
 	transform: translateX(4px);
 }
 

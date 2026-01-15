@@ -256,6 +256,27 @@ main a:active:not(.button) {
 	}
 }
 
+a.button:not(:has(span.icone)) {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	gap: 0.3em;
+	justify-content: center;
+	align-items: center;
+	color: var(--clr-white);
+	text-decoration: none;
+	padding: 0.25em 0.7em;
+	border: 1px solid var(--clr-gray-a40);
+	border-radius: var(--b-radius);
+	width: fit-content;
+	white-space: nowrap;
+}
+a.button:hover:not(:has(span.icone)) {
+	border-color: var(--clr-main-a30);
+	color: var(--clr-black-a0);
+	background-color: var(--clr-main-a40);
+}
+
 div#nav-atual a:link,
 div#nav-atual a:visited,
 div#nav-atual a:active {
@@ -519,8 +540,21 @@ footer,
 #nav-atual,
 .box-inner {
 	border: 1px solid var(--clr-borda);
-	border-radius: var(--b-radius);
 	text-align: left;
+}
+
+#nav-atual {
+	border-radius: var(--b-radius) var(--b-radius) 0 0;
+}
+
+#col-esquerda,
+#col-direita,
+#col-centro {
+	border-radius: 0 0 var(--b-radius) var(--b-radius);
+}
+
+.box-inner {
+	border-radius: var(--b-radius);
 }
 
 #col-esquerda,

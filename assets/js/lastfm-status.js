@@ -25,27 +25,48 @@ document.addEventListener("DOMContentLoaded", async () => {
 		const style = document.createElement("style");
 		style.id = "status-lastfm-style";
 		style.innerHTML = `
+    :root {
+      --padding-lastfm-status: 14px;
+      --lastfm-margin-top: 24px;
+      --lastfm-gap: 16px;
+      --lastfm-gap-square: 14px;
+      --lastfm-font-size: 1.07rem;
+      --lastfm-box-padding: 10px;
+      --lastfm-img-size: 48px;
+      --lastfm-border-radius: 4px;
+      --lastfm-font-size-secondary: 0.9em;
+      --lastfm-margin-square-meta: 0 10px;
+      --lastfm-gap-square-meta: 2px;
+      --lastfm-padding-bottom: 2px;
+      --lastfm-margin-bottom: 6px;
+      --lastfm-margin-right-bars: 6px;
+      --lastfm-width-bars: 36px;
+      --lastfm-letter-spacing: 3px;
+      --lastfm-font-size-bars: 0.7em;
+      --lastfm-bars-interval: 300ms;
+    }
+
       #lastfm-status {
-        margin: 24px auto 0 auto;
+        margin: var(--lastfm-margin-top) auto 0 auto;
       }
 
       div#lastfm-status a {
         display: flex;
         align-items: center;
         text-align: left;
-        gap: 16px;
+        gap: var(--lastfm-gap);
         text-decoration: none;
         color: var(--clr-white);
         width: 100%;
         font-family: var(--fonte-corpo, monospace);
-        font-size: 1.07rem;
+        font-size: var(--lastfm-font-size);
         cursor: pointer;
       }
 
       .box-inner:has(div#lastfm-status) {
         border: 1px solid var(--clr-borda);
-        padding: 10px;
-        transition: border 0.25s ease;
+        padding: var(--lastfm-box-padding);
+        transition: border var(--transition-time);
       }
 
       .box-inner:has(div#lastfm-status a):hover {
@@ -53,15 +74,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       div#lastfm-status a img {
-        width: 48px;
+        width: var(--lastfm-img-size);
         height: auto;
-        border: 1px solid var(--clr-gray-a20);
+        border: var(--lastfm-img-border);
         object-fit: cover;
         image-rendering: auto;
       }
 
       body.rounded div#lastfm-status a img {
-        border-radius: 4px;
+        border-radius: var(--lastfm-border-radius);
       }
 
       div#lastfm-status a:hover img {
@@ -69,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       div#lastfm-status span#lastfm-track {
-        font-size: 0.9em;
+        font-size: var(--lastfm-font-size-secondary);
       }
 
       /* Square Mode */
@@ -88,9 +109,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 14px;
-        padding: 14px;
-        border-radius: 0;
+        gap: var(--lastfm-gap-square);
+        padding: var(--padding-lastfm-status);
         text-decoration: none;
         color: inherit;
         background-color: transparent;
@@ -109,14 +129,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         height: 100%;
         width: auto;
         aspect-ratio: 1 / 1;
-        border-radius: 0;
         object-fit: cover;
         display: block;
+        border-radius: inherit;
       }
 
       #lastfm-status[data-mode="square"] div.lastfm-square-cover {
         height: 100%;
         width: auto;
+        border-radius: calc(var(--b-radius)-var(--lastfm-box-padding));
+        border: 1px solid var(--clr-borda);
       }
 
       #lastfm-status[data-mode="square"] .lastfm-square-meta {
@@ -124,18 +146,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         flex-direction: column;
         flex: 1 1 auto;
         min-width: 0;
-        gap: 2px;
+        gap: var(--lastfm-gap-square-meta);
         // height: 100%;
         max-height: 100%;
         overflow: hidden;
-        margin: 0 10px;
+        margin: var(--lastfm-margin-square-meta);
       }
 
       #lastfm-status[data-mode="square"] strong.lastfm-ouvindo {
         font-size: 1em;
         border-bottom: 1px solid var(--clr-gray-a20);
-        padding-bottom: 2px;
-        margin-bottom: 6px;
+        padding-bottom: var(--lastfm-padding-bottom);
+        margin-bottom: var(--lastfm-margin-bottom);
       }
 
       #lastfm-status[data-mode="square"] div.track-wrap {
@@ -162,12 +184,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       #lastfm-status[data-mode="square"] span.lastfm-track-artist {
-        font-size: 0.9em;
+        font-size: var(--lastfm-font-size-secondary);
         color: var(--clr-gray-a50);
       }
 
       #lastfm-status[data-mode="square"] span.lastfm-track-album {
-        font-size: 0.9em;
+        font-size: var(--lastfm-font-size-secondary);
       }
 
       /* ASCII-style music bars using characters ▁ ▂ ▃.
@@ -179,15 +201,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         content: attr(data-bars);
         font-family: var(--fonte-corpo, monospace);
         display: inline-block;
-        margin-right: 6px;
+        margin-right: var(--lastfm-margin-right-bars);
         line-height: 1;
         vertical-align: middle;
         color: var(--clr-white, --clr-main-a30);
-        letter-spacing: 3px;
-        width: 36px;
+        letter-spacing: var(--lastfm-letter-spacing);
+        width: var(--lastfm-width-bars);
         text-align: left;
         -webkit-font-smoothing: antialiased;
-        font-size: 0.7em;
+        font-size: var(--lastfm-font-size-bars);
       }
 
       @media (max-width: 770px) {

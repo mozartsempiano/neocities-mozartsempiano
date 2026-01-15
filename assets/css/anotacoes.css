@@ -56,9 +56,9 @@
 	--cor-fundo-a0: var(--clr-gray-a0);
 
 	--opacity: 1;
-	--b-radius: 9px;
 	--padding-section: 18px;
 	--padding-pre: calc(var(--padding-section) / 4);
+	--gap-section: 1rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -177,7 +177,7 @@ main {
 }
 
 .espaçador {
-	height: 12px;
+	height: var(--gap-section);
 	width: 100%;
 }
 
@@ -210,7 +210,7 @@ h6 a {
 .anotacoes {
 	justify-items: center;
 	column-count: 5;
-	column-gap: 12px;
+	gap: var(--gap-section);
 	width: 100%;
 	/* max-width: 1600px; */
 	margin: 0 auto;
@@ -223,7 +223,8 @@ h6 a {
 	width: 100%;
 	background: var(--cor-fundo-a0);
 	border: 1px solid var(--cor-texto-a30);
-	margin: 0 0 12px 0;
+	border-radius: var(--b-radius);
+	margin: 0 0 var(--gap-section) 0;
 	padding: var(--padding-section);
 	break-inside: avoid;
 	scrollbar-width: thin;
@@ -501,6 +502,7 @@ input#search-input {
 	background-color: var(--cor-fundo-a0);
 	color: var(--cor-texto-a40);
 	border: 1px solid var(--cor-texto-a40);
+	border-radius: var(--b-radius);
 	font-family: inherit;
 }
 

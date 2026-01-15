@@ -63,7 +63,7 @@ export function carregarNavbar() {
   header nav .dropdown-content {
     background-color: var(--clr-black-a0);
     border: 1px solid var(--clr-borda);
-    border-radius: 0 var(--b-radius) var(--b-radius) 0;
+    border-radius: 0 var(--b-radius) var(--b-radius) var(--b-radius);
     max-width: 10rem;
     opacity: 0;
     pointer-events: none;
@@ -290,6 +290,27 @@ export function carregarNavbar() {
     font-size: 1.14em;
     margin: 13px 0;
     transition: color 0.25s;
+  }
+
+  .floating-nav header div#header-wrap {
+    justify-content: space-between;
+    background-color: var(--clr-black-a10);
+    box-shadow: 1px 1px 2px 0px black;
+    border: 1px solid var(--clr-borda);
+    padding: 1em 2em;
+    border-radius: 50px;
+    max-width: 650px;
+  }
+
+  .floating-nav #header-compacta {
+    justify-content: center;
+    position: fixed;
+    z-index: 500;
+    width: 100%;
+  }
+
+  .floating-nav main {
+    margin-top: 8em;
   }
 
   @media (max-width: 1024px) {

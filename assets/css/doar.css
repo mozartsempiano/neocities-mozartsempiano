@@ -171,6 +171,7 @@ a.button .inner {
 
 #pix-box {
 	border: inherit;
+	border-radius: inherit;
 	padding: 16px;
 	background-color: var(--clr-black-a0);
 }
@@ -183,7 +184,7 @@ a.button .inner {
 	transition: transform var(--transition-time-long),
 		box-shadow var(--transition-time-long);
 	box-shadow: 0 6px 0 rgba(0, 0, 0, 0.8);
-	border-radius: var(--b-radius);
+	border-radius: calc(var(--b-radius) - 16px);
 }
 
 .pix-qrcode:hover {
