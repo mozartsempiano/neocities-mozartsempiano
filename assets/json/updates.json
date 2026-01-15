@@ -1,6 +1,6 @@
 [
 	{
-		"date": "2026-01-13",
+		"date": "2026-01-15",
 		"items": [
 			"página <a href=\"/agora.html\">/agora</a> criada",
 			"alterado visual da <a href=\"/pensamentos/index.html\">/pensamentos</a>",
@@ -9,6 +9,7 @@
 			"selos e blinkies movidos para a <a href=\"/sobre.html\">/sobre</a>",
 			"alterado visual dos links em geral, agora com uma animação de underline",
 			"cores do layout levemente alteradas",
+			"pequena animação adicionada nas horas do rodapé",
 			"maior consistência entre os tempos de transição, bordas, cores e efeitos do site"
 		]
 	},

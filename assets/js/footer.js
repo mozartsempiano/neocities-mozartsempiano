@@ -157,6 +157,14 @@ export function carregarFooter() {
         margin-bottom: 0.8em;
       }
 
+      footer #hora-brasilia {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        flex-direction: row;
+        gap:0.1em;
+      }
+
       footer .footer-fullwidth-text {
         margin-top: 1em;
         text-align: center;
@@ -313,6 +321,16 @@ export function carregarFooter() {
         from { transform: rotate(0deg); }
         to   { transform: rotate(360deg); }
       }
+
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+
+      .blinking-colon {
+        display: inline-block;
+        animation: blink 1s infinite;
+      }
   `;
 	document.head.appendChild(style);
 
@@ -324,7 +342,11 @@ export function carregarFooter() {
 		});
 		const timeElement = document.getElementById("hora-brasilia");
 		if (timeElement) {
-			timeElement.textContent = agora;
+			const horaComAnimacao = agora.replace(
+				/(:)/,
+				'<span class="blinking-colon">$1</span>'
+			);
+			timeElement.innerHTML = horaComAnimacao;
 		}
 	}
 
