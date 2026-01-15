@@ -99,7 +99,7 @@
 	--fonte-tituloheader: "Voxel", serif;
 	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
 
-	--b-radius: 24px;
+	--b-radius: 2px;
 	--transition-time: 0.25s;
 	--transition-time-long: 0.4s;
 	--main-width: 74rem;
@@ -108,7 +108,7 @@
 /* Tema claro */
 :root[data-theme="light"] {
 	--clr-black-a0: #f5f6fa;
-	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 2) c h);
+	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 32) c h);
 
 	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l - 5) c calc(h + 10));
 	--clr-gray-a10: lch(from var(--clr-black-a0) calc(l - 11) c calc(h + 10));

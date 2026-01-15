@@ -89,7 +89,6 @@ export function initSettingsPanel() {
     padding: 4px 8px;
     width: 100%;
     box-sizing: border-box;
-    border-radius: var(--b-radius);
   }
 
   #settings-box label.switch-placeholder .switch-label {
@@ -110,7 +109,7 @@ export function initSettingsPanel() {
     width: 36px;
     height: 22px;
     background: #888;
-    border-radius: calc(var(--b-radius)*50);
+    border-radius: var(--b-radius);
     border: 1px solid var(--clr-borda);
     position: relative;
     margin-left: auto;
@@ -125,7 +124,7 @@ export function initSettingsPanel() {
     height: 14px;
     aspect-ratio: 1/1;
     background: #fcf9ff;
-    border-radius: calc(var(--b-radius)*50);
+    border-radius: calc(var(--b-radius) - 3px);
     transition: transform 0.2s;
     transform: translateY(-50%) translateX(0);
     box-shadow: 1px 1px 0px rgba(0,0,0,0.4);
