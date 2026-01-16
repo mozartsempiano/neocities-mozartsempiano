@@ -257,7 +257,8 @@ main a:active:not(.button) {
 	}
 }
 
-a.button:not(:has(span.icone)) {
+a.button:not(:has(span.icone)),
+button:not(:has(span.icone)) {
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -272,7 +273,8 @@ a.button:not(:has(span.icone)) {
 	width: fit-content;
 	white-space: nowrap;
 }
-a.button:hover:not(:has(span.icone)) {
+a.button:hover:not(:has(span.icone)),
+button:hover:not(:has(span.icone)) {
 	border-color: var(--clr-main-a30);
 	color: var(--clr-black-a0);
 	background-color: var(--clr-main-a40);

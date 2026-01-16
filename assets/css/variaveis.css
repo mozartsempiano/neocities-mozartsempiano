@@ -26,7 +26,7 @@
 
 	--borda-padrao: 1px solid var(--clr-borda);
 	--padding-btn: 0.8em 1.2em;
-	--padding-btn-small: 0.25em 0.7em;
+	--padding-btn-small: 0.4em 1em;
 
 	/* --clr-black-a0: #090909; */
 	--clr-black-a0: #150e10;
@@ -112,7 +112,7 @@
 	--fonte-tituloheader: "Voxel", serif;
 	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
 
-	--b-radius: 2px;
+	--b-radius: 6px;
 	--transition-time: 0.25s;
 	--transition-time-long: 0.4s;
 	--main-width: 74rem;
