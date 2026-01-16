@@ -25,6 +25,8 @@
 	--clr-fundoMain: var(--clr-black-a10);
 
 	--borda-padrao: 1px solid var(--clr-borda);
+	--padding-btn: 0.8em 1.2em;
+	--padding-btn-small: 0.25em 0.7em;
 
 	/* --clr-black-a0: #090909; */
 	--clr-black-a0: #150e10;
@@ -149,6 +151,20 @@
 /* ------------------------------------ */
 
 :root[data-theme="amarelado"] {
+	--clr-main-a0: var(--clr-brown-a0);
+	--clr-main-a10: var(--clr-brown-a10);
+	--clr-main-a20: var(--clr-brown-a20);
+	--clr-main-a30: var(--clr-brown-a30);
+	--clr-main-a40: var(--clr-brown-a40);
+	--clr-main-a50: var(--clr-brown-a50);
+
+	--clr-brown-a0: lch(from var(--clr-brown-a30) calc(l - 30) c h);
+	--clr-brown-a10: lch(from var(--clr-brown-a30) calc(l - 20) c h);
+	--clr-brown-a20: lch(from var(--clr-brown-a30) calc(l - 10) c h);
+	--clr-brown-a30: #81634d;
+	--clr-brown-a40: lch(from var(--clr-brown-a30) calc(l + 10) c h);
+	--clr-brown-a50: lch(from var(--clr-brown-a30) calc(l + 20) c h);
+
 	--clr-black-a0: #f0f4d3;
 	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 32) c h);
 	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l - 5) c calc(h + 10));
@@ -157,6 +173,13 @@
 	--clr-gray-a30: lch(from var(--clr-black-a0) calc(l - 30) c calc(h + 10));
 	--clr-gray-a40: lch(from var(--clr-black-a0) calc(l - 50) c calc(h + 10));
 	--clr-gray-a50: lch(from var(--clr-black-a0) calc(l - 60) c calc(h + 10));
+	--clr-white: #0c0c0d;
+
+	--img-main-filter: hue-rotate(94deg) contrast(1.1) saturate(1.4)
+		brightness(1.2);
+}
+:root[data-theme="amarelado"] img.img-clr-main {
+	filter: var(--img-main-filter) !important;
 }
 
 /* ------------------------------------ */
@@ -178,10 +201,10 @@
 	--clr-black-a0: #4c5844;
 	--clr-black-a10: #3e4736;
 	--clr-white: #f9fff1;
-	--clr-yellow-a30: #b8b37b;
+	--clr-yellow-a30: #c1b657;
 	--clr-yellow-old-a30: lch(from var(--clr-yellow-a30) calc(l + 20) c h);
 
-	--img-main-filter: hue-rotate(98deg) brightness(1.1) contrast(1.2) saturate(1);
+	--img-main-filter: hue-rotate(98deg) brightness(1.1) contrast(1.2);
 }
 :root[data-theme="steam-green"] * {
 	border-radius: var(--b-radius) !important;

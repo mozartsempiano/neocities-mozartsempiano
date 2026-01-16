@@ -1,23 +1,3 @@
-async function loadThemeImmediate() {
-	try {
-		const response = await fetch("/assets/json/themes.json");
-		const themes = await response.json();
-		const savedThemeId = localStorage.getItem("current-theme") || "dark";
-		const theme = themes.find((t) => t.id === savedThemeId);
-		if (theme) {
-			if (theme.id === "dark") {
-				document.documentElement.removeAttribute("data-theme");
-			} else {
-				document.documentElement.setAttribute("data-theme", theme.id);
-			}
-		}
-	} catch (e) {
-		console.error("Erro ao carregar temas:", e);
-	}
-}
-
-loadThemeImmediate();
-
 export async function initSettingsPanel() {
 	let themesConfig = [];
 	try {
@@ -27,6 +7,7 @@ export async function initSettingsPanel() {
 		console.error("Erro ao carregar configuração de temas:", e);
 		return;
 	}
+
 	const panel = document.createElement("div");
 	panel.id = "settings-panel";
 	panel.innerHTML = `

@@ -7,8 +7,8 @@ export async function enableLightMode() {
 		console.error("Erro ao carregar temas:", e);
 	}
 
-	window.setTheme = (themeName) => {
-		const validThemes = themesConfig.map((t) => t.id);
+	const setThemeLogic = (themeName, config) => {
+		const validThemes = config.map((t) => t.id);
 
 		if (!validThemes.includes(themeName)) {
 			console.warn(`Tema inválido: ${themeName}. Usando 'dark' como padrão.`);
@@ -23,6 +23,7 @@ export async function enableLightMode() {
 		localStorage.setItem("current-theme", themeName);
 	};
 
+	window.setTheme = (themeName) => setThemeLogic(themeName, themesConfig);
 	window.toggleLightMode = (ligado) => {
 		window.setTheme(ligado ? "light" : "dark");
 	};

@@ -1,5 +1,11 @@
 [
 	{
+		"date": "2026-01-16",
+		"items": [
+			"adicionado suporte para múltiplos temas, além de temas novos 'steam green' e 'amarelado', que podem ser ativados nas configurações"
+		]
+	},
+	{
 		"date": "2026-01-15",
 		"items": [
 			"página <a href=\"/agora.html\">/agora</a> criada",

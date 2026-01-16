@@ -2,6 +2,7 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
+		<script src="/assets/js/theme-init.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="author" content="Mozart Mattar" />
 
@@ -428,9 +429,11 @@
 						// Link para changelog completo
 						const changelogLink = document.createElement("a");
 						changelogLink.href = "/changelog.html";
-						changelogLink.textContent = "[Veja o changelog completo]";
+						changelogLink.textContent = "Veja o changelog completo";
+						changelogLink.className = "button";
+						changelogLink.id = "changelog-link";
 						changelogLink.style.display = "block";
-						changelogLink.style.marginTop = "12px";
+						changelogLink.style.marginTop = "8px";
 						frag.appendChild(changelogLink);
 
 						container.innerHTML = "";

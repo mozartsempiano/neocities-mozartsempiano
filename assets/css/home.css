@@ -241,7 +241,7 @@ body.rounded .marquee-track img {
 	font-size: 0.94em;
 }
 .atualizacoes ul {
-	border-bottom: 1px solid var(--clr-gray-a0);
+	border-bottom: 1px solid var(--clr-gray-a30);
 	padding-bottom: 10px;
 	width: 100%;
 }

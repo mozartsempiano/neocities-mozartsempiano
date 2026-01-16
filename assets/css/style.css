@@ -27,7 +27,8 @@
 	-webkit-touch-callout: none;
 
 	transition: color var(--transition-time),
-		background-color var(--transition-time), border-color var(--transition-time);
+		background-color var(--transition-time), border-color var(--transition-time),
+		filter var(--transition-time);
 }
 
 *:focus {
@@ -265,7 +266,7 @@ a.button:not(:has(span.icone)) {
 	align-items: center;
 	color: var(--clr-white);
 	text-decoration: none;
-	padding: 0.25em 0.7em;
+	padding: var(--padding-btn-small);
 	border: 1px solid var(--clr-gray-a40);
 	border-radius: var(--b-radius);
 	width: fit-content;

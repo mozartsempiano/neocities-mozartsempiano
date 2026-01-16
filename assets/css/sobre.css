@@ -38,7 +38,7 @@ a#curriculo-btn {
 	gap: 0.3em;
 	align-items: center;
 	text-decoration: none;
-	padding: 0.8em 1.2em;
+	padding: var(--padding-btn);
 	border: var(--borda-padrao);
 	color: var(--clr-main-a40);
 	background-color: var(--clr-black-a10);
@@ -77,7 +77,7 @@ a#curriculo-btn:hover {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	padding: 0.8em 1.2em;
+	padding: var(--padding-btn);
 
 	border: var(--borda-padrao);
 	border-radius: 50px;
