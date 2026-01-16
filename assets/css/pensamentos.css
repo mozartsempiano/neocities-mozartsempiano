@@ -27,15 +27,15 @@ a.postlist-titulo {
 	flex-direction: row;
 	gap: 18px;
 	align-items: flex-start;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	border-radius: var(--b-radius);
-	/* outline: 1px solid var(--clr-borda);
+	/* outline: var(--borda-padrao);
 	outline-offset: -4px; */
 	padding: 16px 18px;
 }
 
 /* .pensamento-item:not(:last-child) {
-	border-bottom: 1px solid var(--clr-borda);
+	border-bottom: var(--borda-padrao);
 } */
 
 .postlist-data {
@@ -132,8 +132,8 @@ article.post-conteudo::after {
 
 .post-conteudo img,
 .post-conteudo .iframe-container iframe {
-	border: 1px solid var(--clr-borda);
-	outline: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
+	outline: var(--borda-padrao);
 	outline-offset: 1px;
 	border-radius: var(--b-radius);
 	display: block;

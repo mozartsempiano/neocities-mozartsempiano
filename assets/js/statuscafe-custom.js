@@ -227,7 +227,7 @@ body.rounded #statuscafe .statuscafe-avatar {
 /* aplica-se só se .linha tiver .box.statuscafe e mais nenhuma .box */
 .linha:has(.box.statuscafe):not(:has(.box:not(.statuscafe))) .box.statuscafe .box-inner:has(#statuscafe) {
   background-color: var(--clr-black-a10);
-  border: 1px solid var(--clr-borda);
+  border: var(--borda-padrao);
   border-radius: 0px;
   width: 320px;
 }

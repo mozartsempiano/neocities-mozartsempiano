@@ -1,6 +1,15 @@
 /* ----------------------------------------------
- * Variáveis
+ *  __     __         _                 _     
+ \ \   / /_ _ _ __(_) __ ___   _____(_)___ 
+  \ \ / / _` | '__| |/ _` \ \ / / _ \ / __|
+   \ V / (_| | |  | | (_| |\ V /  __/ \__ \
+    \_/ \__,_|_|  |_|\__,_| \_/ \___|_|___/
+                                           
  * ---------------------------------------------- */
+
+/* ------------------------------------ */
+/*                Escuro                */
+/* ------------------------------------ */
 
 :root {
 	--clr-main-a0: var(--clr-pink-a0);
@@ -14,6 +23,8 @@
 	--clr-link: var(--clr-main-a30);
 	--clr-borda: var(--clr-gray-a20);
 	--clr-fundoMain: var(--clr-black-a10);
+
+	--borda-padrao: 1px solid var(--clr-borda);
 
 	/* --clr-black-a0: #090909; */
 	--clr-black-a0: #150e10;
@@ -105,7 +116,10 @@
 	--main-width: 74rem;
 }
 
-/* Tema claro */
+/* ------------------------------------ */
+/*                 Claro                */
+/* ------------------------------------ */
+
 :root[data-theme="light"] {
 	--clr-black-a0: #f5f6fa;
 	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 32) c h);
@@ -128,4 +142,70 @@
 }
 :root[data-theme="light"] img.img-clr-main {
 	filter: var(--img-main-filter) !important;
+}
+
+/* ------------------------------------ */
+/*               Amarelado              */
+/* ------------------------------------ */
+
+:root[data-theme="amarelado"] {
+	--clr-black-a0: #f0f4d3;
+	--clr-black-a10: lch(from var(--clr-black-a0) calc(l + 32) c h);
+	--clr-gray-a0: lch(from var(--clr-black-a0) calc(l - 5) c calc(h + 10));
+	--clr-gray-a10: lch(from var(--clr-black-a0) calc(l - 11) c calc(h + 10));
+	--clr-gray-a20: lch(from var(--clr-black-a0) calc(l - 20) c calc(h + 10));
+	--clr-gray-a30: lch(from var(--clr-black-a0) calc(l - 30) c calc(h + 10));
+	--clr-gray-a40: lch(from var(--clr-black-a0) calc(l - 50) c calc(h + 10));
+	--clr-gray-a50: lch(from var(--clr-black-a0) calc(l - 60) c calc(h + 10));
+}
+
+/* ------------------------------------ */
+/*              Steam Green             */
+/* ------------------------------------ */
+
+:root[data-theme="steam-green"] {
+	--clr-main-a0: var(--clr-yellow-a0);
+	--clr-main-a10: var(--clr-yellow-a10);
+	--clr-main-a20: var(--clr-yellow-a20);
+	--clr-main-a30: var(--clr-yellow-a30);
+	--clr-main-a40: var(--clr-yellow-a40);
+	--clr-main-a50: var(--clr-yellow-a50);
+
+	--clr-borda: #868f7c;
+	--borda-padrao: 1px outset var(--clr-borda);
+	--b-radius: 0;
+
+	--clr-black-a0: #4c5844;
+	--clr-black-a10: #3e4736;
+	--clr-white: #f9fff1;
+	--clr-yellow-a30: #b8b37b;
+	--clr-yellow-old-a30: lch(from var(--clr-yellow-a30) calc(l + 20) c h);
+
+	--img-main-filter: hue-rotate(98deg) brightness(1.1) contrast(1.2) saturate(1);
+}
+:root[data-theme="steam-green"] * {
+	border-radius: var(--b-radius) !important;
+}
+:root[data-theme="steam-green"] * {
+	scrollbar-width: auto;
+	scrollbar-color: var(--clr-black-a0) #5a6a50;
+}
+:root[data-theme="steam-green"] img.img-clr-main {
+	filter: var(--img-main-filter) !important;
+}
+:root[data-theme="steam-green"] a.button:not(:has(span.icone.ctt-home)),
+:root[data-theme="steam-green"] a.button:not(:has(span.icone.ctt-home)),
+:root[data-theme="steam-green"] a.button:link:not(:has(span.icone.ctt-home)),
+:root[data-theme="steam-green"] a.button:visited:not(:has(span.icone.ctt-home)),
+:root[data-theme="steam-green"] a.button:active:not(:has(span.icone.ctt-home)) {
+	border-style: outset !important;
+	background-color: var(--clr-black-a0) !important;
+	color: var(--clr-white) !important;
+	transition: background-color var(--transition-time),
+		border-color var(--transition-time), color var(--transition-time), filter 0 !important;
+}
+:root[data-theme="steam-green"] a.button:hover:not(:has(span.icone.ctt-home)) {
+	background-color: var(--clr-black-a10) !important;
+	color: var(--clr-main-a40) !important;
+	filter: brightness(0.8) !important;
 }

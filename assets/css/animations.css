@@ -494,7 +494,7 @@
 	top: 50%;
 	width: 10px;
 	height: 10px;
-	border-radius: 50%;
+	border-radius: calc(var(--b-radius) + 50%);
 	transform: translate(-50%, -50%);
 	z-index: -1;
 	border: 1px solid var(--clr-white);

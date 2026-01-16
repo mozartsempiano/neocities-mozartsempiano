@@ -1,0 +1,18 @@
+[
+	{
+		"id": "dark",
+		"label": "Escuro"
+	},
+	{
+		"id": "light",
+		"label": "Claro"
+	},
+	{
+		"id": "steam-green",
+		"label": "Steam Green"
+	},
+	{
+		"id": "amarelado",
+		"label": "Amarelado"
+	}
+]

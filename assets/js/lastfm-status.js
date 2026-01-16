@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       .box-inner:has(div#lastfm-status) {
-        border: 1px solid var(--clr-borda);
+        border: var(--borda-padrao);
         padding: var(--lastfm-box-padding);
         transition: border var(--transition-time);
       }
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         height: 100%;
         width: auto;
         border-radius: calc(var(--b-radius)-var(--lastfm-box-padding));
-        border: 1px solid var(--clr-borda);
+        border: var(--borda-padrao);
       }
 
       #lastfm-status[data-mode="square"] .lastfm-square-meta {

@@ -1,4 +1,32 @@
-export function initSettingsPanel() {
+async function loadThemeImmediate() {
+	try {
+		const response = await fetch("/assets/json/themes.json");
+		const themes = await response.json();
+		const savedThemeId = localStorage.getItem("current-theme") || "dark";
+		const theme = themes.find((t) => t.id === savedThemeId);
+		if (theme) {
+			if (theme.id === "dark") {
+				document.documentElement.removeAttribute("data-theme");
+			} else {
+				document.documentElement.setAttribute("data-theme", theme.id);
+			}
+		}
+	} catch (e) {
+		console.error("Erro ao carregar temas:", e);
+	}
+}
+
+loadThemeImmediate();
+
+export async function initSettingsPanel() {
+	let themesConfig = [];
+	try {
+		const response = await fetch("/assets/json/themes.json");
+		themesConfig = await response.json();
+	} catch (e) {
+		console.error("Erro ao carregar configuração de temas:", e);
+		return;
+	}
 	const panel = document.createElement("div");
 	panel.id = "settings-panel";
 	panel.innerHTML = `
@@ -31,7 +59,7 @@ export function initSettingsPanel() {
     align-items: center;
     justify-content: center;
     background: var(--clr-black-a0);
-    border: 1px solid var(--clr-borda);
+    border: var(--borda-padrao);
     cursor: pointer;
     border-radius: var(--b-radius);
   }
@@ -55,7 +83,7 @@ export function initSettingsPanel() {
     left: 0;
     background: var(--clr-black-a0);
     color: var(--clr-white);
-    border: 1px solid var(--clr-borda);
+    border: var(--borda-padrao);
     border-radius: var(--b-radius);
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -110,7 +138,7 @@ export function initSettingsPanel() {
     height: 22px;
     background: #888;
     border-radius: var(--b-radius);
-    border: 1px solid var(--clr-borda);
+    border: var(--borda-padrao);
     position: relative;
     margin-left: auto;
   }
@@ -136,6 +164,34 @@ export function initSettingsPanel() {
   #settings-box label.switch-placeholder input:checked + .slider::before {
     transform: translateY(-50%) translateX(14px);
   }
+
+  #settings-box select {
+    flex: 1;
+    padding: 6px 8px;
+    background: var(--clr-black-a0);
+    color: var(--clr-white);
+    border: var(--borda-padrao);
+    border-radius: var(--b-radius);
+    font-family: var(--fonte-corpo);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.25s, background-color 0.25s;
+    min-width: 120px;
+  }
+
+  #settings-box select:hover {
+    border-color: var(--clr-main-a40);
+  }
+
+  #settings-box select:focus {
+    outline: none;
+    border-color: var(--clr-main-a40);
+  }
+
+  #settings-box select option {
+    background: var(--clr-black-a0);
+    color: var(--clr-white);
+  }
   `;
 	document.head.appendChild(style);
 
@@ -143,7 +199,10 @@ export function initSettingsPanel() {
 	const crtContainer = document.getElementById("crt-switch-container");
 	crtContainer.innerHTML = `<input type="checkbox" id="panel-crt-toggle"><span class="slider"></span><span class="switch-label">CRT</span>`;
 	const themeContainer = document.getElementById("theme-switch-container");
-	themeContainer.innerHTML = `<input type="checkbox" id="panel-theme-toggle"><span class="slider"></span><span class="switch-label">Tema claro</span>`;
+	const themeOptions = themesConfig
+		.map((t) => `<option value="${t.id}">${t.label}</option>`)
+		.join("");
+	themeContainer.innerHTML = `<select id="panel-theme-select">${themeOptions}</select>`;
 	const festiveContainer = document.getElementById("festive-switch-container");
 	festiveContainer.innerHTML = `<input type="checkbox" id="panel-festive-toggle"><span class="slider"></span><span class="switch-label">Visuais festivos</span>`;
 	const nsfwBlurContainer = document.getElementById(
@@ -152,22 +211,25 @@ export function initSettingsPanel() {
 	nsfwBlurContainer.innerHTML = `<input type="checkbox" id="panel-nsfw-blur-toggle"><span class="slider"></span><span class="switch-label">Desfocar imagens NSFW</span>`;
 
 	const crtCheckbox = document.getElementById("panel-crt-toggle");
-	const themeCheckbox = document.getElementById("panel-theme-toggle");
+	const themeSelect = document.getElementById("panel-theme-select");
 	const festiveCheckbox = document.getElementById("panel-festive-toggle");
 	const nsfwBlurCheckbox = document.getElementById("panel-nsfw-blur-toggle");
 
 	// Estado inicial
 	crtCheckbox.checked = localStorage.getItem("switchCRT") === "true";
-	themeCheckbox.checked = localStorage.getItem("theme") === "light";
-	festiveCheckbox.checked = localStorage.getItem("festiveEffects") !== "false"; // padrão ativado
-	nsfwBlurCheckbox.checked = localStorage.getItem("nsfwBlur") !== "false"; // padrão ativado
+	const currentTheme = localStorage.getItem("current-theme") || "dark";
+	themeSelect.value = currentTheme;
+	festiveCheckbox.checked = localStorage.getItem("festiveEffects") !== "false";
+	nsfwBlurCheckbox.checked = localStorage.getItem("nsfwBlur") !== "false";
 
 	// Eventos usando as funções dos scripts
 	crtCheckbox.addEventListener("change", () => {
 		window.toggleCRTState(crtCheckbox.checked);
 	});
-	themeCheckbox.addEventListener("change", () => {
-		window.toggleLightMode(themeCheckbox.checked);
+	themeSelect.addEventListener("change", () => {
+		const selectedTheme = themeSelect.value;
+		localStorage.setItem("current-theme", selectedTheme);
+		window.setTheme(selectedTheme);
 	});
 	festiveCheckbox.addEventListener("change", () => {
 		localStorage.setItem("festiveEffects", festiveCheckbox.checked);

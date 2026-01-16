@@ -317,7 +317,7 @@ styleSheet.textContent = `
 #modal-info,
 .filter-gallery-content img {
   background-color: var(--clr-black-a0);
-  border: 1px solid var(--clr-borda);
+  border: var(--borda-padrao);
 }
 
 #modal-media img,

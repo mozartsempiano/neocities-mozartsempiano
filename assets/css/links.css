@@ -81,7 +81,7 @@ table tr td {
 }
 
 section.links-section {
-	border-top: 1px solid var(--clr-borda);
+	border-top: var(--borda-padrao);
 	padding-top: 24px;
 	display: flex;
 	flex-direction: column;

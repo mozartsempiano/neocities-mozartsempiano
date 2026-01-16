@@ -1,3 +1,4 @@
+import "/assets/js/settings-panel.js"; // Carrega tema imediatamente ao importar
 import { carregarNavbar } from "/assets/js/navbar.js";
 import { carregarFooter } from "/assets/js/footer.js";
 import { toggleCrt } from "/assets/js/toggle-crt.js";

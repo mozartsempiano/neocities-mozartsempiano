@@ -48,7 +48,7 @@ body.rounded .grid img {
 
 .grid .placeholder {
 	background: var(--clr-black-a10);
-	outline: 1px solid var(--clr-borda);
+	outline: var(--borda-padrao);
 	display: block;
 }
 
@@ -90,7 +90,7 @@ div.midias-secao div.favoritos p a {
 
 .favoritos {
 	padding: 16px;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	border-radius: var(--b-radius);
 }
 
@@ -131,7 +131,7 @@ div.midias-secao div.favoritos p a {
 
 .colecao-details {
 	padding: 0;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	height: 420px;
 	overflow: hidden;
 }
@@ -142,7 +142,7 @@ div.midias-secao div.colecoes div.sub.colecao-details div.scroll {
 
 .colecoes .sub {
 	margin-top: 10px;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	border-radius: var(--b-radius) var(--b-radius) 0 0;
 }
 

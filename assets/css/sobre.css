@@ -39,9 +39,9 @@ a#curriculo-btn {
 	align-items: center;
 	text-decoration: none;
 	padding: 0.8em 1.2em;
-	border: 1px solid var(--clr-borda);
-	color: var(--clr-main-a40) !important;
-	background-color: var(--clr-black-a10) !important;
+	border: var(--borda-padrao);
+	color: var(--clr-main-a40);
+	background-color: var(--clr-black-a10);
 	width: fit-content;
 	white-space: nowrap;
 }
@@ -79,7 +79,7 @@ a#curriculo-btn:hover {
 	white-space: nowrap;
 	padding: 0.8em 1.2em;
 
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	border-radius: 50px;
 
 	transition: var(--transition-time);
@@ -88,13 +88,13 @@ a#curriculo-btn:hover {
 .sobre-links a:link,
 .sobre-links a:visited,
 .sobre-links a:active {
-	color: var(--clr-main-a40) !important;
-	background-color: var(--clr-black-a10) !important;
+	color: var(--clr-main-a40);
+	background-color: var(--clr-black-a10);
 }
 
 .sobre-links a:hover {
-	color: var(--clr-black-a10) !important;
-	background-color: var(--clr-main-a40) !important;
+	color: var(--clr-black-a10);
+	background-color: var(--clr-main-a40);
 }
 
 .sobre-links a svg {

@@ -189,7 +189,7 @@ main.full {
 	margin-left: 4px;
 	box-sizing: border-box;
 	resize: none;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	padding: 5px;
 	font-size: 0.9em;
 }
@@ -423,7 +423,7 @@ main div#col-direita > h1:first-of-type:not(.sobre-meu-nome) {
 	/* margin-top: 0; */
 	font-size: 2.4em;
 	color: var(--clr-main-a30);
-	border-bottom: 1px solid var(--clr-borda);
+	border-bottom: var(--borda-padrao);
 	padding-bottom: 7px;
 	margin-bottom: 16px;
 	text-transform: lowercase;
@@ -539,7 +539,7 @@ footer,
 #col-centro,
 #nav-atual,
 .box-inner {
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	text-align: left;
 }
 
@@ -616,7 +616,7 @@ footer,
 	margin: 5px auto;
 	/* 'auto' centraliza a div */
 	margin-bottom: 12px;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	position: relative;
 	pointer-events: none;
 	border-radius: var(--b-radius);
@@ -807,7 +807,7 @@ summary {
 }
 
 details {
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	padding: 10px 16px;
 	margin-bottom: 14px;
 	overflow: hidden;
@@ -902,7 +902,7 @@ details[open] {
  * ---------------------------------------------- */
 
 .letterboxd-embed-tc-diary-entry img {
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	margin-right: 6px;
 
 	image-rendering: pixelated;
@@ -958,7 +958,7 @@ details[open] {
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	padding: 14px;
 	width: 100%;
 	overflow: hidden; /* Added to prevent content overflow */
@@ -969,7 +969,7 @@ details[open] {
 	width: 100%;
 	font-size: 1.4rem;
 	margin: 0;
-	border-bottom: 1px solid var(--clr-borda);
+	border-bottom: var(--borda-padrao);
 	padding: 2px 4px 8px 4px;
 	text-transform: lowercase;
 	font-weight: normal;
@@ -989,7 +989,7 @@ details[open] {
 .collage-caixinha {
 	width: 100%;
 	aspect-ratio: 1 / 1;
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	overflow: unset;
 	position: relative; /* Added for better image containment */
 	border-radius: var(--b-radius);
@@ -1022,7 +1022,7 @@ table {
 table,
 td,
 th {
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	padding: 0.5em 0.75em;
 	text-align: left;
 }
@@ -1107,7 +1107,7 @@ ul > li::before {
 div#updates-container ul > li a {
 	background-color: var(--clr-gray-a20);
 	color: var(--clr-white);
-	border: 1px solid var(--clr-borda);
+	border: var(--borda-padrao);
 	font-size: 85%;
 	padding: 0.3em 0.3em 0.2em 0.3em;
 	text-decoration: none;

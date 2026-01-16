@@ -62,7 +62,7 @@ export function carregarNavbar() {
 
   header nav .dropdown-content {
     background-color: var(--clr-black-a0);
-    border: 1px solid var(--clr-borda);
+    border: var(--borda-padrao);
     border-radius: 0 var(--b-radius) var(--b-radius) var(--b-radius);
     max-width: 10rem;
     opacity: 0;
@@ -296,7 +296,7 @@ export function carregarNavbar() {
     justify-content: space-between;
     background-color: var(--clr-black-a10);
     box-shadow: 1px 1px 2px 0px black;
-    border: 1px solid var(--clr-borda);
+    border: var(--borda-padrao);
     padding: 1em 2em;
     border-radius: 50px;
     max-width: 650px;
