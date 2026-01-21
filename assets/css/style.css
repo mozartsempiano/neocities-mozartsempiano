@@ -26,8 +26,10 @@
 	-webkit-tap-highlight-color: transparent;
 	-webkit-touch-callout: none;
 
-	transition: color var(--transition-time),
-		background-color var(--transition-time), border-color var(--transition-time),
+	transition:
+		color var(--transition-time),
+		background-color var(--transition-time),
+		border-color var(--transition-time),
 		filter var(--transition-time);
 }
 
@@ -109,13 +111,10 @@ main.full {
 	pointer-events: none;
 
 	background:
-    /* Degradê preto transparente para cima */ linear-gradient(
-			to bottom,
-			var(--clr-black-a0) 10%,
-			transparent 90%
-		),
+    /* Degradê preto transparente para cima */
+		linear-gradient(to bottom, var(--clr-black-a0) 10%, transparent 90%),
 		/* Halftone pattern */
-			radial-gradient(
+		radial-gradient(
 				circle at center,
 				var(--clr-white) var(--halftone-dot-size),
 				transparent 0
@@ -125,12 +124,15 @@ main.full {
 			var(--clr-white) var(--halftone-dot-size),
 			transparent 0
 		);
-	background-size: 100% 100%,
+	background-size:
+		100% 100%,
 		/* Degradê cobre toda a tela */ var(--halftone-spacing)
 			var(--halftone-spacing),
 		/* Halftone 1 */ var(--halftone-spacing) var(--halftone-spacing);
 	/* Halftone 2 */
-	background-position: top, /* Degradê começa embaixo */ 0 0,
+	background-position:
+		top,
+		/* Degradê começa embaixo */ 0 0,
 		/* Halftone 1 */ calc(var(--halftone-spacing) / 2)
 			calc(var(--halftone-spacing) / 2);
 	/* Halftone 2 */
@@ -326,13 +328,19 @@ h6 a {
 		mask-size: contain;
 		background-color: currentColor;
 		background-blend-mode: color-dodge;
+		transition: var(--transition-time);
+	}
+	&[href^="http"]:hover::after {
+		transform: rotate(45deg);
 	}
 }
 
 a:link img,
 a:visited img,
 a:active img {
-	transition: box-shadow var(--transition-time), filter var(--transition-time),
+	transition:
+		box-shadow var(--transition-time),
+		filter var(--transition-time),
 		transform var(--transition-time);
 }
 
@@ -1302,7 +1310,8 @@ ul {
 	box-sizing: border-box;
 	background: #fff;
 	border-radius: 10px;
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18),
+	box-shadow:
+		0 18px 40px rgba(0, 0, 0, 0.18),
 		inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
 	width: 100%;

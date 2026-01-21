@@ -27,6 +27,14 @@
 	--borda-padrao: 1px solid var(--clr-borda);
 	--padding-btn: 0.8em 1.2em;
 	--padding-btn-small: 0.4em 1em;
+	--b-radius: 0;
+	--transition-time: 0.2s;
+	--transition-time-long: 0.4s;
+	--main-width: 74rem;
+
+	--fonte-titulo: "Redaction50", serif;
+	--fonte-tituloheader: "Voxel", serif;
+	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
 
 	/* --clr-black-a0: #090909; */
 	--clr-black-a0: #150e10;
@@ -107,15 +115,6 @@
 	--clr-green-grayish: #b2bdb8;
 
 	--clr-green-military: #465850;
-
-	--fonte-titulo: "Redaction50", serif;
-	--fonte-tituloheader: "Voxel", serif;
-	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
-
-	--b-radius: 6px;
-	--transition-time: 0.25s;
-	--transition-time-long: 0.4s;
-	--main-width: 74rem;
 }
 
 /* ------------------------------------ */
@@ -224,8 +223,11 @@
 	border-style: outset !important;
 	background-color: var(--clr-black-a0) !important;
 	color: var(--clr-white) !important;
-	transition: background-color var(--transition-time),
-		border-color var(--transition-time), color var(--transition-time), filter 0 !important;
+	transition:
+		background-color var(--transition-time),
+		border-color var(--transition-time),
+		color var(--transition-time),
+		filter 0 !important;
 }
 :root[data-theme="steam-green"] a.button:hover:not(:has(span.icone.ctt-home)) {
 	background-color: var(--clr-black-a10) !important;

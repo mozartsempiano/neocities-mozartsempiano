@@ -94,7 +94,10 @@
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 
-	transition: color 0.25s, background-color 0.25s, border-color 0.25s;
+	transition:
+		color 0.25s,
+		background-color 0.25s,
+		border-color 0.25s;
 }
 
 html,
@@ -200,6 +203,10 @@ h6 a {
 		vertical-align: baseline;
 		pointer-events: none;
 		font-size: 0.9em;
+		transition: var(--transition-time);
+	}
+	&[href^="http"]:hover::after {
+		transform: rotate(45deg);
 	}
 }
 
@@ -539,7 +546,11 @@ a.tag-btn::before,
 
 .section-tags {
 	opacity: 0;
-	transition: opacity 0.3s, margin-top 0.3s, background-color 0.3s, color 0.3s;
+	transition:
+		opacity 0.3s,
+		margin-top 0.3s,
+		background-color 0.3s,
+		color 0.3s;
 	font-size: 0.9em;
 	background-color: var(--cor-fundo-a0);
 	color: var(--cor-texto-a40);
