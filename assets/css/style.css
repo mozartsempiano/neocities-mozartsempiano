@@ -51,12 +51,12 @@ body {
 }
 
 body {
-	background-color: var(--clr-black-a0);
+	background-color: var(--clr-fundoBody);
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 16 16'><line x1='0' y1='16' x2='16' y2='0' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='2' stroke-linecap='square'/></svg>");
 	background-size: 9px;
 	background-attachment: fixed;
 
-	color: var(--clr-white);
+	color: var(--clr-texto);
 	font-family: var(--fonte-corpo);
 	letter-spacing: 0.75px;
 	line-height: 1.5rem;
@@ -426,19 +426,69 @@ h6 {
 	font-family: var(--fonte-corpo);
 	text-transform: lowercase;
 	font-weight: normal;
+	color: var(--clr-white);
 }
 
 main div#col-centro > h1:first-of-type:not(.sobre-meu-nome),
 main div#col-esquerda > h1:first-of-type:not(.sobre-meu-nome),
 main div#col-direita > h1:first-of-type:not(.sobre-meu-nome) {
-	/* margin-top: 0; */
-	font-size: 2.4em;
-	color: var(--clr-main-a30);
-	border-bottom: var(--borda-padrao);
-	padding-bottom: 7px;
-	margin-bottom: 16px;
+	--cor-titulo: var(--clr-main-a30);
+	--cor-underline: var(--clr-main-a10);
+
+	font-size: 2rem;
+	color: var(--cor-titulo);
+	margin: 0;
+	margin-bottom: 2.5rem;
+	padding: 0;
 	text-transform: lowercase;
 	font-weight: bold;
+
+	&:before {
+		content: "";
+		display: block;
+		position: relative;
+		top: 1.4em;
+		width: 100%;
+		height: 10px;
+		background-color: var(--cor-underline);
+		clip-path: polygon(
+			0 5px,
+			10px 5px,
+			15px 0,
+			40px 0,
+			45px 5px,
+			100% 5px,
+			100% 6px,
+			31px 6px,
+			27px 2px,
+			15px 2px,
+			8px 10px,
+			0 10px
+		);
+	}
+
+	&:after {
+		content: "_";
+		animation-name: blinkUnderline;
+		animation-duration: 0.9s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+}
+
+@keyframes blinkUnderline {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	51% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 main div#col-centro > nav#back ul {
@@ -519,7 +569,7 @@ pre a:active,
 #site-title a:active {
 	background-color: transparent;
 	color: var(--clr-white);
-	border: 0px;
+	border: 0;
 	width: 100%;
 	overflow: hidden;
 	font-size: clamp(0.7em, 3vw, 1em);
@@ -680,7 +730,7 @@ hr.custom-divider-2 {
 	width: 100%;
 	height: 30px;
 	margin-top: 110px;
-	border-radius: 0px var(--b-radius) 0px 0px;
+	border-radius: 0 var(--b-radius) 0 0;
 }
 
 p {
@@ -1441,14 +1491,15 @@ body.disable-nsfw-blur img.nsfw:hover {
 	max-width: 300px;
 	z-index: 10;
 	margin: 12px 4px;
-	padding: 8px 14px;
+	padding: 0.3rem 0.6rem;
 
 	background: var(--clr-gray-a10);
 	box-shadow: -2px 0 12px rgba(0, 0, 0, 0.4);
 
 	font-family: var(--fonte-corpo);
-	font-size: 0.98rem;
+	font-size: 0.94rem;
 	color: var(--clr-white);
 	border-radius: var(--b-radius);
 	border: 1px solid var(--clr-gray-a30);
+	text-align: left;
 }

@@ -23,6 +23,7 @@
 	--clr-link: var(--clr-main-a30);
 	--clr-borda: var(--clr-gray-a20);
 	--clr-fundoMain: var(--clr-black-a10);
+	--clr-fundoBody: var(--clr-black-a0);
 
 	--borda-padrao: 1px solid var(--clr-borda);
 	--padding-btn: 0.8em 1.2em;
@@ -34,7 +35,14 @@
 
 	--fonte-titulo: "Redaction50", serif;
 	--fonte-tituloheader: "Voxel", serif;
-	--fonte-corpo: "ANK", "MS UI Gothic", monospace;
+	--fonte-corpo: var(--fonte-monospace);
+
+	--fonte-sans-serif:
+		"MS UI Gothic", "Segoe UI", "Tahoma", "Geneva", "Verdana", sans-serif;
+	--fonte-monospace: "ANK", "Nimbus Mono PS", "Courier New", monospace;
+	--fonte-neo-grotesque:
+		"Inter", "Roboto", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+		sans-serif;
 
 	/* --clr-black-a0: #090909; */
 	--clr-black-a0: #150e10;
@@ -73,7 +81,7 @@
 	--clr-red-a0: lch(from var(--clr-red-a30) calc(l - 30) c h);
 	--clr-red-a10: lch(from var(--clr-red-a30) calc(l - 20) c h);
 	--clr-red-a20: lch(from var(--clr-red-a30) calc(l - 10) c h);
-	--clr-red-a30: #c10b0b;
+	--clr-red-a30: #ff2a6d;
 	--clr-red-a40: lch(from var(--clr-red-a30) calc(l + 10) c h);
 	--clr-red-a50: lch(from var(--clr-red-a30) calc(l + 20) c h);
 
@@ -98,12 +106,12 @@
 	--clr-blue-a40: lch(from var(--clr-blue-a30) calc(l + 10) c h);
 	--clr-blue-a50: lch(from var(--clr-blue-a30) calc(l + 20) c h);
 
-	--clr-lightblue-a0: lch(from var(--clr-lightblue-a30) calc(l - 30) c h);
-	--clr-lightblue-a10: lch(from var(--clr-lightblue-a30) calc(l - 20) c h);
-	--clr-lightblue-a20: lch(from var(--clr-lightblue-a30) calc(l - 10) c h);
-	--clr-lightblue-a30: #88c9d1;
-	--clr-lightblue-a40: lch(from var(--clr-lightblue-a30) calc(l + 10) c h);
-	--clr-lightblue-a50: lch(from var(--clr-lightblue-a30) calc(l + 20) c h);
+	--clr-cyan-a0: lch(from var(--clr-cyan-a30) calc(l - 30) c h);
+	--clr-cyan-a10: lch(from var(--clr-cyan-a30) calc(l - 20) c h);
+	--clr-cyan-a20: lch(from var(--clr-cyan-a30) calc(l - 10) c h);
+	--clr-cyan-a30: #05d9e8;
+	--clr-cyan-a40: lch(from var(--clr-cyan-a30) calc(l + 10) c h);
+	--clr-cyan-a50: lch(from var(--clr-cyan-a30) calc(l + 20) c h);
 
 	--clr-green-a0: lch(from var(--clr-green-a30) calc(l - 30) c h);
 	--clr-green-a10: lch(from var(--clr-green-a30) calc(l - 20) c h);
@@ -135,7 +143,7 @@
 	--clr-white: #333;
 
 	--clr-pink-a30: #cd2c58;
-	--clr-lightblue-a30: #407292;
+	--clr-cyan-a30: #407292;
 	--clr-green-a30: #5f966d;
 	--clr-yellow-a30: #ff9d00;
 
