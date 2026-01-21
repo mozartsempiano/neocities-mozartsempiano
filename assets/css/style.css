@@ -432,8 +432,8 @@ h6 {
 main div#col-centro > h1:first-of-type:not(.sobre-meu-nome),
 main div#col-esquerda > h1:first-of-type:not(.sobre-meu-nome),
 main div#col-direita > h1:first-of-type:not(.sobre-meu-nome) {
-	--cor-titulo: var(--clr-main-a30);
-	--cor-underline: var(--clr-main-a10);
+	--cor-titulo: var(--clr-white);
+	--cor-underline: var(--clr-gray-a40);
 
 	font-size: 2rem;
 	color: var(--cor-titulo);
